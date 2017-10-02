@@ -10,8 +10,8 @@ presently we are working on -
 1) ### image mosaicing ![readme](Image_mosaicing/README.md)
 - presently we are using opencv_contrib
 - this is done in 3 parts
-	-homography
-	-warping
-	-blending
+	- homography
+	- warping
+	- blending
 
 2) orthogonal rectification of images
