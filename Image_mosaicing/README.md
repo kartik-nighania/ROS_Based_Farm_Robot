@@ -3,11 +3,11 @@
 
 - this is done in 3 parts
 
-	- homography 
+	- homography: 
 	this is done by find the matching features between images
 
-	- warping 
+	- warping: 
 	planar surface is taken for warping and the images are modified with their respective homography matrix
 
-	- blending
+	- blending: 
 	the images are added to get the final image. Along with this we will try to do multiband image smoothning is done to ensure clear output.
