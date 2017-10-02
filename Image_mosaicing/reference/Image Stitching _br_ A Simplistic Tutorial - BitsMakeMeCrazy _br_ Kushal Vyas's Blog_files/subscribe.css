@@ -1,0 +1,21 @@
+.subscribe_btn{
+	background: #A01;
+	color:white;
+	border: none;
+	font-size: 11pt;
+}
+
+#subscribe_form input[name="email_input"]{
+	border: none;
+	border-bottom: 2px solid #A01;
+}
+
+#subscribe_form{
+	display: inline;
+	float: right;	
+}
+
+#subscribe{
+	display: inline;
+	float:right;
+}

@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://kushalvyas.github.io/stitching.html -->
+<html class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths gr__kushalvyas_github_io" lang="en" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/materialize.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href=""> -->
+        <script src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/jquery-1.11.3.min.js"></script>
+        <script src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/materialize.min.js"></script>
+        <link rel="stylesheet" href="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/foundation.min.css" media="all">
+        <script type="text/javascript" src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/modernizr.js"></script>
+        <link href="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/pygments.min.css">
+        <link rel="stylesheet" type="text/css" href="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/subscribe.css">
+        <!-- <script src="http://kushalvyas.github.io/theme/syntax/scripts/shAutoloader.js" type="text/javascript"></script> -->
+        <!-- <link href="http://kushalvyas.github.io/theme/syntax/styles/shCore.css" rel="stylesheet" type="text/css" /> -->
+        <!-- <link href="http://kushalvyas.github.io/theme/syntax/styles/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+        <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/lamboz.css" media="all">
+        <title>Image Stitching &lt;br&gt; A Simplistic&nbsp;Tutorial - BitsMakeMeCrazy &lt;br&gt; Kushal Vyas's Blog</title>
+        
+        <link href="http://kushalvyas.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="BitsMakeMeCrazy &lt;br&gt; Kushal Vyas&#39;s Blog Full Atom Feed">
+        <link href="http://kushalvyas.github.io/feeds/cv-ip.atom.xml" type="application/atom+xml" rel="alternate" title="BitsMakeMeCrazy &lt;br&gt; Kushal Vyas&#39;s Blog Categories Atom Feed">
+  
+
+        <script src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/saved_resource" data-sumo-site-id="cecf6965e36602158241ee45155d77c8c02f27706e5178b61597811ab112b3a8" async="async"></script>   
+        <style type="text/css">
+        /*deactivate materialize ul li effecr*/
+            ul li {
+                list-style: browser-default;
+            }
+            li { list-style: circle; }
+        </style>
+       
+<script type="text/javascript" async="" src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/embed.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.4e10b9b49da3a68b43b56b9d6392cfaa.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.5c2c79222b3102b8568ff61fb846a843.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.85f5bbef17ae1502e3c8cf6c43ea50af.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn {color: inherit ! important}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><script src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/alfalfa.4a5fcca1fe50a757044dfd331b660625.js" async="" charset="UTF-8"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="13359558-e447-43f3-a3cd-aa61c0b91c02/service" src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/service.js"></script><link type="text/css" rel="stylesheet" href="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/sumome-scrollbox-popup.css"></head>
+<body data-gr-c-s-loaded="true" style=""><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+    <div class="pages">
+        <ul>
+            <li class="home"><a href="http://kushalvyas.github.io/index.html">Home</a></li>
+            <li><a href="http://kushalvyas.github.io/pages/about-me.html">About&nbsp;me</a></li>
+            <li><a href="http://kushalvyas.github.io/pages/technical.html">Computer&nbsp;Vision</a></li>
+            <li><a href="http://kushalvyas.github.io/pages/projects.html">Projects</a></li>
+            <li><a href="http://kushalvyas.github.io/pages/Music.html">Music</a></li>
+
+            <li style="float :right;" class=""><a href="http://www.github.com/kushalvyas" target="_blank"><i class="fa fa-github fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;</a></li>
+            <li style="float :right;" class=""><a href="mailto:kushalvyaskv@gmail.com" target="_blank"><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;</a></li>
+            <li style="float :right;" class=""><a href="https://twitter.com/kushal_kv" target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;</a></li>
+            <li style="float :right;" class=""><a href="https://www.youtube.com/channel/UCoAFKWmi3Wca8hj5GSEriRQ" target="_blank"><i class="fa fa-youtube fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;</a></li>
+            <li style="float :right;" class=""><a href="https://in.linkedin.com/in/kushal-vyas-44529ba9" target="_blank"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;</a></li>
+        </ul>
+    </div>
+<div class="hp-header-inner">
+    <div class="page-header">
+        <div class="content-header">
+            <div id="title-block">
+            <h1>  <a href="http://kushalvyas.github.io/stitching.html" rel="bookmark" title="Permalink to Image Stitching A Simplistic Tutorial">Image Stitching <br> A Simplistic&nbsp;Tutorial</a></h1>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="content">
+        <div class="data-holder">
+        <div class="row">
+           <div class="large-10 content-column column">
+<div class="content-article">
+    <header class="header-article">
+        <div class="read-more">Posted on Sun 25 September 2016</div>
+ 
+   </header>
+    <section class="article">
+        
+        <div class="entry-summary">
+            <p>Creating a panorama using multiple&nbsp;images</p>
+        </div>
+    
+        <div class="entry-content">
+            <h3>Multiple Image&nbsp;Stitching</h3>
+<p>I must say, even I was enjoying while developing this tutorial . Something about image perspective and enlarged images is simply captivating to a computer vision student (<span class="caps">LOL</span>) . I think, image stitching is an excellent introduction to the coordinate spaces and perspectives vision. Here I am going to show how to take an ordered set of many images, <strong>(assuming they have been shot from left to right direction)</strong>&nbsp;.</p>
+<p>So what is image stitching ? In simple terms, for an input group of images, the output is a composite image such that it is a culmination of scenes. At the same time, the logical flow between the images must be&nbsp;preserved.</p>
+<p>For example, consider the set of images below. (Taken from <a href="https://www.mathworks.com/examples/matlab-computer-vision/mw/vision_product-FeatureBasedPanoramicImageStitchingExample-feature-based-panoramic-image-stitching">matlab examples</a>).
+From a group of an input montage, we are essentially creating a singular stitched image. One that explains the full scene in detail. It is quite an interesting algorithm !
+</p><center>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/matlab_montage.png" width="400" height="300">
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/matlab_pano.png" width="400" height="300"><br>
+(Taken from <a href="https://www.mathworks.com/examples/matlab-computer-vision/mw/vision_product-FeatureBasedPanoramicImageStitchingExample-feature-based-panoramic-image-stitching">matlab examples</a>).
+</center><p></p>
+<p><strong>Topics being covered</strong>
+The implementation will be carried out in python programming&nbsp;language. </p>
+<ul>
+<li>Reading multiple images ( in&nbsp;order)</li>
+<li>Finding logical consistencies within images (this will be done using&nbsp;homography).</li>
+<li>Stitching Up&nbsp;images. </li>
+</ul>
+<p>In need for any literature reference, please refer this <a href="http://matthewalunbrown.com/papers/ijcv2007.pdf">paper by Mathew&nbsp;Brown</a></p>
+<h3>Let’s begin&nbsp;…</h3>
+<p>Let’s first understand the concept of mosaicking or image stitching. Basically if you want to capture a big scene. Now your camera can only provide an image of a specific resolution and that resolution , say 640 by 480 , is certainly not enough to capture the big panoramic view. So , what one can do is capture multiple images of the entire scene and then put together all bits and pieces into one big mat of images. Yes, it seems good .. right ! Such photographs , which pose as an ordered collection of a scene are called as mosaics or panoramas. The entire process of acquiring multiple image and converting them into such panoramas is called as image mosaicking. And finally, we have one beautiful big and large photograph of the scenic&nbsp;view.</p>
+<p>Another method for achieving this, is by using wide angle lens in your camera. What a wide angle lens does, is effectively increase your field of view. The output, will differ (obviously). But for the purposes of this tutorial, let’s get into how to create panoramas using computers and not lens&nbsp;:P </p>
+<h3>Setting up the&nbsp;environment</h3>
+<p>Please note that your system is setup with Python 2.7 (Code implementation is in python2.7 if you have other versions, please modify the code accordingly) and OpenCV 3.0 . We will be using OpenCV’s helper utilities for reading images, writing images and conversion of color spaces. Once the images are obtained, the entire computation of the panorama will be done using a home brewed function.  This blog article is divided into three major&nbsp;parts. </p>
+<p><strong>*</strong> Input, read and process images : image paths from text files. Each textfile contains the list of paths to each image. <strong>Make sure that the paths are in left_to_right order of&nbsp;orientation.</strong></p>
+<p><strong>*</strong> Computation relative orientation of images w.r.t each other :&nbsp;pairwise</p>
+<p><strong>*</strong> The stitching / mix and match module : which essentially joins the two images at a&nbsp;time</p>
+<h3>Algorithm</h3>
+<p>The algorithm for performing image stitching is pretty&nbsp;straightforward.</p>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre>    <span class="n">images</span> <span class="p">[]</span> <span class="o">&lt;--</span> <span class="n">Input</span> <span class="n">images</span>
+    <span class="n">Assuming</span><span class="p">,</span> <span class="n">that</span> <span class="n">the</span> <span class="n">center</span> <span class="n">image</span> <span class="ow">is</span> <span class="n">no_of_images</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">let</span> <span class="n">centerIdx</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">images</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+    <span class="k">for</span> <span class="n">each</span> <span class="n">images</span><span class="p">[]</span> <span class="n">at</span> <span class="n">positions</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="n">centerIdx</span> <span class="p">:</span>
+        <span class="n">perform</span> <span class="n">leftward</span> <span class="n">stitching</span>
+
+    <span class="k">for</span> <span class="n">each</span> <span class="n">images</span><span class="p">[]</span> <span class="n">at</span> <span class="n">positions</span> <span class="n">centerIdx</span> <span class="o">-&gt;</span> <span class="n">length</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+        <span class="n">perform</span> <span class="n">rightward</span> <span class="n">stitching</span>
+</pre></div>
+</td></tr></tbody></table>
+
+<p>The output will be a complete mosaic of the input&nbsp;images.</p>
+<p><strong>Some Constraints</strong>
+The algorithm is time consuming, due to the number of iterations involved, it is best that hte input number of images is not too high or not of very high resolution (eg. 4000x3000). 
+My implementation is based on a 2 <span class="caps">GB</span> <span class="caps">RAM</span> computer having intel i3 processor (Not tested it on my machine yet !). Feel free to upgrade/scale this model using higher specs, or maybe <span class="caps">GPU</span>’s .It’s never too late to&nbsp;try.</p>
+<h3>Project Architecture&nbsp;:</h3>
+<div class="highlight"><pre>    <span class="o">|</span><span class="n">_</span> <span class="n">code</span> <span class="o">-|</span>
+    <span class="o">|</span>        <span class="o">|--</span> <span class="n">pano</span><span class="p">.</span><span class="n">py</span>
+    <span class="o">|</span>        <span class="o">|--</span> <span class="n">txtlists</span><span class="o">-|</span>
+    <span class="o">|</span>                     <span class="o">|--</span><span class="n">files1</span><span class="p">.</span><span class="n">txt</span> <span class="p">....</span> 
+    <span class="o">|</span>   
+    <span class="o">|</span><span class="n">_</span> <span class="n">images</span> <span class="o">-</span> <span class="o">|</span>
+    <span class="o">|</span>           <span class="o">|-</span> <span class="n">img1</span><span class="p">.</span><span class="n">jpg</span>
+    <span class="o">|</span>           <span class="o">|-</span> <span class="n">abc</span><span class="p">.</span><span class="n">jpg</span> 
+    <span class="o">|</span>           <span class="p">....</span> <span class="n">and</span> <span class="n">so</span> <span class="n">on</span> <span class="p">...</span>
+</pre></div>
+
+
+<p><br></p>
+<h2><strong> <a href="https://github.com/kushalvyas/Python-Multiple-Image-Stitching">Click here to check out the code</a> on <a href="https://github.com/kushalvyas" target="_blank">Github</a> </strong></h2>
+<p><br></p>
+<p>The project architecture is as follows. The code directory contains the main <code>pano.py</code> file. Also it contains a <code>txtlists/</code> directory which contains files having the paths to images in the panorama. These images are individually stored inside <code>images/ directory</code></p>
+<p>In this tutorial, I will be using images from <a href="http://www.cvl.isy.liu.se/en/research/datasets/passta/" target="_blank"><span class="caps">PASSTA</span> Datasets</a>. It contains 2 datasets, Lunchroom and Synthetic.
+Also, to test, I will be using images from <a href="http://study.marearts.com/2013/11/opencv-stitching-example-stitcher-class.html" target="_blank">Mare’s Computer Vision blog</a>. . I’ll be using <a href="https://github.com/daeyun/Image-Stitching/tree/master/img/hill" target="_blank">daeyun’s</a> test hill images as well. and <a href="http://kushalvyas.github.io/stitching.html">tsherlock</a> too !! (<strong>For respective usage and citations , take a look at the references</strong>)</p>
+<h3>Now the real&nbsp;part.</h3>
+<p>To understand either of the leftward stitching or rightward stitching module, first let’s get some vision concepts straight. They&nbsp;being: </p>
+<ul>
+<li>*Homography : Oh I love this&nbsp;!</li>
+<li>*Warping : Cause, without warping, homography would feel a bit&nbsp;lonely</li>
+<li>*Blending : Cause intensity differences are a bit too&nbsp;mainstream</li>
+</ul>
+<p><strong>Homography</strong></p>
+<p>Okay, so assume you’re looking at a scenery. You will be having a field of view and that field of view is of what you want to make a panorama. You can rotate your head and cover a big area. But while you are looking straight, looking directly perpendicularly at a sub-scene, the remaining part of the scenery appears slightly inclined or slightly narrowed out. This is due to simple physics. Since you are facing in one direction, the things to your extreme periphery appears unclear, reduced in dimension and not necessarily straight/normal (a bit inclined). This is exactly what we will be&nbsp;exploiting.</p>
+<p>Consider the images shown in the above figure. Every image will contain some common portion with the other images. Due to this commonness we are able to say that <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mtext&gt;&amp;#xA0;x&lt;/mtext&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 3.653em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.211em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1003.21em 2.879em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: STIXGeneral; font-style: italic;">i</span><span class="mi" id="MathJax-Span-4" style="font-family: STIXGeneral; font-style: italic;">m</span><span class="mi" id="MathJax-Span-5" style="font-family: STIXGeneral; font-style: italic;">a</span><span class="mi" id="MathJax-Span-6" style="font-family: STIXGeneral; font-style: italic;">g</span><span class="mi" id="MathJax-Span-7" style="font-family: STIXGeneral; font-style: italic;">e</span><span class="mtext" id="MathJax-Span-8" style="font-family: STIXGeneral;">&nbsp;x</span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.309em; border-left: 0px solid; width: 0px; height: 1.128em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi><mi>m</mi><mi>a</mi><mi>g</mi><mi>e</mi><mtext>&nbsp;x</mtext></math></span></span><script type="math/tex" id="MathJax-Element-1">image \text{ x}</script></span> will either lie on to the right or left side of <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mtext&gt;&amp;#xA0;y&amp;#xA0;&lt;/mtext&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-9" style="width: 3.874em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.432em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1003.15em 2.879em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-10"><span class="mi" id="MathJax-Span-11" style="font-family: STIXGeneral; font-style: italic;">i</span><span class="mi" id="MathJax-Span-12" style="font-family: STIXGeneral; font-style: italic;">m</span><span class="mi" id="MathJax-Span-13" style="font-family: STIXGeneral; font-style: italic;">a</span><span class="mi" id="MathJax-Span-14" style="font-family: STIXGeneral; font-style: italic;">g</span><span class="mi" id="MathJax-Span-15" style="font-family: STIXGeneral; font-style: italic;">e</span><span class="mtext" id="MathJax-Span-16" style="font-family: STIXGeneral;">&nbsp;y&nbsp;</span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.309em; border-left: 0px solid; width: 0px; height: 1.128em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi><mi>m</mi><mi>a</mi><mi>g</mi><mi>e</mi><mtext>&nbsp;y&nbsp;</mtext></math></span></span><script type="math/tex" id="MathJax-Element-2">image \text{ y }</script></span>.  </p>
+<p>Anyway, now that I’ve made that clear, let’s proceed as to how do we calculate homography. Say you have a pair of images <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mtext&gt;&amp;#xA0;,&amp;#xA0;&lt;/mtext&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-17" style="width: 2.879em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.547em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1002.55em 2.824em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-18"><span class="mi" id="MathJax-Span-19" style="font-family: STIXGeneral; font-style: italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span class="mn" id="MathJax-Span-20" style="font-family: STIXGeneral;">1</span><span class="mtext" id="MathJax-Span-21" style="font-family: STIXGeneral;">&nbsp;,&nbsp;</span><span class="mi" id="MathJax-Span-22" style="font-family: STIXGeneral; font-style: italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span class="mn" id="MathJax-Span-23" style="font-family: STIXGeneral;">2</span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.066em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>I</mi><mn>1</mn><mtext>&nbsp;,&nbsp;</mtext><mi>I</mi><mn>2</mn></math></span></span><script type="math/tex" id="MathJax-Element-3">I1 \text{ , } I2</script></span> . You capture the first image. Then you decide to rotate your camera, or maybe perform some translation  or maybe a combination of rotation / translation motion. Then having update your new camera position , you capture a second image. The problem now at hand is, How do you solve for a system wherein you’re required to create a transformation that efficiently maps a point that is being projected in both the images. Or in simple terms, How do you visualize one image w.r.t another point of view, given there is some information available about both your points of&nbsp;views.</p>
+<p></p><center>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/per.png" width="400" height="300">
+<br>
+Types of transforms
+</center><p></p>
+<p>Each of the above transformations performs some sorts of image transformation. For eg. a projective (well in your case,homography ) transform will preserve straight lines, .. etc. Moving on, a homography matrix is such that , if applied to any image, transforms image plane P1 to another image plane&nbsp;P2.</p>
+<p>See the pic below, you’ll understand what i’m talking about.
+</p><center>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/mix.png">
+<br>
+Source :<a href="http://stackoverflow.com/questions/13570140/how-to-use-homography-to-transform-pictures-in-opencv">This <span class="caps">SO</span> Post</a> 
+</center><p></p>
+<p>What you see above, can be an output of applying homography from <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;mo&gt;&amp;#x00D7;&lt;/mo&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-24" style="width: 5.755em; display: inline-block;"><span style="display: inline-block; position: relative; width: 5.091em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1005.09em 2.658em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-25"><span class="mi" id="MathJax-Span-26" style="font-family: STIXGeneral; font-style: italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span class="mn" id="MathJax-Span-27" style="font-family: STIXGeneral;">1</span><span class="mo" id="MathJax-Span-28" style="font-family: STIXGeneral; padding-left: 0.335em;">=</span><span class="mi" id="MathJax-Span-29" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.335em;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span class="mo" id="MathJax-Span-30" style="font-family: STIXGeneral; padding-left: 0.279em;">×</span><span class="mi" id="MathJax-Span-31" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.279em;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span class="mn" id="MathJax-Span-32" style="font-family: STIXGeneral;">2</span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>I</mi><mn>1</mn><mo>=</mo><mi>H</mi><mo>×</mo><mi>I</mi><mn>2</mn></math></span></span><script type="math/tex" id="MathJax-Element-4">I1=H \times I2</script></span> . <a href="http://stackoverflow.com/questions/13570140/how-to-use-homography-to-transform-pictures-in-opencv"><span class="caps">HOW</span> <span class="caps">TO</span> use Homography</a> to transform pictures in OpenCV? ( Check out this answer too. these pics have been taken from the aforementioned post&nbsp;).</p>
+<p>You can use <a href="http://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html?highlight=findhomography#findhomography">opencv findhomography ( )</a> method to solve for homography. For finding <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-5-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;mo&gt;&amp;#x00D7;&lt;/mo&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-33" style="width: 5.755em; display: inline-block;"><span style="display: inline-block; position: relative; width: 5.091em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1005.09em 2.658em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-34"><span class="mi" id="MathJax-Span-35" style="font-family: STIXGeneral; font-style: italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span class="mn" id="MathJax-Span-36" style="font-family: STIXGeneral;">1</span><span class="mo" id="MathJax-Span-37" style="font-family: STIXGeneral; padding-left: 0.335em;">=</span><span class="mi" id="MathJax-Span-38" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.335em;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span class="mo" id="MathJax-Span-39" style="font-family: STIXGeneral; padding-left: 0.279em;">×</span><span class="mi" id="MathJax-Span-40" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.279em;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span class="mn" id="MathJax-Span-41" style="font-family: STIXGeneral;">2</span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>I</mi><mn>1</mn><mo>=</mo><mi>H</mi><mo>×</mo><mi>I</mi><mn>2</mn></math></span></span><script type="math/tex" id="MathJax-Element-5">I1=H \times I2</script></span> you will need to pass coordinates of points in original image 1 plane and coordinates of target points in image 2 to the method. Once through, the method will spit out the homography&nbsp;matrix</p>
+<p><br></p>
+<p><strong>How to identify points to calculate homography&nbsp;!</strong></p>
+<p>One of the straight forward methods is as&nbsp;follows</p>
+<div class="highlight"><pre>    <span class="n">Compute</span> <span class="n">similar</span> <span class="n">features</span> <span class="n">in</span> <span class="n">both</span> <span class="n">images</span>
+
+    <span class="n">Out</span> <span class="n">of</span> <span class="n">them</span> <span class="p">,</span> <span class="n">filter</span> <span class="n">out</span> <span class="n">good</span> <span class="n">features</span> <span class="p">(</span><span class="n">you</span><span class="err">'</span><span class="n">ll</span> <span class="n">find</span> <span class="n">plenty</span> <span class="n">of</span> <span class="n">tutorials</span> <span class="n">on</span> <span class="n">these</span> <span class="p">)</span>
+
+    <span class="n">Make</span> <span class="n">an</span> <span class="n">array</span> <span class="n">sorts</span> <span class="n">of</span> <span class="p">;</span> <span class="n">featuresofI1</span> <span class="o">==&gt;</span> <span class="p">[</span><span class="n">srcPoints</span><span class="p">],</span> <span class="n">featuresofI2</span> <span class="o">==&gt;</span><span class="p">[</span><span class="n">dstPoints</span><span class="p">]</span> <span class="p">(</span><span class="n">using</span> <span class="n">opencv</span> <span class="n">nomenclature</span><span class="p">)</span>
+
+    <span class="n">Compute</span> <span class="n">Homography</span> <span class="n">matrix</span> <span class="n">using</span> <span class="n">RANSAC</span> <span class="n">algorithm</span>
+</pre></div>
+
+
+<p><br>
+<strong> Step 1: Feature extraction</strong>:</p>
+<p>We shall be using opencv_contrib’s <span class="caps">SIFT</span> descriptor. <span class="caps">SIFT</span> , as in Scale Invariant Feature Transform, is a very powerful <span class="caps">CV</span> algorithm. Please read my <a href="http://kushalvyas.github.io/BOV.html">Bag of Visual Words for Image classification post</a> to understand more about features.
+Also, check out <a href="http://docs.opencv.org/3.1.0/da/df5/tutorial_py_sift_intro.html">OpenCV’s docs on <span class="caps">SIFT</span></a>. They are a pretty good resource as&nbsp;well! </p>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre>    <span class="n">sift_obj</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">xfeatures2d</span><span class="o">.</span><span class="n">SIFT_create</span><span class="p">()</span>
+    <span class="n">descriptors</span><span class="p">,</span> <span class="n">keypoints</span> <span class="o">=</span> <span class="n">sift_obj</span><span class="o">.</span><span class="n">detectAndCompute</span><span class="p">(</span><span class="n">image_gray</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+</pre></div>
+</td></tr></tbody></table>
+
+<p>If you plot the features, this is how it will look .
+(Image on left shows actual image. Image on the right is annotated with features detected by <span class="caps">SIFT</span>)</p>
+<p>Example 1 : using Lunchroom image
+</p><center>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/sift_keypoints101.jpg">
+<br>
+Lunchroom image : <span class="caps">PASSTA</span> Dataset
+</center><p></p>
+<!-- Example 2 : using building image
+<center>
+<img src="images/stitching/building_sift.png" width="400" height="300" >
+</center> -->
+
+<p><strong> Step 2: Matching correspondences between images </strong>:</p>
+<p>Once you have got the descriptors and keypoints of 2 images, i.e. an image pair, we will find correspondences between them. Why do we do this ? Well, in order to join any two images into a bigger images, we must obtain as to what are the overlapping points. These overlapping points will give us an idea of the orientation of the second image w.r.t to the other one. And based on these common points, we get an idea whether the second image has just slid into the bigger image  or has it been rotated and then overlapped, or maybe scaled down/up and then fitted. All such information is yielded by establishing correspondences. This process is called <strong>registration</strong>&nbsp;.</p>
+<p>For matching, one can use either <span class="caps">FLANN</span> or BFMatcher, that is provided by&nbsp;opencv. </p>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre>    <span class="c"># FLANN parameters</span>
+    <span class="n">FLANN_INDEX_KDTREE</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">index_params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">algorithm</span> <span class="o">=</span> <span class="n">FLANN_INDEX_KDTREE</span><span class="p">,</span> <span class="n">trees</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">search_params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">checks</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>   <span class="c"># or pass empty dictionary</span>
+
+    <span class="n">flann</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">FlannBasedMatcher</span><span class="p">(</span><span class="n">index_params</span><span class="p">,</span><span class="n">search_params</span><span class="p">)</span>
+
+    <span class="n">matches</span> <span class="o">=</span> <span class="n">flann</span><span class="o">.</span><span class="n">knnMatch</span><span class="p">(</span><span class="n">des1</span><span class="p">,</span><span class="n">des2</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">img3</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">drawMatchesKnn</span><span class="p">(</span><span class="n">img1c</span><span class="p">,</span><span class="n">kp1</span><span class="p">,</span><span class="n">img2c</span><span class="p">,</span><span class="n">kp2</span><span class="p">,</span><span class="n">matches</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="o">**</span><span class="n">draw_params</span><span class="p">)</span>
+
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s">"correspondences"</span><span class="p">,</span> <span class="n">img3</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">()</span>
+</pre></div>
+</td></tr></tbody></table>
+
+<p>Having computed the matches, you get a similar output&nbsp;: </p>
+<p>With the Lunchroom dataset
+</p><center>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/matches12.png"> 
+<br>
+Feature matching on lunchroom images
+</center><p></p>
+<p>With the Hill example:
+</p><center>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/img31.png" width="400" height="300">
+<br>
+Feature matching on hill example image
+</center><p></p>
+<!-- With the building example:
+<center>
+<img src="images/stitching/img3.png" width="400" height="300" >
+</center> -->
+
+<p><strong>Step 3: Compute&nbsp;Homography</strong></p>
+<p>Yes, once we have obtained matches between the images, our next step is to calculate the homography matrix. As described above, the homography matrix will use these matching points, to estimate a relative orientation transform within the two images.
+i.e. it’ll solve for the equation
+</p><center><p></p>
+<div class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-6-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;msub&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;mo&gt;&amp;#x00D7;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-42" style="width: 5.368em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.759em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1004.76em 2.934em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-43"><span class="msubsup" id="MathJax-Span-44"><span style="display: inline-block; position: relative; width: 0.722em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.39em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-45" style="font-family: STIXGeneral; font-style: italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.335em;"><span class="mi" id="MathJax-Span-46" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span><span class="mo" id="MathJax-Span-47" style="font-family: STIXGeneral; padding-left: 0.335em;">=</span><span class="mi" id="MathJax-Span-48" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.335em;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span class="mo" id="MathJax-Span-49" style="font-family: STIXGeneral; padding-left: 0.279em;">×</span><span class="msubsup" id="MathJax-Span-50" style="padding-left: 0.279em;"><span style="display: inline-block; position: relative; width: 0.722em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.39em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-51" style="font-family: STIXGeneral; font-style: italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.335em;"><span class="mi" id="MathJax-Span-52" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">y</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.191em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msub><mi>I</mi><mi>x</mi></msub><mo>=</mo><mi>H</mi><mo>×</mo><msub><mi>I</mi><mi>y</mi></msub></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-6">I_x = H \times I_y </script></div>
+<p> </p></center>
+Hence, it solves for the matrix <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-7-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-53" style="width: 0.888em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.777em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1000.78em 2.658em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-54"><span class="mi" id="MathJax-Span-55" style="font-family: STIXGeneral; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math></span></span><script type="math/tex" id="MathJax-Element-7">H</script></span><p></p>
+<p>Well,  to estimate the homography is a simple task. If you are using opencv, it’s a two line code. However , I’d recommend that one implements&nbsp;oneself.</p>
+<div class="highlight"><pre><span class="n">H</span><span class="p">,</span> <span class="n">__</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findHomography</span><span class="p">(</span><span class="n">srcPoints</span><span class="p">,</span> <span class="n">dstPoints</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">RANSAC</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Viola ! Our homography matrix looks something like this&nbsp;…</p>
+<p></p><center>
+    <p></p>
+<div class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-8-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mrow&gt;&lt;mo&gt;[&lt;/mo&gt;&lt;mtable rowspacing=&quot;4pt&quot; columnspacing=&quot;1em&quot;&gt;&lt;mtr&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;11&lt;/mtext&gt;&lt;/msub&gt;&lt;/mtd&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;12&lt;/mtext&gt;&lt;/msub&gt;&lt;/mtd&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;13&lt;/mtext&gt;&lt;/msub&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;mtr&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;21&lt;/mtext&gt;&lt;/msub&gt;&lt;/mtd&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;22&lt;/mtext&gt;&lt;/msub&gt;&lt;/mtd&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;23&lt;/mtext&gt;&lt;/msub&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;mtr&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;31&lt;/mtext&gt;&lt;/msub&gt;&lt;/mtd&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;32&lt;/mtext&gt;&lt;/msub&gt;&lt;/mtd&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;33&lt;/mtext&gt;&lt;/msub&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;/mtable&gt;&lt;mo&gt;]&lt;/mo&gt;&lt;/mrow&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-56" style="width: 8.244em; display: inline-block;"><span style="display: inline-block; position: relative; width: 7.304em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(2.049em 1007.25em 6.308em -999.997em); top: -4.422em; left: 0em;"><span class="mrow" id="MathJax-Span-57"><span class="mrow" id="MathJax-Span-58"><span class="mo" id="MathJax-Span-59" style="vertical-align: 2.215em;"><span style="display: inline-block; position: relative; width: 0.445em; height: 0px;"><span style="position: absolute; font-family: STIXSizeOneSym; top: -3.316em; left: 0em;">⎡<span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; font-family: STIXSizeOneSym; top: -0.384em; left: 0em;">⎣<span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="font-family: STIXSizeOneSym; position: absolute; top: -2.32em; left: 0em;">⎢<span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="font-family: STIXSizeOneSym; position: absolute; top: -1.38em; left: 0em;">⎢<span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span><span class="mtable" id="MathJax-Span-60" style="padding-right: 0.169em; padding-left: 0.169em;"><span style="display: inline-block; position: relative; width: 6.087em; height: 0px;"><span style="position: absolute; clip: rect(2.492em 1001.27em 6.585em -999.997em); top: -4.754em; left: 0em;"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1001.27em 4.317em -999.997em); top: -5.362em; left: 50%; margin-left: -0.661em;"><span class="mtd" id="MathJax-Span-61"><span class="mrow" id="MathJax-Span-62"><span class="msubsup" id="MathJax-Span-63"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-64" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-65" style="font-size: 70.7%; font-family: STIXGeneral;">11</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; clip: rect(3.155em 1001.27em 4.317em -999.997em); top: -3.924em; left: 50%; margin-left: -0.661em;"><span class="mtd" id="MathJax-Span-76"><span class="mrow" id="MathJax-Span-77"><span class="msubsup" id="MathJax-Span-78"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-79" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-80" style="font-size: 70.7%; font-family: STIXGeneral;">21</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; clip: rect(3.155em 1001.27em 4.317em -999.997em); top: -2.486em; left: 50%; margin-left: -0.661em;"><span class="mtd" id="MathJax-Span-91"><span class="mrow" id="MathJax-Span-92"><span class="msubsup" id="MathJax-Span-93"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-94" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-95" style="font-size: 70.7%; font-family: STIXGeneral;">31</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.759em;"></span></span><span style="position: absolute; clip: rect(2.492em 1001.27em 6.585em -999.997em); top: -4.754em; left: 2.436em;"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1001.27em 4.317em -999.997em); top: -5.362em; left: 50%; margin-left: -0.661em;"><span class="mtd" id="MathJax-Span-66"><span class="mrow" id="MathJax-Span-67"><span class="msubsup" id="MathJax-Span-68"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-69" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-70" style="font-size: 70.7%; font-family: STIXGeneral;">12</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; clip: rect(3.155em 1001.27em 4.317em -999.997em); top: -3.924em; left: 50%; margin-left: -0.661em;"><span class="mtd" id="MathJax-Span-81"><span class="mrow" id="MathJax-Span-82"><span class="msubsup" id="MathJax-Span-83"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-84" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-85" style="font-size: 70.7%; font-family: STIXGeneral;">22</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; clip: rect(3.155em 1001.27em 4.317em -999.997em); top: -2.486em; left: 50%; margin-left: -0.661em;"><span class="mtd" id="MathJax-Span-96"><span class="mrow" id="MathJax-Span-97"><span class="msubsup" id="MathJax-Span-98"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-99" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-100" style="font-size: 70.7%; font-family: STIXGeneral;">32</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.759em;"></span></span><span style="position: absolute; clip: rect(2.492em 1001.27em 6.585em -999.997em); top: -4.754em; left: 4.815em;"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1001.27em 4.317em -999.997em); top: -5.362em; left: 50%; margin-left: -0.661em;"><span class="mtd" id="MathJax-Span-71"><span class="mrow" id="MathJax-Span-72"><span class="msubsup" id="MathJax-Span-73"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-74" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-75" style="font-size: 70.7%; font-family: STIXGeneral;">13</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; clip: rect(3.155em 1001.27em 4.317em -999.997em); top: -3.924em; left: 50%; margin-left: -0.661em;"><span class="mtd" id="MathJax-Span-86"><span class="mrow" id="MathJax-Span-87"><span class="msubsup" id="MathJax-Span-88"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-89" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-90" style="font-size: 70.7%; font-family: STIXGeneral;">23</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; clip: rect(3.155em 1001.27em 4.317em -999.997em); top: -2.486em; left: 50%; margin-left: -0.661em;"><span class="mtd" id="MathJax-Span-101"><span class="mrow" id="MathJax-Span-102"><span class="msubsup" id="MathJax-Span-103"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-104" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-105" style="font-size: 70.7%; font-family: STIXGeneral;">33</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.759em;"></span></span></span></span><span class="mo" id="MathJax-Span-106" style="vertical-align: 2.215em;"><span style="display: inline-block; position: relative; width: 0.445em; height: 0px;"><span style="position: absolute; font-family: STIXSizeOneSym; top: -3.316em; left: 0em;">⎤<span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; font-family: STIXSizeOneSym; top: -0.384em; left: 0em;">⎦<span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="font-family: STIXSizeOneSym; position: absolute; top: -2.32em; left: 0em;">⎥<span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="font-family: STIXSizeOneSym; position: absolute; top: -1.38em; left: 0em;">⎥<span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 4.428em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -1.997em; border-left: 0px solid; width: 0px; height: 4.566em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><msub><mi>h</mi><mtext>11</mtext></msub></mtd><mtd><msub><mi>h</mi><mtext>12</mtext></msub></mtd><mtd><msub><mi>h</mi><mtext>13</mtext></msub></mtd></mtr><mtr><mtd><msub><mi>h</mi><mtext>21</mtext></msub></mtd><mtd><msub><mi>h</mi><mtext>22</mtext></msub></mtd><mtd><msub><mi>h</mi><mtext>23</mtext></msub></mtd></mtr><mtr><mtd><msub><mi>h</mi><mtext>31</mtext></msub></mtd><mtd><msub><mi>h</mi><mtext>32</mtext></msub></mtd><mtd><msub><mi>h</mi><mtext>33</mtext></msub></mtd></mtr></mtable><mo>]</mo></mrow></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-8"> \begin{bmatrix}
+h_\text{11} & h_\text{12}  & h_\text{13} \\ 
+h_\text{21} & h_\text{22} & h_\text{23}  \\ 
+h_\text{31} & h_\text{32}   & h_\text{33}
+\end{bmatrix} </script></div>
+<p></p></center><p></p>
+<p>Anyway, putting the pretty graphics aside, understand what the homography matrix is . Homography preserves the straight lines in an image. Hence the only possible transformations possible are translations, affines, etc. For example, for an affine&nbsp;transform, </p>
+<div class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-9-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mrow&gt;&lt;mo&gt;[&lt;/mo&gt;&lt;mtable rowspacing=&quot;4pt&quot; columnspacing=&quot;1em&quot;&gt;&lt;mtr&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;31&lt;/mtext&gt;&lt;/msub&gt;&lt;/mtd&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;32&lt;/mtext&gt;&lt;/msub&gt;&lt;/mtd&gt;&lt;mtd&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;33&lt;/mtext&gt;&lt;/msub&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;/mtable&gt;&lt;mo&gt;]&lt;/mo&gt;&lt;/mrow&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mtext&gt;[0 0 1]&lt;/mtext&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-107" style="width: 12.669em; display: inline-block;"><span style="display: inline-block; position: relative; width: 11.175em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.939em 1011.07em 3.543em -999.997em); top: -2.984em; left: 0em;"><span class="mrow" id="MathJax-Span-108"><span class="mrow" id="MathJax-Span-109"><span class="mo" id="MathJax-Span-110" style="vertical-align: -0.218em;"><span style="font-family: STIXSizeOneSym;">[</span></span><span class="mtable" id="MathJax-Span-111" style="padding-right: 0.169em; padding-left: 0.169em;"><span style="display: inline-block; position: relative; width: 6.087em; height: 0px;"><span style="position: absolute; clip: rect(3.211em 1001.27em 4.372em -999.997em); top: -3.98em; left: 0em;"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1001.27em 4.317em -999.997em); top: -3.924em; left: 50%; margin-left: -0.661em;"><span class="mtd" id="MathJax-Span-112"><span class="mrow" id="MathJax-Span-113"><span class="msubsup" id="MathJax-Span-114"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-115" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-116" style="font-size: 70.7%; font-family: STIXGeneral;">31</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; clip: rect(3.211em 1001.27em 4.372em -999.997em); top: -3.98em; left: 2.436em;"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1001.27em 4.317em -999.997em); top: -3.924em; left: 50%; margin-left: -0.661em;"><span class="mtd" id="MathJax-Span-117"><span class="mrow" id="MathJax-Span-118"><span class="msubsup" id="MathJax-Span-119"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-120" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-121" style="font-size: 70.7%; font-family: STIXGeneral;">32</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; clip: rect(3.211em 1001.27em 4.372em -999.997em); top: -3.98em; left: 4.815em;"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1001.27em 4.317em -999.997em); top: -3.924em; left: 50%; margin-left: -0.661em;"><span class="mtd" id="MathJax-Span-122"><span class="mrow" id="MathJax-Span-123"><span class="msubsup" id="MathJax-Span-124"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-125" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-126" style="font-size: 70.7%; font-family: STIXGeneral;">33</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span><span class="mo" id="MathJax-Span-127" style="vertical-align: -0.218em;"><span style="font-family: STIXSizeOneSym;">]</span></span></span><span class="mo" id="MathJax-Span-128" style="font-family: STIXGeneral; padding-left: 0.335em;">=</span><span class="mtext" id="MathJax-Span-129" style="font-family: STIXGeneral; padding-left: 0.335em;">[0 0 1]</span></span><span style="display: inline-block; width: 0px; height: 2.989em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.497em; border-left: 0px solid; width: 0px; height: 1.503em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><msub><mi>h</mi><mtext>31</mtext></msub></mtd><mtd><msub><mi>h</mi><mtext>32</mtext></msub></mtd><mtd><msub><mi>h</mi><mtext>33</mtext></msub></mtd></mtr></mtable><mo>]</mo></mrow><mo>=</mo><mtext>[0 0 1]</mtext></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-9">\begin{bmatrix} h_\text{31} & h_\text{32}   & h_\text{33} \end{bmatrix} = \text{[0 0 1]}</script></div>
+<p>
+Also, you can play around with <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-10-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;13&lt;/mtext&gt;&lt;/msub&gt;&lt;mtext&gt;&amp;#xA0;and&amp;#xA0;&lt;/mtext&gt;&lt;mtext&gt;&amp;#xA0;&lt;/mtext&gt;&lt;msub&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mtext&gt;23&lt;/mtext&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-130" style="width: 5.368em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.759em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1004.76em 2.824em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-131"><span class="msubsup" id="MathJax-Span-132"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-133" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-134" style="font-size: 70.7%; font-family: STIXGeneral;">13</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span><span class="mtext" id="MathJax-Span-135" style="font-family: STIXGeneral;">&nbsp;and&nbsp;</span><span class="mtext" id="MathJax-Span-136" style="font-family: STIXGeneral;">&nbsp;</span><span class="msubsup" id="MathJax-Span-137"><span style="display: inline-block; position: relative; width: 1.275em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.5em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-138" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mtext" id="MathJax-Span-139" style="font-size: 70.7%; font-family: STIXGeneral;">23</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.066em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>h</mi><mtext>13</mtext></msub><mtext>&nbsp;and&nbsp;</mtext><mtext>&nbsp;</mtext><msub><mi>h</mi><mtext>23</mtext></msub></math></span></span><script type="math/tex" id="MathJax-Element-10">h_\text{13} \text{ and } \  h_\text{23}</script></span> for&nbsp;translation</p>
+<p><strong> Step 4 : Warping <span class="amp">&amp;</span> Stitching </strong>:</p>
+<p>To understand stitching, I’d like to recommend <a href="http://www.pyimagesearch.com/2016/01/11/opencv-panorama-stitching/" target="_blank">Adrian Rosebrock’s blog post on OpenCV Panorama stitching</a>. His blog provides a wonderful explanation as to how to proceed with image stitching and panorama construction using 2&nbsp;images.</p>
+<p>So , once we have established a homography, i.e. we know how the second image (let’s say the image to the right) will look from the current image’s perspective, we need to transform it into a new space. This transformation mimics the phenomenon that we undergo. That is, the slightly distorted, and altered image that we see from our periphery . This process is called warping. We are converting an image, based on a new transformation. In this case, Im using a planar warping. What I’m doing, is essentially change the plane of my field of view. Whereas, the “panorama apps” use something called as a Cylindrical and spherical warps&nbsp;! </p>
+<p>Types of warping&nbsp;: </p>
+<ul>
+<li>*Planar : wherein every image is an element of a plane surface, subject to translation and rotations&nbsp;… </li>
+<li>*Cylindrical : wherein every image is represented as if the coordinate system was cylindrical. and the image was plotted on the curved surface of the&nbsp;cylinder.</li>
+<li>*Spherical : the above appends, instead of a cylinder, the reference model is a&nbsp;sphere.</li>
+</ul>
+<p>Each model has its’ own application. For the purposes of this tutorial, I’ll stick to planar homography and&nbsp;warping.</p>
+<p>So , to warp, essentially change the field of view, we apply the homography matrix to the&nbsp;image.</p>
+<div class="highlight"><pre><span class="n">warped_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">warpPerspective</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">homography_matrix</span><span class="p">,</span> <span class="n">dimension_of_warped_image</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Here is some visualization  ….  below are left warped and right warped images Note the orientation and projective-ness of each&nbsp;image. </p>
+<p></p><center>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/merge123.png">
+<br>
+Warping Images of Lunchroom !
+</center><p></p>
+<!-- 
+<center>
+<img src="images/stitching/merge12.jpg"  >
+</center> -->
+
+<p><strong>Stitching ‘em up&nbsp;! </strong></p>
+<p>Once, we have obtained a warped image, we simply add the warped image along with the second image. Repeat this over through leftward stitching and rightward stitching, and viola! We have our&nbsp;output.</p>
+<p>I’ll get  a bit deeper as to how to perform the image joining part. Say, we have a homography matrix <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-11-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-140" style="width: 0.888em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.777em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1000.78em 2.658em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-141"><span class="mi" id="MathJax-Span-142" style="font-family: STIXGeneral; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math></span></span><script type="math/tex" id="MathJax-Element-11">H</script></span> . If the starting coordinate of each image is <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-12-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-143" style="width: 2.381em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.105em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1002.05em 2.824em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-144"><span class="mo" id="MathJax-Span-145" style="font-family: STIXGeneral;">(</span><span class="mn" id="MathJax-Span-146" style="font-family: STIXGeneral;">0</span><span class="mo" id="MathJax-Span-147" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-148" style="font-family: STIXGeneral; padding-left: 0.169em;">0</span><span class="mo" id="MathJax-Span-149" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.066em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-12">(0 ,0)</script></span> and end point is <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-13-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;/msub&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-150" style="width: 3.1em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.713em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1002.66em 2.824em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-151"><span class="mo" id="MathJax-Span-152" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-153"><span style="display: inline-block; position: relative; width: 0.777em; height: 0px;"><span style="position: absolute; clip: rect(3.377em 1000.39em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-154" style="font-family: STIXGeneral; font-style: italic;">r<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.39em;"><span class="mi" id="MathJax-Span-155" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">e</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span><span class="mo" id="MathJax-Span-156" style="font-family: STIXGeneral;">,</span><span class="msubsup" id="MathJax-Span-157" style="padding-left: 0.169em;"><span style="display: inline-block; position: relative; width: 0.832em; height: 0px;"><span style="position: absolute; clip: rect(3.377em 1000.45em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-158" style="font-family: STIXGeneral; font-style: italic;">c</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.445em;"><span class="mi" id="MathJax-Span-159" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">e</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span><span class="mo" id="MathJax-Span-160" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.066em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><msub><mi>r</mi><mi>e</mi></msub><mo>,</mo><msub><mi>c</mi><mi>e</mi></msub><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-13">(r_e, c_e)</script></span> , we can get the new warped image dimension by <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-14-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;msub&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;mo&gt;&amp;#x00D7;&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-161" style="width: 8.686em; display: inline-block;"><span style="display: inline-block; position: relative; width: 7.691em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1007.58em 2.934em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-162"><span class="mi" id="MathJax-Span-163" style="font-family: STIXGeneral; font-style: italic;">s</span><span class="mi" id="MathJax-Span-164" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-165" style="font-family: STIXGeneral; font-style: italic;">a</span><span class="mi" id="MathJax-Span-166" style="font-family: STIXGeneral; font-style: italic;">r<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="msubsup" id="MathJax-Span-167"><span style="display: inline-block; position: relative; width: 0.722em; height: 0px;"><span style="position: absolute; clip: rect(3.266em 1000.28em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-168" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.279em;"><span class="mi" id="MathJax-Span-169" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">p</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span><span class="mo" id="MathJax-Span-170" style="font-family: STIXGeneral; padding-left: 0.335em;">=</span><span class="mi" id="MathJax-Span-171" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.335em;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span class="mo" id="MathJax-Span-172" style="font-family: STIXGeneral; padding-left: 0.279em;">×</span><span class="mo" id="MathJax-Span-173" style="font-family: STIXGeneral; padding-left: 0.279em;">[</span><span class="mn" id="MathJax-Span-174" style="font-family: STIXGeneral;">0</span><span class="mo" id="MathJax-Span-175" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-176" style="font-family: STIXGeneral; padding-left: 0.169em;">0</span><span class="mo" id="MathJax-Span-177" style="font-family: STIXGeneral;">]</span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.253em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi><mi>t</mi><mi>a</mi><mi>r</mi><msub><mi>t</mi><mi>p</mi></msub><mo>=</mo><mi>H</mi><mo>×</mo><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false">]</mo></math></span></span><script type="math/tex" id="MathJax-Element-14">start_p = H \times [0, 0]</script></span> uptill <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-15-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;msub&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;H&lt;/mi&gt;&lt;mo&gt;&amp;#x00D7;&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;/msub&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-178" style="width: 8.963em; display: inline-block;"><span style="display: inline-block; position: relative; width: 7.912em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1007.8em 2.934em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-179"><span class="mi" id="MathJax-Span-180" style="font-family: STIXGeneral; font-style: italic;">e</span><span class="mi" id="MathJax-Span-181" style="font-family: STIXGeneral; font-style: italic;">n</span><span class="msubsup" id="MathJax-Span-182"><span style="display: inline-block; position: relative; width: 0.943em; height: 0px;"><span style="position: absolute; clip: rect(3.155em 1000.56em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-183" style="font-family: STIXGeneral; font-style: italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.501em;"><span class="mi" id="MathJax-Span-184" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">p</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span><span class="mo" id="MathJax-Span-185" style="font-family: STIXGeneral; padding-left: 0.335em;">=</span><span class="mi" id="MathJax-Span-186" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.335em;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.058em;"></span></span><span class="mo" id="MathJax-Span-187" style="font-family: STIXGeneral; padding-left: 0.279em;">×</span><span class="mo" id="MathJax-Span-188" style="font-family: STIXGeneral; padding-left: 0.279em;">[</span><span class="msubsup" id="MathJax-Span-189"><span style="display: inline-block; position: relative; width: 0.777em; height: 0px;"><span style="position: absolute; clip: rect(3.377em 1000.39em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-190" style="font-family: STIXGeneral; font-style: italic;">r<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.39em;"><span class="mi" id="MathJax-Span-191" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">e</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span><span class="mo" id="MathJax-Span-192" style="font-family: STIXGeneral;">,</span><span class="msubsup" id="MathJax-Span-193" style="padding-left: 0.169em;"><span style="display: inline-block; position: relative; width: 0.832em; height: 0px;"><span style="position: absolute; clip: rect(3.377em 1000.45em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-194" style="font-family: STIXGeneral; font-style: italic;">c</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.445em;"><span class="mi" id="MathJax-Span-195" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">e</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span><span class="mo" id="MathJax-Span-196" style="font-family: STIXGeneral;">]</span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.253em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>e</mi><mi>n</mi><msub><mi>d</mi><mi>p</mi></msub><mo>=</mo><mi>H</mi><mo>×</mo><mo stretchy="false">[</mo><msub><mi>r</mi><mi>e</mi></msub><mo>,</mo><msub><mi>c</mi><mi>e</mi></msub><mo stretchy="false">]</mo></math></span></span><script type="math/tex" id="MathJax-Element-15">end_p = H \times [r_e, c_e]</script></span>. <strong>Note : If start_pt comes out to be negative</strong> , account for a translational shift. i.e. “perform translation shift to the image by <span class="math"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-16-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;|&lt;/mo&gt;&lt;/mrow&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;msub&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/msub&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;|&lt;/mo&gt;&lt;/mrow&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-197" style="width: 3.321em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.934em; height: 0px; font-size: 113%;"><span style="position: absolute; clip: rect(1.662em 1002.82em 2.934em -999.997em); top: -2.486em; left: 0em;"><span class="mrow" id="MathJax-Span-198"><span class="texatom" id="MathJax-Span-199"><span class="mrow" id="MathJax-Span-200"><span class="mo" id="MathJax-Span-201" style="font-family: STIXVariants;">|</span></span></span><span class="mi" id="MathJax-Span-202" style="font-family: STIXGeneral; font-style: italic;">s</span><span class="mi" id="MathJax-Span-203" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-204" style="font-family: STIXGeneral; font-style: italic;">a</span><span class="mi" id="MathJax-Span-205" style="font-family: STIXGeneral; font-style: italic;">r<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="msubsup" id="MathJax-Span-206"><span style="display: inline-block; position: relative; width: 0.722em; height: 0px;"><span style="position: absolute; clip: rect(3.266em 1000.28em 4.151em -999.997em); top: -3.98em; left: 0em;"><span class="mi" id="MathJax-Span-207" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span><span style="position: absolute; top: -3.814em; left: 0.279em;"><span class="mi" id="MathJax-Span-208" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">p</span><span style="display: inline-block; width: 0px; height: 3.985em;"></span></span></span></span><span class="texatom" id="MathJax-Span-209"><span class="mrow" id="MathJax-Span-210"><span class="mo" id="MathJax-Span-211" style="font-family: STIXVariants;">|</span></span></span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.253em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>s</mi><mi>t</mi><mi>a</mi><mi>r</mi><msub><mi>t</mi><mi>p</mi></msub><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow></math></span></span><script type="math/tex" id="MathJax-Element-16"> |start_p |</script></span><span class="dquo">“</span>. Also make sure that the homography matrix normalized such that the last row amounts to a unit&nbsp;vector.</p>
+<p>You can checkout the above mentioned explanation below 
+This is the implementation snippet from the actual code. Please look at the full code to understand in accordance with the&nbsp;post.</p>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">leftstitch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># self.left_list = reversed(self.left_list)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">H</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matcher_obj</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s">'left'</span><span class="p">)</span>
+            <span class="k">print</span> <span class="s">"Homography is : "</span><span class="p">,</span> <span class="n">H</span>
+            <span class="n">xh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+            <span class="k">print</span> <span class="s">"Inverse Homography :"</span><span class="p">,</span> <span class="n">xh</span>
+            <span class="c"># start_p is denoted by f1</span>
+            <span class="n">f1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">xh</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">f1</span> <span class="o">=</span> <span class="n">f1</span><span class="o">/</span><span class="n">f1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="c"># transforming the matrix </span>
+            <span class="n">xh</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">xh</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">ds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">xh</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">]))</span>
+            <span class="n">offsety</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">f1</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">offsetx</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">f1</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="c"># dimension of warped image</span>
+            <span class="n">dsize</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="n">offsetx</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">offsety</span><span class="p">)</span>
+            <span class="k">print</span> <span class="s">"image dsize =&gt;"</span><span class="p">,</span> <span class="n">dsize</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">warpPerspective</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">dsize</span><span class="p">)</span>
+            <span class="c"># cv2.imshow("warped", tmp)</span>
+            <span class="c"># cv2.waitKey()</span>
+            <span class="n">tmp</span><span class="p">[</span><span class="n">offsety</span><span class="p">:</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">offsety</span><span class="p">,</span> <span class="n">offsetx</span><span class="p">:</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">offsetx</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">tmp</span>
+</pre></div>
+</td></tr></tbody></table>
+
+<p><br></p>
+<p><strong> Another method : </strong> 
+There is another method, i.e. using <code>basic for looping constructs</code> and overlay the two images.
+The logic is simple. Input to the method will be the steadyimage and warpedImage. Iterate through both images, and if pixels are equal, put pixel as that value. else give preference to a non black pixel&nbsp;.. </p>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">mix_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">leftImage</span><span class="p">,</span> <span class="n">warpedImage</span><span class="p">)</span>
+        <span class="n">i1y</span><span class="p">,</span> <span class="n">i1x</span> <span class="o">=</span> <span class="n">leftImage</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">i2y</span><span class="p">,</span> <span class="n">i2x</span> <span class="o">=</span> <span class="n">warpedImage</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i1x</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i1y</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">leftImage</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]))</span> <span class="ow">and</span>  \
+                        <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">warpedImage</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]))):</span>
+                        <span class="c"># print "BLACK"</span>
+                        <span class="c"># instead of just putting it with black, </span>
+                        <span class="c"># take average of all nearby values and avg it.</span>
+                        <span class="n">warpedImage</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">if</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">warpedImage</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])):</span>
+                            <span class="c"># print "PIXEL"</span>
+                            <span class="n">warpedImage</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">leftImage</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">leftImage</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]):</span>
+                                <span class="n">bl</span><span class="p">,</span><span class="n">gl</span><span class="p">,</span><span class="n">rl</span> <span class="o">=</span> <span class="n">leftImage</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>                               
+                                <span class="n">warpedImage</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">bl</span><span class="p">,</span><span class="n">gl</span><span class="p">,</span><span class="n">rl</span><span class="p">]</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">pass</span>
+        <span class="c"># cv2.imshow("waRPED mix", warpedImage)</span>
+        <span class="c"># cv2.waitKey()</span>
+        <span class="k">return</span> <span class="n">warpedImage</span>
+</pre></div>
+</td></tr></tbody></table>
+
+<p><br>
+But this method will iterate over soooo many pixels. .. It’s very slow, for two reasons. Firstly , it involves heavy iteration. And, well, I’d personally execute such heavy loops in C++ and not&nbsp;python. </p>
+<p>So, basically, this is how my main function looks … the heart and core of all&nbsp;implementations</p>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre>    <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="s">"txtlists/files1.txt"</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">"Parameters : "</span><span class="p">,</span> <span class="n">args</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">Stitch</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">leftshift</span><span class="p">()</span>
+        <span class="c"># s.showImage('left')</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">rightshift</span><span class="p">()</span>
+        <span class="k">print</span> <span class="s">"done"</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s">"test.jpg"</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">leftImage</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">"image written"</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</pre></div>
+</td></tr></tbody></table>
+
+<p><br></p>
+<h3>Implementation details : Check out the <a href="https://github.com/kushalvyas/Python-Multiple-Image-Stitching">code</a></h3>
+<h3>Results&nbsp;!!!</h3>
+<p>Well, I’ve run the code on following pictures ..
+You can click as well as test on other sources which deal in panorama and image&nbsp;stitching.</p>
+<p></p><center>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/lunchroom_ultimate.jpg"><br>
+Stitching with Lunchroom dataset
+<br><br>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/444.png"><br>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/wd123.jpg"><br>
+Stitching with my house’s dining table :P
+<br><br>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/test12345678.jpg"><br>
+Stitching with synthetic dataset
+<br><br>
+</center><p></p>
+<p>Below are other images taken from github and various online sources. View references for more.
+</p><center>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/333.png"><br>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/test.jpg"><br>
+Stitching with building example
+<br><br>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/222.png"><br>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/test12.jpg"><br>
+Stitching using Hill example
+<br><br>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/111.png"><br>
+<img src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/test1.jpg"><br>
+Stitching using room example
+<br>
+</center><p></p>
+<p><br></p>
+<h2><strong> <a href="https://github.com/kushalvyas/Python-Multiple-Image-Stitching">Click here to check out the code</a> on <a href="https://github.com/kushalvyas">Github</a> </strong></h2>
+<p>I’ll cover cylindrical warping and how opencv actually implements stitching in a different post.
+<br></p>
+<p><br><br><br><br></p>
+<h3>References&nbsp;:</h3>
+<p>Base paper for panorama using scale invariant features&nbsp;:</p>
+<p>[1] “Automatic Panoramic Image Stitching using Invariant Features”, <a class="vglnk" href="http://download.springer.com/" rel="nofollow"><span>Download</span><span>.</span><span>springer</span><span>.</span><span>com</span></a>, 2016. [Online]. Available:&nbsp;<a class="vglnk" href="http://matthewalunbrown.com/papers/ijcv2007.pdf" rel="nofollow"><span>matthewalunbrown</span><span>.</span><span>com</span><span>/</span><span>papers</span><span>/</span><span>ijcv2007</span><span>.</span><span>pdf</span></a></p>
+<p>Test images taken from&nbsp;:</p>
+<p>[2]”<span class="caps">PASSTA</span> Datasets”, Cvl.isy.liu.se, 2016. [Online]. Available:&nbsp;<a class="vglnk" href="http://www.cvl.isy.liu.se/en/research/datasets/passta/" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>cvl</span><span>.</span><span>isy</span><span>.</span><span>liu</span><span>.</span><span>se</span><span>/</span><span>en</span><span>/</span><span>research</span><span>/</span><span>datasets</span><span>/</span><span>passta</span><span>/</span></a>.</p>
+<p>[3] “OpenCV Stitching example (Stitcher class, Panorama)”, <a class="vglnk" href="http://study.marearts.com/" rel="nofollow"><span>Study</span><span>.</span><span>marearts</span><span>.</span><span>com</span></a>, 2013. [Online]. Available:&nbsp;<a class="vglnk" href="http://study.marearts.com/2013/11/opencv-stitching-example-stitcher-class.html" rel="nofollow"><span>http</span><span>://</span><span>study</span><span>.</span><span>marearts</span><span>.</span><span>com</span><span>/</span><span>2013</span><span>/</span><span>11</span><span>/</span><span>opencv</span><span>-</span><span>stitching</span><span>-</span><span>example</span><span>-</span><span>stitcher</span><span>-</span><span>class</span><span>.</span><span>html</span></a>.</p>
+<p>[4] “Github daeyun Image-Stitching Test Images”, 2016. [Online]. Available:&nbsp;<a class="vglnk" href="https://github.com/daeyun/Image-Stitching/tree/master/img/hill" rel="nofollow"><span>https</span><span>://</span><span>github</span><span>.</span><span>com</span><span>/</span><span>daeyun</span><span>/</span><span>Image</span><span>-</span><span>Stitching</span><span>/</span><span>tree</span><span>/</span><span>master</span><span>/</span><span>img</span><span>/</span><span>hill</span></a>. </p>
+<p>[5] “Github tsherlock Test Images”, 2016. [Online]. Available: .&nbsp;<a class="vglnk" href="https://github.com/tsherlock/panorama/" rel="nofollow"><span>https</span><span>://</span><span>github</span><span>.</span><span>com</span><span>/</span><span>tsherlock</span><span>/</span><span>panorama</span><span>/</span></a></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+        </div>
+    </section>
+    <footer class="footer-article">
+        <div class="tags-and-categories">Filed under <a href="http://kushalvyas.github.io/category/cv-ip.html">CV, IP</a>
+        | Tagged: <a href="http://kushalvyas.github.io/tag/cv.html">CV </a><a href="http://kushalvyas.github.io/tag/images.html">images </a><a href="http://kushalvyas.github.io/tag/stitching.html">stitching </a><a href="http://kushalvyas.github.io/tag/mosaicking.html">mosaicking </a>
+        | <a href="http://kushalvyas.github.io/stitching.html" rel="bookmark" title="Permalink to Image Stitching A Simplistic Tutorial">Permalink</a>            
+        </div>
+        <!-- metaldata 
+        -->
+    </footer>
+    <!-- disqus bitsmakemecrazy -->
+        <hr>
+        <div id="disqus_thread"><iframe id="dsq-app4743" name="dsq-app4743" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 4194px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = "bitsmakemecrazy"; // required: replace example with your forum shortname
+            var disqus_identifier = "image-stitching--a-simplistic-tutorial";
+            var disqus_url = "http://kushalvyas.github.io/stitching.html";
+            var disqus_title = "Image Stitching A Simplistic Tutorial";
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the &lt;a href="<a class="vglnk" href="http://disqus.com/?ref_noscript" rel="nofollow"><span>http</span><span>://</span><span>disqus</span><span>.</span><span>com</span><span>/?</span><span>ref</span><span>_</span><span>noscript</span></a>"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+        
+</div>
+            </div>
+         
+            <div class="large-2 aside column" id="SIDEID">
+         
+                <!-- <h3>Trending</h3>
+                <ul>
+
+                    <li><a href="http://kushalvyas.github.io/cv_js.html">Computer Vision in the Browser</a></li>
+
+                    <li><a href="http://kushalvyas.github.io/caffe_cnn.html">Caffe + ConvNets</a></li>
+
+                    <li><a href="http://kushalvyas.github.io/stitching.html">Image Stitching</a></li>
+
+                    <li><a href="http://kushalvyas.github.io/BOV.html#BOV">Bag of Visual Words</a></li>
+                </ul>
+                <h3>Coming Soon</h3>
+                <ul>
+                        <li><a href="#" onclick="executeComingSoonPopUp();">Semantic Segmentation</a></li>
+                        <li><a href="#" onclick="executeComingSoonPopUp();">Gender Detection</a></li>
+                </ul> -->
+            <h3>Trending</h3><ul><li><a href="http://kushalvyas.github.io/cv_js.html">Computer Vision in the Browser</a></li><li><a href="http://kushalvyas.github.io/caffe_cnn.html">Caffe + ConvNets</a></li><li><a href="http://kushalvyas.github.io/stitching.html">Image Stitching</a></li><li><a href="http://kushalvyas.github.io/BOV.html#BOV">Bag of Visual Words</a></li></ul><h3>Coming Soon</h3><ul><li><a href="http://kushalvyas.github.io/stitching.html">Semantic Segmentation</a></li><li><a href="http://kushalvyas.github.io/stitching.html">Gender Detection</a></li></ul></div>
+            <script>
+                function load_sideID(){
+                    var curr_url=  document.URL;
+                    if(curr_url.indexOf('projects')>0){
+                        console.log("on project page");
+                    }else{
+                        console.log("not on project page");
+                        var side= $("#SIDEID");
+                        var data = "<h3>Trending</h3>";
+                        data += "<ul>";
+                           data += '<li><a href="http://kushalvyas.github.io/cv_js.html">Computer Vision in the Browser</a></li>';
+                           data += '<li><a href="http://kushalvyas.github.io/caffe_cnn.html">Caffe + ConvNets</a></li>';
+                           data += '<li><a href="http://kushalvyas.github.io/stitching.html">Image Stitching</a></li>';
+                           data += '<li><a href="http://kushalvyas.github.io/BOV.html#BOV">Bag of Visual Words</a></li>';
+                        data += "</ul>";
+
+                        data +="<h3>Coming Soon</h3>";
+                        data+="<ul>";
+                            data+='<li><a href="">Semantic Segmentation</a></li>';
+                            data+='<li><a href="">Gender Detection</a></li>';
+                        data += '</ul>';
+                        side.append(data);
+                    }
+                }
+                load_sideID();
+
+            </script>
+          
+         </div>
+    </div>
+</div><script src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/MathJax.js" id="mathjaxscript_pelican_#%@#$@#">MathJax.Hub.Config({    config: ['MMLorHTML.js'],    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },    jax: ['input/TeX','input/MathML','output/HTML-CSS'],    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],    displayAlign: 'center',    displayIndent: '0em',    showMathMenu: true,    messageStyle: 'normal',    tex2jax: {         inlineMath: [ ['\\(','\\)'] ],         displayMath: [ ['$$','$$'] ],        processEscapes: true,        preview: 'TeX',    },     'HTML-CSS': {         styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} },        linebreaks: { automatic: false, width: '90% container' },    }, }); if ('default' !== 'default') {MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;VARIANT['normal'].fonts.unshift('MathJax_default');VARIANT['bold'].fonts.unshift('MathJax_default-bold');VARIANT['italic'].fonts.unshift('MathJax_default-italic');VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');});MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;VARIANT['normal'].fonts.unshift('MathJax_default');VARIANT['bold'].fonts.unshift('MathJax_default-bold');VARIANT['italic'].fonts.unshift('MathJax_default-italic');VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');});}</script>
+    <div class="footer">
+        <div class="data-holder">
+        <div class="row">
+            <div class="large-3 column">
+<div class="credits">
+    <h3>Stuff and credits</h3>
+    <p>
+    Proudly powered by <a href="http://getpelican.com/" target="_blank">Pelican</a>, 
+    which takes great advantage of <a href="http://python.org/" target="_blank">Python</a>.
+    </p>
+    <p>Theme is a modified Pelican Bricks</p>
+    <p>
+    This site also makes use of <a href="http://foundation.zurb.com/" target="_blank">Zurb Foundation Framework</a>
+    and is typeset using the blocky -- but quite good-looking indeed -- 
+    <a href="https://www.google.com/fonts/specimen/Exo%202" target="_blank">Exo 2</a> fonts,
+    which comes in a lot of weight and styles. 
+    </p>
+    <p>Enjoy!
+</p></div>           </div>
+           <div class="large-6 tag-cloud column">
+                <h3>Tags</h3>
+                <ul>
+                    <li><a href="http://kushalvyas.github.io/tag/stitching.html">stitching</a>(1)</li>
+                    <li><a href="http://kushalvyas.github.io/tag/mosaicking.html">mosaicking</a>(1)</li>
+                    <li><a href="http://kushalvyas.github.io/tag/ai.html">AI</a>(1)</li>
+                    <li><a href="http://kushalvyas.github.io/tag/utils.html">utils</a>(1)</li>
+                    <li><a href="http://kushalvyas.github.io/tag/py.html">Py</a>(1)</li>
+                    <li><a href="http://kushalvyas.github.io/tag/wikipedia.html">wikipedia</a>(1)</li>
+                    <li><a href="http://kushalvyas.github.io/tag/dev.html">dev</a>(1)</li>
+                    <li><a href="http://kushalvyas.github.io/tag/technical.html">technical</a>(1)</li>
+                    <li><a href="http://kushalvyas.github.io/tag/images.html">images</a>(1)</li>
+                    <li><a href="http://kushalvyas.github.io/tag/cv.html">CV</a>(4)</li>
+                    <li><a href="http://kushalvyas.github.io/tag/objectrecognition.html">ObjectRecognition</a>(4)</li>
+                </ul>
+            </div>
+            <div class="large-3 category-column column">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="http://kushalvyas.github.io/category/ai.html">AI</a> (1)</li>
+                    <li><a href="http://kushalvyas.github.io/category/computer-vision-javascript-js-cv.html">Computer Vision, Javascript, JS, CV</a> (1)</li>
+                    <li><a href="http://kushalvyas.github.io/category/cv.html">CV</a> (2)</li>
+                    <li class="active"><a href="http://kushalvyas.github.io/category/cv-ip.html">CV, IP</a> (1)</li>
+                    <li><a href="http://kushalvyas.github.io/category/graph_py.html">graph_py</a> (1)</li>
+                    <li><a href="http://kushalvyas.github.io/category/networks.html">networks</a> (1)</li>
+                    <li><a href="http://kushalvyas.github.io/category/object-recognition-classification-cv.html">Object Recognition, Classification, CV</a> (2)</li>
+                    <li><a href="http://kushalvyas.github.io/category/object-recognitioncv.html">Object Recognition,CV</a> (1)</li>
+                    <li><a href="http://kushalvyas.github.io/category/technical-dev.html">technical, dev</a> (1)</li>
+                    <li><a href="http://kushalvyas.github.io/category/utils.html">utils</a> (1)</li>
+                </ul>
+             
+            </div>
+        
+        </div>
+    </div>
+
+
+</div><div class="hiddendiv common"></div><iframe style="display: none;" src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/saved_resource(3).html"></iframe><div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: STIXSizeOneSym, sans-serif;"></div></div><iframe id="sumome-jquery-iframe" title="Sumo Hidden Content" style="display: none;" src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/saved_resource(4).html"></iframe><a href="javascript:void(0);" title="Sumo" style="background-color: rgb(0, 115, 183); border-radius: 3px 0px 0px 3px; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 10px; position: fixed; z-index: 2147483647; padding: 0px; width: 44px; height: 40px; text-indent: -10000px; opacity: 1; display: block !important; top: 40px; right: -40px;"><span style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; margin-left: 4px; margin-right: 0px; border-radius: 3px 0px 0px 3px;">Sumo</span><span style="display: block; width: 40px; height: 40px; background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxZDQ2MjI4YS03NWY2LTRkZTQtOGJjYy1hODc1NjRkMjYxYTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDQ3MUVFMDFFMjVDMTFFNjlFQjhBRjdGODU5MDJBMDUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDQ3MUVFMDBFMjVDMTFFNjlFQjhBRjdGODU5MDJBMDUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxZDQ2MjI4YS03NWY2LTRkZTQtOGJjYy1hODc1NjRkMjYxYTUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MWQ0NjIyOGEtNzVmNi00ZGU0LThiY2MtYTg3NTY0ZDI2MWE1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+8JtvywAAAKhQTFRFzOPxSJvLA3W4Mo7FBna5w97u8vj7EHy8a67VhbzdsdTpVaLPh73d9/v9C3m6QZfJbq/WXKbR3u32JIfB3ez1KorDir/eBHW4+/3+rtPoZarUG4K/LIvDDnu7ocvkf7nbdrTY9fr8E328WKPQO5PITJ3MPpXJstXptdbq+Pv9cbHXaq3VU6HOkMLgnMnjDHq62uv1/P3+6/T53Oz1cLDX/f7+AHO3////ptOZ5QAAADh0Uk5T/////////////////////////////////////////////////////////////////////////wA7XBHKAAAAmUlEQVR42sSRRxLCMAxFRSq9907ovebr/jdDMWYGxmZL3sIqbyFbJv4B/VlkVlerKALTD3G46Mx3AOR1UZ/TsDxW6W0gfYRNVfTCFu2AWpAMgMItMW+zQJU2UjWI29D0+e5KWNPMk+A9Om+B/UgOJyCuwMJCrpuziYkIsglfRByZ/XM3eXnBFEu1kpMpjq9dxQYp/OAXTwEGAB7Rc1xVnPemAAAAAElFTkSuQmCC&quot;) 8px 8px no-repeat white; margin-left: 4px; border-radius: 3px 0px 0px 3px; margin-right: 0px;"></span></a><iframe style="display: none;" src="./Image Stitching _br_ A Simplistic Tutorial - BitsMakeMeCrazy _br_ Kushal Vyas&#39;s Blog_files/saved_resource(5).html"></iframe><div style="position:fixed;top:0;left:0;overflow:hidden;"><label for="focus_retriever" style="position:absolute;left:-1000px;">Focus Retriever</label><input style="position:absolute;left:-1000px;" type="text" name="focus_retriever" value="" id="focus_retriever" readonly="true"></div></body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>

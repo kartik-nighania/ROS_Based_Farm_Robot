@@ -7,11 +7,11 @@ the official site of this project is [6OMVI](9omvi.org)
 
 presently we are working on - 
 
-1) ### image mosaicing ![image_mosaicing](Image_mosaicing/README.MD)
+1) ### image mosaicing
 - presently we are using opencv_contrib
 - this is done in 3 parts
-	-homography
-	-warping
-	-blending
+	--homography
+	--warping
+	--blending
 
 2) orthogonal rectification of images
