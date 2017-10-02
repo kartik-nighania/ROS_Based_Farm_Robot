@@ -14,7 +14,7 @@ presently we are working on -
 	- warping
 	- blending
 
-2) ### orthogonal rectification of images
+2) ### orthogonal rectification of images ![readme](Orthogonal_rectification/README.md)
 - using webODM for image rectification
 
 - one of the two methods that can be used are:

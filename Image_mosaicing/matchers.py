@@ -3,6 +3,7 @@ import numpy as np
 
 class matchers:
 	def __init__(self):
+		# creating surface for the images.
 		self.surf = cv2.xfeatures2d.SURF_create()
 		FLANN_INDEX_KDTREE = 0
 		index_params = dict(algorithm=0, trees=5)
