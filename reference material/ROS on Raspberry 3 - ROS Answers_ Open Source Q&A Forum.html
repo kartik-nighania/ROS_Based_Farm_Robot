@@ -1,0 +1,1027 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0059)https://answers.ros.org/question/230076/ros-on-raspberry-3/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" class=" js history"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/cb=gapi.loaded_1" async=""></script><script src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/cb=gapi.loaded_0" async=""></script> <title>ROS on Raspberry 3 - ROS Answers: Open Source Q&amp;A Forum</title> <meta name="description" content="Hello, Is there anyone already install ROS on raspberry pi 3?">  <meta http-equiv="X-UA-Compatible" content="IE=EDGE"> <meta name="keywords" content=",ROS,forum,community"> <meta name="google-site-verification" content="CjkdY6BqKWAVmQ78_iSq6J7ZZ9AoL7-CjFVBYGg9FU4"> <meta name="referrer" content="always"> <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> <link rel="shortcut icon" href="https://answers.ros.org/m/ros/media/images/ros_favicon.gif?v=27"> <link rel="alternate" type="application/rss+xml" href="http://answers.ros.org/feeds/rss/"> <link rel="stylesheet" href="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/ed0aed859c34.css" type="text/css"> <link href="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/css" rel="stylesheet" type="text/css"> <link href="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/css(1)" rel="stylesheet" type="text/css"> <link rel="canonical" href="http://answers.ros.org/question/230076/ros-on-raspberry-3/"> <link rel="stylesheet" type="text/css" href="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/wmd.css"> <script type="text/javascript" async="" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/recaptcha__en.js"></script><script type="text/javascript" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/modernizr.custom.js"></script> <script type="text/javascript">
+    var askbot = {};
+    askbot['data'] = {};
+    askbot['data']['userIsAuthenticated'] = false;
+    askbot['data']['languageCode'] = 'en';
+    
+        askbot['data']['userReputation'] = 0;
+        askbot['data']['userEmail'] = null;
+        askbot['data']['userIsReadOnly'] = false;//in principle we allow anon users to start posting
+    
+    askbot['urls'] = {};
+    askbot['settings'] = {};
+    askbot['messages'] = {};
+    
+</script> <script type="text/javascript" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/saved_resource"></script> <script type="text/javascript">
+        /*<![CDATA[*/
+        //below is pure cross-browser javascript, no jQuery
+        askbot['data']['userIsThreadModerator'] = false;
+        askbot['data']['oldestAnswerId'] = 230176;
+        askbot['data']['threadIsClosed'] = false;
+        
+        (function(){
+
+            var hasClass = function(node, selector) {
+                var classes = (" " + node.className + " ").split(' ');
+                for (var i = 0; i < classes.length; i++) {
+                    if (classes[i] === selector) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            var findClosestParentByClassName = function(node, className) {
+                if (hasClass(node, className)) {
+                    return node;
+                }
+                if (node.nodeName === 'BODY') {
+                    return false;
+                } else {
+                    return findClosestParentByClassName(node.parentNode, className);
+                }
+            };
+
+            var findChildrenByClassName = function(node, className) {
+                var nodes = [];
+                var walk = function(node) {
+                    if (hasClass(node, className)) {
+                        nodes.push(node);
+                    }
+                    if (node.childNodes) {
+                        for (var i=0; i < node.childNodes.length; i++) {
+                            walk(node.childNodes[i]);
+                        }
+                    }
+                };
+                walk(node);
+                return nodes;
+            };
+
+            var getTextContent = function(node) {
+                var text = node.innerText || node.textContent;
+                if (text === undefined) {
+                    return '';
+                } else {
+                    return text;
+                }
+            };
+
+            var hasAttribute = function(node, attrName) {
+                if (node.hasAttribute) {
+                    return node.hasAttribute(attrName);
+                } else {
+                    return (!(!(node.getAttribute(attrName))));
+                }
+            };
+
+            var findChildByAttribute = function(node, attrName, attrVal) {
+                var children = node.childNodes;
+                for (var i = 0; i < children.length; i++) {
+                    var child = children[i];
+                    if (child.getAttribute(attrName) === attrVal) {
+                        return child;
+                    }
+                };
+                return null;
+            };
+
+            var postIsComment = function(postId) {
+                if (document.getElementById('comment-' + postId)) {
+                    return true;
+                }
+                return false;
+            };
+
+            var getPost = function(postId) {
+                return document.getElementById('post-id-' + postId);
+            }
+
+            var postIsQuestion = function(postId) {
+                var content = getPost(postId);
+                if (content) {
+                    if (hasClass(content, 'js-comment')) {
+                        return false;
+                    }
+                    if (findClosestParentByClassName(content, 'js-question')) {
+                        return true;
+                    }
+                }
+                return false;
+            };
+
+            var removeNode = function(node) {
+                node.parentNode.removeChild(node);
+            };
+
+            var trim = function(text) {
+                return text.replace(/^\s+|\s+$/g, '');
+            };
+
+            var data = askbot['data'];
+            var isAuthorOfPost = function(post_id) {
+                return (data['user_posts'] && data['user_posts'][post_id]);
+            };
+
+            if (data['userIsAuthenticated']){
+                var votes = {};
+                
+                data['user_votes'] = votes;
+                var posts = {};
+                
+                data['user_posts'] = posts;
+            }
+
+            function render_vote_buttons(post_type, post_id){
+                var upvote_btn = document.getElementById(
+                    post_type + '-img-upvote-' + post_id
+                );
+                var downvote_btn = document.getElementById(
+                    post_type + '-img-downvote-' + post_id
+                );
+                if (data['userIsAuthenticated']){
+                    if (post_id in data['user_votes']){
+                        var vote = data['user_votes'][post_id];
+                        if (vote == -1){
+                            var btn = downvote_btn;
+                        } else if (vote == 1){
+                            var btn = upvote_btn;
+                        } else {
+                            return;
+                        }
+                        if (post_type == 'comment'){
+                            btn.className = btn.className + ' upvoted';
+                        } else {
+                            btn.className = btn.className + ' on';
+                        }
+                    }
+                }
+            }
+
+            function hide_convert_answer_links(post_id){
+                var id1 = 'post-' + post_id + '-convert';//for repost as Q comment
+                var repostAsQuestionComment = document.getElementById(id1);
+                var id2 = 'post-' + post_id + '-repost-as-comment-under-previous-answer';
+                var repostAsPrevAnsComment = document.getElementById(id2);
+                var extraOptsList = repostAsQuestionComment.parentNode;
+                var extraOpts = extraOptsList.parentNode;
+
+                var isAuthenticated = data['userIsAuthenticated'];
+                var isMod = data['userIsAdminOrMod'];
+                if (isAuthenticated && (isMod || isAuthorOfPost(post_id))) {
+                    //still may need to hide because answer may be too long
+                    var answer_container = getPost(post_id);
+                    var answerBody = findChildrenByClassName(answer_container, 'post-body')[0];
+                    //todo: this is not reliable
+                    var answerBodyNodes = answerBody.childNodes;
+                    var answerElement = answerBodyNodes[answerBodyNodes.length - 1];
+                    if (trim(getTextContent(answerElement)).length > askbot['data']['maxCommentLength']) {
+                        repostAsQuestionComment.parentNode.removeChild(repostAsQuestionComment);
+                        repostAsPrevAnsComment.parentNode.removeChild(repostAsPrevAnsComment);
+                    } else if (parseInt(post_id) === data['oldestAnswerId']) {
+                        repostAsPrevAnsComment.parentNode.removeChild(repostAsPrevAnsComment);
+                    }
+                } else {
+                    repostAsQuestionComment.parentNode.removeChild(repostAsQuestionComment);
+                    repostAsPrevAnsComment.parentNode.removeChild(repostAsPrevAnsComment);
+                }
+
+                //if the whole control is empty - remove it
+                if (extraOptsList.getElementsByTagName('li').length === 0) {
+                    extraOpts.parentNode.removeChild(extraOpts);
+                }
+            }
+
+            function hidePublishAnswerLink(postId) {
+                if (data['userIsThreadModerator'] === false) {
+                    //hide publish/unpublish answer links
+                    var answerId = 'post-' + postId + '-publish';
+                    var pubBtn = document.getElementById(answerId);
+                    if (pubBtn) {
+                        removeNode(pubBtn);
+                    }
+                }
+            }
+
+            function remove_all_controls(post_id) {
+                var deleteBtn = document.getElementById('post-' + post_id + '-delete');
+                var controls = deleteBtn.parentNode;
+                if (controls.className == 'comment-content') {
+                    removeNode(deleteBtn);
+                    var convertLinks = findChildrenByClassName(controls, 'convert-comment');
+                    if (convertLinks.length) {
+                        removeNode(convertLinks[0]);
+                    }
+                    var editLinks = findChildrenByClassName(controls, 'edit');
+                    if (editLinks.length) {
+                        removeNode(editLinks[0]);
+                    }
+                } else {
+                    var buttons = controls.childNodes;
+                    var numButtons = buttons.length;
+                    for (var i = numButtons - 1; i >= 0; i--) {
+                        removeNode(buttons[i]);
+                    }
+                }
+            };
+
+            function render_post_controls(post_id, is_wiki){
+
+                //in this case remove all post controls
+                if (askbot['settings']['readOnlyModeEnabled'] === true) {
+                    remove_all_controls(post_id);
+                    return;
+                }
+
+                var deleteBtn = document.getElementById('post-' + post_id + '-delete');
+                var controls = deleteBtn.parentNode;
+                var mergeBtn = findChildrenByClassName(controls, 'question-merge');
+                if (mergeBtn.length === 1 && data['userIsThreadModerator'] === false) {
+                    removeNode(mergeBtn[0]);
+                }
+
+                if (data['userIsAdminOrMod']) {
+                    return;//all remaining functions stay on
+                }
+
+                
+
+                if (isAuthorOfPost(post_id)) {
+                    if (postIsQuestion(post_id) && 8) {
+                        if (data['userReputation'] < 1) {
+                            if (!data['userIsAdminOrMod']) {
+                                removeNode(deleteBtn);
+                            }
+                        }
+                    }
+                    //todo: remove edit button from older comments
+                    return;
+                }
+
+                if (//maybe remove "delete" button
+                    (data['userReputation'] <
+                    200) || data['userIsReadOnly']
+                ) {
+                    removeNode(deleteBtn);
+                }
+
+                var canFlagPosts = data['userReputation'] >= 5;
+                var flags = findChildrenByClassName(controls, 'question-flag');
+                if (flags.length > 0 && !canFlagPosts) {
+                    for (var i = 0; i < flags.length; i++) {
+                        removeNode(flags[i]);
+                    }
+                }
+                var closeBtn = findChildrenByClassName(controls, 'question-close');
+                if (
+                    closeBtn.length === 1 &&
+                    (
+                        (data['userReputation'] < 200) ||
+                        data['userIsReadOnly']
+                    )
+                ) {
+                    removeNode(closeBtn[0]);
+                }
+                var enoughRep = (data['userReputation'] >= 500 ||
+                        (is_wiki && data['userReputation'] >= 75));
+                if (//maybe remove "edit" button
+                    !enoughRep || data['userIsReadOnly']//only authors edit comments
+                ){
+                    var editBtns = findChildrenByClassName(getPost(post_id), 'js-edit');
+                    var numBtns = editBtns.length;
+                    for (var i=0; i<numBtns; i++) {
+                        removeNode(editBtns[i]);
+                    }
+                }
+                if (//maybe remove retag button
+                    (!isAuthorOfPost(post_id)) &&
+                    postIsQuestion(post_id) &&
+                    ((data['userReputation'] <
+                    100) ||
+                    data['userIsReadOnly'])
+                ){
+                    var retagBtn = document.getElementById('retag');
+                    if (retagBtn) {
+                        removeNode(retagBtn);
+                    }
+                }
+            }
+
+            function render_add_answer_button(){
+                var add_answer_btn = document.getElementById('add-answer-btn');
+                if (askbot['data']['userIsAuthenticated']){
+                    if (askbot['data']['userId'] == 26246){
+                        add_answer_btn.className += ' answer-own-question';
+                        add_answer_btn.setAttribute(
+                            'value',
+                            'Answer Your Own Question'
+                        )
+                    } else {
+                        add_answer_btn.setAttribute(
+                           'value',
+                           'Post Your Answer'
+                        )
+                    }
+                } else {
+                    add_answer_btn.setAttribute(
+                        'value',
+                        'Login/Signup to Post'
+                    );
+                }
+            }
+
+            function hide_convert_links() {
+                var isAuthenticated = data['userIsAuthenticated'];
+                var isMod = data['userIsAdminOrMod'];
+                if (isAuthenticated && isMod) {
+                    return;
+                }
+                var convertForms = findChildrenByClassName(document, 'convert-comment');
+                for (var i = 0; i < convertForms.length; i++) {
+                    //get comment id
+                    var form = convertForms[i];
+                    var idInput = findChildByAttribute(form, 'name', 'comment_id');
+                    var commentId = idInput.getAttribute('value');
+                    if (! isAuthorOfPost(commentId) ) {
+                        form.setAttribute('style', 'display:none;');
+                    }
+                }
+            }
+
+            askbot['functions'] = askbot['functions'] || {};
+            askbot['functions']['renderPostVoteButtons'] = render_vote_buttons;
+            askbot['functions']['renderPostControls'] = render_post_controls;
+            askbot['functions']['renderAddAnswerButton'] = render_add_answer_button;
+            askbot['functions']['hideConvertLinks'] = hide_convert_links;
+            askbot['functions']['hideConvertAnswerLinks'] = hide_convert_answer_links;
+            askbot['functions']['hidePublishAnswerLink'] = hidePublishAnswerLink;
+        })();
+        /*]]>*/
+    </script> </head> <body class="two-col user-messages question-page anon lang-en"> <div class="notify" style=""> <div class="content-wrapper"> <p class="notification">First time here? Check out the FAQ!</p> <a id="closeNotify" onclick="notify.close(true)"></a> </div> </div> <div id="custom-header"> <div align="center"> <br> <table id="topnav-table"> <tbody><tr> <td valign="middle">
+              ROS Resources: 
+            <a href="http://wiki.ros.org/">Documentation</a>
+            |
+            <a href="http://wiki.ros.org/Support">Support</a>
+            |
+            <a href="http://discourse.ros.org/">Discussion Forum</a>
+            |
+            <a href="http://status.ros.org/">Service Status</a>
+            |
+            <a href="http://answers.ros.org/">Q&amp;A answers.ros.org</a> </td> </tr> </tbody></table> <!-- topnav-table --> </div> </div> <!-- template header.html --> <div id="header" class="with-logo"> <div class="content-wrapper"> <div id="userToolsNav"> <a href="https://answers.ros.org/account/signin/?next=/question/230076/ros-on-raspberry-3/">Hi there! Please sign in</a> <a class="help" href="https://answers.ros.org/help/" title="help">help</a> </div> <a id="logo" href="https://answers.ros.org/questions/"><img src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/logoros.png" alt="ROS Answers logo"> </a> <div id="metaNav"> <a id="navTags" href="https://answers.ros.org/tags/">tags</a> <a id="navUsers" href="https://answers.ros.org/users/">users</a> <a id="navBadges" href="https://answers.ros.org/badges/">badges</a> </div> <div class="clean"></div> </div> </div> <!-- end template header.html --> <!-- template secondary_header.html --> <div id="secondaryHeader"> <div class="content-wrapper"> <form action="https://answers.ros.org/questions/" id="searchForm" class="scopes-True-True-False" method="get"> <table width="100%"> <tbody><tr> <td width="1"><a id="homeButton" href="https://answers.ros.org/questions/"><i class="fa fa-home"></i></a></td> <td width="1"><div id="scopeNav"> <a class="scope-selector " href="https://answers.ros.org/questions/scope:all/sort:activity-desc/page:1/">ALL</a> <a class="scope-selector " href="https://answers.ros.org/questions/scope:unanswered/sort:answers-asc/page:1/">UNANSWERED</a> </div></td> <td width="*" class="search-bar"> <div id="searchBar" class="search-bar"><input class="searchInput" type="text" autocomplete="off" value="" name="query" placeholder="Search or ask your question" id="keywords"><input type="submit" value="" name="search" class="searchBtn"><input type="button" value="X" name="reset_query" class="cancelSearchBtn" style="display: none;"><div class="search-drop-menu empty" style="display: none;"><ul></ul><div class="wait-icon-box" style="display: none;"><img src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/ajax-loader.gif"></div><div class="footer"><button class="submit btn btn-default">Ask Your Question</button></div></div></div> </td> <td width="1"> <a id="askButton" class="button" href="https://answers.ros.org/questions/ask/">
+            Ask Your Question
+        </a> </td> </tr> </tbody></table> </form> </div> </div> <div class="content-wrapper"> <div id="ContentLeft"> <div class="banner"> </div> <div class="post js-question" data-post-id="230076"> <div class="vote-buttons"> <div id="question-img-upvote-230076" class="question-img-upvote post-vote upvote"> </div> <div id="question-vote-number-230076" class="vote-number" title="current number of votes">3</div> <div id="question-img-downvote-230076" class="question-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('question', '230076');
+</script> <a class="twitter-share icon" title="Share this content on twitter"></a> <a class="facebook-share icon" title="Share this content on facebook"></a> <a class="linkedin-share icon" title="Share this content on linkedin"></a> <a class="identica-share icon" title="Share this content on identica"></a> <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 24px; height: 15px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 24px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 15px;" tabindex="0" vspace="0" width="100%" id="I0_1512336033723" name="I0_1512336033723" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/fastbutton.html" data-gapiattached="true" title="G+"></iframe></div> </div> <div id="post-id-230076" class="post-content"> <h1 class="js-editable" id="js-question-title-230076" data-get-text-url="/s/get-question-title/?question_id=230076" data-save-text-url="/s/set-question-title/?question_id=230076" data-save-text-param-name="title" data-validated-text-param-name="title" data-min-lines="1" data-editor-type="plain" data-validator="askbot.validators.titleValidator"><div class="js-error"></div> <div class="js-editable-content">ROS on Raspberry 3</div><div style="display: none;"><div class="js-simple-editor"><textarea cols="60" rows="10" maxlength="1000"></textarea><pre class="mirror"></pre></div></div> <div class="js-editable-controls">  <button style="display: none;">save</button><button style="display: none;">cancel</button></div> </h1> <ul id="question-tags" class="tags post-tags tags"> <li> <div class="js-tag "><a class="js-tag-name" rel="tag" href="https://answers.ros.org/questions/scope:all/sort:activity-desc/tags:raspberrypi3/page:1/" data-tag-name="raspberrypi3">raspberrypi3</a></div> </li> </ul> <div class="clearfix"></div> <div class="post-body"> <div class="js-editable-hide-post-body-230076"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://answers.ros.org/questions/230076/revisions/"><strong>
+    
+        
+        asked <abbr class="timeago" title="2016-03-24 13:24:59 -0600" style="display: inline;">Mar 25 '16</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://answers.ros.org/users/26246/emilien/"><img class="js-avatar gravatar" width="32" height="32" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/e15f23dc5ad1ca25e76f40e5339e8b19" title="Emilien" alt="Emilien gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://answers.ros.org/users/26246/emilien/">Emilien</a> <br> <span class="reputation-score">33</span> <span class="badges" title="Emilien has 41 gold badges, 64 silver badges and 79 bronze badges"> <span class="badge1">●</span><span class="badgecount">41</span> <span class="badge2">●</span><span class="badgecount">64</span> <span class="badge3">●</span><span class="badgecount">79</span> </span> </div> </div> </div> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://answers.ros.org/questions/230076/revisions/"><strong>
+    
+        
+        updated <abbr class="timeago" title="2016-03-24 13:29:00 -0600" style="display: inline;">Mar 25 '16</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://answers.ros.org/users/1034/ahendrix/"><img class="js-avatar gravatar" width="32" height="32" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/e51d02b08b671143167f8645183c06b0" title="ahendrix" alt="ahendrix gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://answers.ros.org/users/1034/ahendrix/">ahendrix</a> <img class="flag" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/us.gif" alt="flag of United States of America" title="ahendrix is from United States of America" style="max-width: 685px; height: auto;"> <br> <span class="reputation-score">37189</span> <span class="badges" title="ahendrix has 104 gold badges, 231 silver badges and 512 bronze badges"> <span class="badge1">●</span><span class="badgecount">104</span> <span class="badge2">●</span><span class="badgecount">231</span> <span class="badge3">●</span><span class="badgecount">512</span> </span> <a href="http://namniart.com/" title="ahendrix&#39;s website is http://namniart.com/">
+        http://namniart.com/
+        </a> </div> </div> </div> </div> </div> <div class="js-editable" id="js-post-body-230076" data-get-text-url="/s/get-post-body/?post_id=230076" data-save-text-url="/s/set-post-body/?post_id=230076" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.questionDetailsValidator"><div class="js-error"></div> <div class="js-editable-content"><p>Hello,
+Is there anyone already install ROS on raspberry pi 3?</p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-1" class="wmd-panel"></div><textarea id="editor-1"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-1" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div id="question-controls" class="post-controls">   <span id="question-offensive-flag-230076" class="offensive-flag" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)">  </span>    <script type="text/javascript">
+    askbot['functions']['renderPostControls']('230076');
+</script> </div> <h2 class="comment-title">Comments</h2><div class="clean"></div><div class="comments ordering-forward" data-parent-post-type="question" data-parent-post-id="230076"><div class="content"><div id="post-id-230078" class="comment js-comment" data-post-id="230078"><div class="comment-votes"><div id="comment-img-upvote-230078" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '230078');
+            </script></div><div class="comment-content"><div class="comment-body"><p>I have not heard any success stories yet. I'd suggest you start with an installation of Ubuntu 14.04 if possible and then follow the UbuntuARM instructions.</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/1034/ahendrix/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/e51d02b08b671143167f8645183c06b0(1)" title="ahendrix" alt="ahendrix gravatar image"></a><a class="author" href="https://answers.ros.org/users/1034/ahendrix/">ahendrix</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-03-24 13:29:54 -0600" style="display: inline;">Mar 25 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('230078');
+    </script><div id="post-id-230098" class="comment js-comment" data-post-id="230098"><div class="comment-votes"><div id="comment-img-upvote-230098" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '230098');
+            </script></div><div class="comment-content"><div class="comment-body"><p>Ubuntu mate?</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26246/emilien/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/e15f23dc5ad1ca25e76f40e5339e8b19(1)" title="Emilien" alt="Emilien gravatar image"></a><a class="author" href="https://answers.ros.org/users/26246/emilien/">Emilien</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-03-24 16:59:39 -0600" style="display: inline;">Mar 25 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('230098');
+    </script><div id="post-id-230102" class="comment js-comment" data-post-id="230102"><div class="comment-votes"><div id="comment-img-upvote-230102" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '230102');
+            </script></div><div class="comment-content"><div class="comment-body"><p>Most of the Ubuntu MATE images that I see are based on Ubuntu 15.04, which isn't supported by the ARM builds of ROS.</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/1034/ahendrix/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/e51d02b08b671143167f8645183c06b0(1)" title="ahendrix" alt="ahendrix gravatar image"></a><a class="author" href="https://answers.ros.org/users/1034/ahendrix/">ahendrix</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-03-24 17:38:34 -0600" style="display: inline;">Mar 25 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('230102');
+    </script><div id="post-id-230103" class="comment js-comment" data-post-id="230103"><div class="comment-votes"><div id="comment-img-upvote-230103" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '230103');
+            </script></div><div class="comment-content"><div class="comment-body"><p>so which ubuntu should be install it in my raspberry? i don't found ubuntu for raspberry</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26246/emilien/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/e15f23dc5ad1ca25e76f40e5339e8b19(1)" title="Emilien" alt="Emilien gravatar image"></a><a class="author" href="https://answers.ros.org/users/26246/emilien/">Emilien</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-03-24 17:43:25 -0600" style="display: inline;">Mar 25 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('230103');
+    </script><div id="post-id-230121" class="comment js-comment" data-post-id="230121"><div class="comment-votes"><div id="comment-img-upvote-230121" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '230121');
+            </script></div><div class="comment-content"><div class="comment-body"><p>I can't find a version of Ubuntu 14.04 that is compatible with the Raspberry Pi 3 either.</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/1034/ahendrix/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/e51d02b08b671143167f8645183c06b0(1)" title="ahendrix" alt="ahendrix gravatar image"></a><a class="author" href="https://answers.ros.org/users/1034/ahendrix/">ahendrix</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-03-25 00:08:38 -0600" style="display: inline;">Mar 25 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('230121');
+    </script><div id="post-id-230182" class="comment js-comment" data-post-id="230182"><div class="comment-votes"><div id="comment-img-upvote-230182" class="upvote js-score">1</div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '230182');
+            </script></div><div class="comment-content"><div class="comment-body"><p>I used an Ubuntu 15,04 image and compiled ROS (core) from sources. I didn't have any problems.</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/18581/nengelhard/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/nophoto.png" title="NEngelhard" alt="NEngelhard gravatar image"></a><a class="author" href="https://answers.ros.org/users/18581/nengelhard/">NEngelhard</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-03-25 18:44:47 -0600" style="display: inline;">Mar 26 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('230182');
+    </script></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> </div> <div class="clean"></div> <div class="tabBar tabBar-answer"> <h2 id="questionCount"> <span class="count">8</span> Answers
+    </h2> <div class="tabsA"> <span class="label">
+                    Sort by »
+                    </span> <a id="oldest" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/?sort=oldest#sort-top"><span>oldest</span></a> <a id="latest" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/?sort=latest#sort-top"><span>newest</span></a> <a id="votes" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/?sort=votes#sort-top" classname="on"><span>most voted</span></a> </div> </div> <div class="clean"></div> <div class="pager"> </div> <div class="clean"></div> <a name="233636"></a> <div id="post-id-233636" data-post-id="233636" class="post answer accepted-answer  "> <div class="vote-buttons"> <div id="answer-img-upvote-233636" class="answer-img-upvote post-vote upvote"> </div> <div id="answer-vote-number-233636" class="vote-number" title="current number of votes">4</div> <div id="answer-img-downvote-233636" class="answer-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('answer', '233636');
+</script> <div id="answer-img-accept-233636" class="answer-img-accept" title="this answer has been selected as correct"></div> </div> <div class="post-content"> <div class="post-body"> <div class="js-editable-hide-post-body-233636"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://answers.ros.org/answers/233636/revisions/"><strong>
+    
+        
+        answered <abbr class="timeago" title="2016-05-04 11:42:16 -0600" style="display: inline;">May 5 '16</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://answers.ros.org/users/26765/clapton-is-god/"><img class="js-avatar gravatar" width="32" height="32" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/Dereck_and_Dominos_Eric_Clapto_by_JohnnySlowhand.jpg" title="Clapton-Is-God" alt="Clapton-Is-God gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://answers.ros.org/users/26765/clapton-is-god/">Clapton-Is-God</a> <br> <span class="reputation-score">66</span> <span class="badges" title="Clapton-Is-God has one gold badge, 5 silver badges and 4 bronze badges"> <span class="badge1">●</span><span class="badgecount">1</span> <span class="badge2">●</span><span class="badgecount">5</span> <span class="badge3">●</span><span class="badgecount">4</span> </span> </div> </div> </div> </div> </div> <div class="js-editable" id="js-post-body-233636" data-get-text-url="/s/get-post-body/?post_id=233636" data-save-text-url="/s/set-post-body/?post_id=233636" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.answerValidator"><div class="js-error"></div> <div class="js-editable-content"><p> I have just finished successfully installing ROS Indigo on my raspberry pi 3 with debian jessie. I installed from source using this guide:
+ <a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Indigo%20on%20Raspberry%20Pi">http://wiki.ros.org/ROSberryPi/Instal...</a></p> <p>The guide is greatly detailed, but you have to remember to be patient for it will take a lot of time and energy to successfully install ROS from source. And remember to apply the patches for "collada-dom-dev" and "rviz" if you want to install the full-desktop version.</p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-2" class="wmd-panel"></div><textarea id="editor-2"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-2" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div class="answer-controls post-controls"> <span class="action-link">  </span> <span id="answer-offensive-flag-233636" class="action-link offensive-flag" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)">  </span>  <span class="action-link"> <a class="permant-link" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/?answer=233636#post-id-233636" title="permanent link">
+        link
+    </a> </span>  <script type="text/javascript">
+    askbot['functions']['hideConvertAnswerLinks']('233636');
+    askbot['functions']['hidePublishAnswerLink']('233636');
+    askbot['functions']['renderPostControls']('233636');
+</script> </div> <h2 class="comment-title">Comments</h2><div class="clean"></div><div class="comments ordering-forward" data-parent-post-type="answer" data-parent-post-id="233636"><div class="content"><div id="post-id-235225" class="comment js-comment" data-post-id="235225"><div class="comment-votes"><div id="comment-img-upvote-235225" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '235225');
+            </script></div><div class="comment-content"><div class="comment-body"><p>Hi. Could you please tell me where the patch for collada-dom-dev is? There is a link on the tutorials page but I couldn't find the patch on the link given. And how is it to be installed? 
+Thanks.</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26985/rohitm/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/7ff0d74e08f55244d410cc9f204e6d82" title="RohitM" alt="RohitM gravatar image"></a><a class="author" href="https://answers.ros.org/users/26985/rohitm/">RohitM</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-05-25 20:51:35 -0600" style="display: inline;">May 26 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('235225');
+    </script><div id="post-id-235241" class="comment js-comment" data-post-id="235241"><div class="comment-votes"><div id="comment-img-upvote-235241" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '235241');
+            </script></div><div class="comment-content"><div class="comment-body"><p><a href="https://groups.google.com/forum/#!msg/ros-sig-embedded/26XlDtZhyNs/OexZAx6BCBcJ">https://groups.google.com/forum/#!msg...</a> 
+From there, there is an attached file that you can download.
+then go to folder: cd ~/ros_catkin_ws/src/robot_model/collada_urdf/src
+place the file there and rename it to fix.patch
+then apply the patch: patch &lt; fix.patch </p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26765/clapton-is-god/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/Dereck_and_Dominos_Eric_Clapto_by_JohnnySlowhand(1).jpg" title="Clapton-Is-God" alt="Clapton-Is-God gravatar image"></a><a class="author" href="https://answers.ros.org/users/26765/clapton-is-god/">Clapton-Is-God</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-05-26 02:11:01 -0600" style="display: inline;">May 26 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('235241');
+    </script><div id="post-id-235243" class="comment js-comment" data-post-id="235243"><div class="comment-votes"><div id="comment-img-upvote-235243" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '235243');
+            </script></div><div class="comment-content"><div class="comment-body"><p>It is also mentioned in the guide to change the name from "collada-dom" to "collada-dom-dev". That also did not work for me as rosdep still could not find collada-dom-dev. I changed the name from "collada-dom" to "libcollada-dom2.4-dp-dev" and that fixed the issue.</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26765/clapton-is-god/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/Dereck_and_Dominos_Eric_Clapto_by_JohnnySlowhand(1).jpg" title="Clapton-Is-God" alt="Clapton-Is-God gravatar image"></a><a class="author" href="https://answers.ros.org/users/26765/clapton-is-god/">Clapton-Is-God</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-05-26 02:18:20 -0600" style="display: inline;">May 26 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('235243');
+    </script><div id="post-id-235300" class="comment js-comment" data-post-id="235300"><div class="comment-votes"><div id="comment-img-upvote-235300" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '235300');
+            </script></div><div class="comment-content"><div class="comment-body"><p>Thanks. But for me it seems the folder that you suggested is not/has not been installed. There's no robot_model folder. Do you know why that would be?</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26985/rohitm/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/7ff0d74e08f55244d410cc9f204e6d82" title="RohitM" alt="RohitM gravatar image"></a><a class="author" href="https://answers.ros.org/users/26985/rohitm/">RohitM</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-05-26 20:34:06 -0600" style="display: inline;">May 27 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('235300');
+    </script><div id="post-id-235320" class="comment js-comment" data-post-id="235320"><div class="comment-votes"><div id="comment-img-upvote-235320" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '235320');
+            </script></div><div class="comment-content"><div class="comment-body"><p>are you installing ros command line or ros desktop version?</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26765/clapton-is-god/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/Dereck_and_Dominos_Eric_Clapto_by_JohnnySlowhand(1).jpg" title="Clapton-Is-God" alt="Clapton-Is-God gravatar image"></a><a class="author" href="https://answers.ros.org/users/26765/clapton-is-god/">Clapton-Is-God</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-05-27 01:15:26 -0600" style="display: inline;">May 27 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('235320');
+    </script><div id="post-id-235322" class="comment js-comment" data-post-id="235322"><div class="comment-votes"><div id="comment-img-upvote-235322" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '235322');
+            </script></div><div class="comment-content"><div class="comment-body"><p>ros command line version</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26985/rohitm/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/7ff0d74e08f55244d410cc9f204e6d82" title="RohitM" alt="RohitM gravatar image"></a><a class="author" href="https://answers.ros.org/users/26985/rohitm/">RohitM</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-05-27 01:32:03 -0600" style="display: inline;">May 27 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('235322');
+    </script><div id="post-id-235324" class="comment js-comment" data-post-id="235324"><div class="comment-votes"><div id="comment-img-upvote-235324" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '235324');
+            </script></div><div class="comment-content"><div class="comment-body"><p>For the ros comm you don't need to build collada, you only need libconsole-bridge-dev and liblz4-dev. You can skip to the next step of the installation: resolving dependencies.</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26765/clapton-is-god/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/Dereck_and_Dominos_Eric_Clapto_by_JohnnySlowhand(1).jpg" title="Clapton-Is-God" alt="Clapton-Is-God gravatar image"></a><a class="author" href="https://answers.ros.org/users/26765/clapton-is-god/">Clapton-Is-God</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-05-27 02:05:37 -0600" style="display: inline;">May 27 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('235324');
+    </script><div id="post-id-235326" class="comment js-comment" data-post-id="235326"><div class="comment-votes"><div id="comment-img-upvote-235326" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '235326');
+            </script></div><div class="comment-content"><div class="comment-body"><p>Thank you !</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26985/rohitm/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/7ff0d74e08f55244d410cc9f204e6d82" title="RohitM" alt="RohitM gravatar image"></a><a class="author" href="https://answers.ros.org/users/26985/rohitm/">RohitM</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-05-27 02:22:05 -0600" style="display: inline;">May 27 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('235326');
+    </script></div><div class="controls"><a class="hidden js-open-editor-btn">add a comment</a><a class="js-load-comments-btn">
+            
+                see more comments
+            
+        </a></div></div> </div> <div class="clean"></div> </div> <div class="clean"></div> <div class="banner"> </div> <a name="230537"></a> <div id="post-id-230537" data-post-id="230537" class="post answer   "> <div class="vote-buttons"> <div id="answer-img-upvote-230537" class="answer-img-upvote post-vote upvote"> </div> <div id="answer-vote-number-230537" class="vote-number" title="current number of votes">2</div> <div id="answer-img-downvote-230537" class="answer-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('answer', '230537');
+</script> <div id="answer-img-accept-230537" class="answer-img-accept" title="mark this answer as correct (click again to undo)"></div> </div> <div class="post-content"> <div class="post-body"> <div class="js-editable-hide-post-body-230537"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://answers.ros.org/answers/230537/revisions/"><strong>
+    
+        
+        answered <abbr class="timeago" title="2016-03-30 08:42:56 -0600" style="display: inline;">Mar 30 '16</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://answers.ros.org/users/23929/shawn-schaerer/"><img class="js-avatar gravatar" width="32" height="32" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/a0a13e5d82ea6f17812d8e01d90cd460" title="Shawn Schaerer" alt="Shawn Schaerer gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://answers.ros.org/users/23929/shawn-schaerer/">Shawn Schaerer</a> <br> <span class="reputation-score">71</span> <span class="badges" title="Shawn Schaerer has 2 silver badges and 5 bronze badges"> <span class="badge2">●</span><span class="badgecount">2</span> <span class="badge3">●</span><span class="badgecount">5</span> </span> </div> </div> </div> </div> </div> <div class="js-editable" id="js-post-body-230537" data-get-text-url="/s/get-post-body/?post_id=230537" data-save-text-url="/s/set-post-body/?post_id=230537" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.answerValidator"><div class="js-error"></div> <div class="js-editable-content"><p>you can do a Chroot 14.04,  on the 15.04 system.
+I did this for the dragonboard 410c and it works.</p> <p>Most likely I will do this for the RPI3 or just compile natively  </p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-3" class="wmd-panel"></div><textarea id="editor-3"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-3" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div class="answer-controls post-controls"> <span class="action-link">  </span> <span id="answer-offensive-flag-230537" class="action-link offensive-flag" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)">  </span>  <span class="action-link"> <a class="permant-link" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/?answer=230537#post-id-230537" title="permanent link">
+        link
+    </a> </span>  <script type="text/javascript">
+    askbot['functions']['hideConvertAnswerLinks']('230537');
+    askbot['functions']['hidePublishAnswerLink']('230537');
+    askbot['functions']['renderPostControls']('230537');
+</script> </div> <div class="comments empty ordering-forward" data-parent-post-type="answer" data-parent-post-id="230537"><div class="content"></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> <div class="clean"></div> </div> <div class="clean"></div> <a name="235194"></a> <div id="post-id-235194" data-post-id="235194" class="post answer   "> <div class="vote-buttons"> <div id="answer-img-upvote-235194" class="answer-img-upvote post-vote upvote"> </div> <div id="answer-vote-number-235194" class="vote-number" title="current number of votes">1</div> <div id="answer-img-downvote-235194" class="answer-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('answer', '235194');
+</script> <div id="answer-img-accept-235194" class="answer-img-accept" title="mark this answer as correct (click again to undo)"></div> </div> <div class="post-content"> <div class="post-body"> <div class="js-editable-hide-post-body-235194"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://answers.ros.org/answers/235194/revisions/"><strong>
+    
+        
+        answered <abbr class="timeago" title="2016-05-25 09:10:47 -0600" style="display: inline;">May 25 '16</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://answers.ros.org/users/26532/sylvain/"><img class="js-avatar gravatar" width="32" height="32" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/e9fdab9959dea2a0f7b970a2cdaaacd8" title="Sylvain" alt="Sylvain gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://answers.ros.org/users/26532/sylvain/">Sylvain</a> <br> <span class="reputation-score">11</span> <span class="badges" title="Sylvain has one silver badge and one bronze badge"> <span class="badge2">●</span><span class="badgecount">1</span> <span class="badge3">●</span><span class="badgecount">1</span> </span> </div> </div> </div> </div> </div> <div class="js-editable" id="js-post-body-235194" data-get-text-url="/s/get-post-body/?post_id=235194" data-save-text-url="/s/set-post-body/?post_id=235194" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.answerValidator"><div class="js-error"></div> <div class="js-editable-content"><p> One easy way: Ubuntu Mate Xenial ( <a href="https://ubuntu-mate.org/raspberry-pi/">https://ubuntu-mate.org/raspberry-pi/</a> ) with ROS Kinetic  ( <a href="http://wiki.ros.org/kinetic/Installation/Ubuntu">http://wiki.ros.org/kinetic/Installat...</a> )
+Works fine on my RPI3 </p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-4" class="wmd-panel"></div><textarea id="editor-4"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-4" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div class="answer-controls post-controls"> <span class="action-link">  </span> <span id="answer-offensive-flag-235194" class="action-link offensive-flag" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)">  </span>  <span class="action-link"> <a class="permant-link" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/?answer=235194#post-id-235194" title="permanent link">
+        link
+    </a> </span>  <script type="text/javascript">
+    askbot['functions']['hideConvertAnswerLinks']('235194');
+    askbot['functions']['hidePublishAnswerLink']('235194');
+    askbot['functions']['renderPostControls']('235194');
+</script> </div> <h2 class="comment-title">Comments</h2><div class="clean"></div><div class="comments ordering-forward" data-parent-post-type="answer" data-parent-post-id="235194"><div class="content"><div id="post-id-241849" class="comment js-comment" data-post-id="241849"><div class="comment-votes"><div id="comment-img-upvote-241849" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '241849');
+            </script></div><div class="comment-content"><div class="comment-body"><p> This is the best way, worked also fine for me. I had to use the  shadow-fixed repos though ( <a href="http://wiki.ros.org/ShadowRepository">http://wiki.ros.org/ShadowRepository</a> ) </p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/10981/johannes-jaegers/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/nophoto.png" title="Johannes Jaegers" alt="Johannes Jaegers gravatar image"></a><a class="author" href="https://answers.ros.org/users/10981/johannes-jaegers/">Johannes Jaegers</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-08-17 00:52:00 -0600" style="display: inline;">Aug 17 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('241849');
+    </script></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> <div class="clean"></div> </div> <div class="clean"></div> <a name="254557"></a> <div id="post-id-254557" data-post-id="254557" class="post answer   "> <div class="vote-buttons"> <div id="answer-img-upvote-254557" class="answer-img-upvote post-vote upvote"> </div> <div id="answer-vote-number-254557" class="vote-number" title="current number of votes">0</div> <div id="answer-img-downvote-254557" class="answer-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('answer', '254557');
+</script> <div id="answer-img-accept-254557" class="answer-img-accept" title="mark this answer as correct (click again to undo)"></div> </div> <div class="post-content"> <div class="post-body"> <div class="js-editable-hide-post-body-254557"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://answers.ros.org/answers/254557/revisions/"><strong>
+    
+        
+        answered <abbr class="timeago" title="2017-02-13 01:31:38 -0600" style="display: inline;">Feb 13 '17</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://answers.ros.org/users/21833/jackp510/"><img class="js-avatar gravatar" width="32" height="32" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/rosbots_logo.png" title="jackp510" alt="jackp510 gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://answers.ros.org/users/21833/jackp510/">jackp510</a> <br> <span class="reputation-score">16</span> <span class="badges" title="jackp510 has one gold badge, 2 silver badges and 2 bronze badges"> <span class="badge1">●</span><span class="badgecount">1</span> <span class="badge2">●</span><span class="badgecount">2</span> <span class="badge3">●</span><span class="badgecount">2</span> </span> <a href="http://www.rosbots.com/" title="jackp510&#39;s website is http://www.rosbots.com/" rel="nofollow">
+        http://www.rosbots.com/
+        </a> </div> </div> </div> </div> </div> <div class="js-editable" id="js-post-body-254557" data-get-text-url="/s/get-post-body/?post_id=254557" data-save-text-url="/s/set-post-body/?post_id=254557" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.answerValidator"><div class="js-error"></div> <div class="js-editable-content"><p>We have a Python <a href="https://github.com/ROSbots/rosbots_setup_tools">script that can download and compile ROS Kinetic on a fresh Jessie Lite image</a> if that helps.  </p> <p>You can also <a href="http://blog.rosbots.com/post/157107617908/rosbots-ros-opencv-setup-open-source-github?src=ros">read more about what else the script</a> does here. </p> <p>Hope this helps.  Let me know if you have any questions.  </p> <p>Cheers
+Jack</p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-5" class="wmd-panel"></div><textarea id="editor-5"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-5" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div class="answer-controls post-controls"> <span class="action-link">  </span> <span id="answer-offensive-flag-254557" class="action-link offensive-flag" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)">  </span>  <span class="action-link"> <a class="permant-link" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/?answer=254557#post-id-254557" title="permanent link">
+        link
+    </a> </span>  <script type="text/javascript">
+    askbot['functions']['hideConvertAnswerLinks']('254557');
+    askbot['functions']['hidePublishAnswerLink']('254557');
+    askbot['functions']['renderPostControls']('254557');
+</script> </div> <div class="comments empty ordering-forward" data-parent-post-type="answer" data-parent-post-id="254557"><div class="content"></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> <div class="clean"></div> </div> <div class="clean"></div> <a name="254510"></a> <div id="post-id-254510" data-post-id="254510" class="post answer   "> <div class="vote-buttons"> <div id="answer-img-upvote-254510" class="answer-img-upvote post-vote upvote"> </div> <div id="answer-vote-number-254510" class="vote-number" title="current number of votes">0</div> <div id="answer-img-downvote-254510" class="answer-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('answer', '254510');
+</script> <div id="answer-img-accept-254510" class="answer-img-accept" title="mark this answer as correct (click again to undo)"></div> </div> <div class="post-content"> <div class="post-body"> <div class="js-editable-hide-post-body-254510"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://answers.ros.org/answers/254510/revisions/"><strong>
+    
+        
+        answered <abbr class="timeago" title="2017-02-12 09:48:20 -0600" style="display: inline;">Feb 12 '17</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://answers.ros.org/users/26007/schwarmcyc/"><img class="js-avatar gravatar" width="32" height="32" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/git.JPG" title="schwarmcyc" alt="schwarmcyc gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://answers.ros.org/users/26007/schwarmcyc/">schwarmcyc</a> <br> <span class="reputation-score">26</span> <span class="badges" title="schwarmcyc has one gold badge, 3 silver badges and 3 bronze badges"> <span class="badge1">●</span><span class="badgecount">1</span> <span class="badge2">●</span><span class="badgecount">3</span> <span class="badge3">●</span><span class="badgecount">3</span> </span> </div> </div> </div> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://answers.ros.org/answers/254510/revisions/"><strong>
+    
+        
+        updated <abbr class="timeago" title="2017-02-12 09:49:14 -0600" style="display: inline;">Feb 12 '17</abbr> </strong></a> </p> </div> </div> </div> <div class="js-editable" id="js-post-body-254510" data-get-text-url="/s/get-post-body/?post_id=254510" data-save-text-url="/s/set-post-body/?post_id=254510" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.answerValidator"><div class="js-error"></div> <div class="js-editable-content"><p>Try this.</p> <p><a href="https://hackmd.io/p/SJbHPc-p#/1">https://hackmd.io/p/SJbHPc-p#/1</a></p> <p>with raspberry Pi3 ubuntuMATE  ROS Kinetic</p> <p>you can just download the image .iso  about 8GB .zip</p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-6" class="wmd-panel"></div><textarea id="editor-6"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-6" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div class="answer-controls post-controls"> <span class="action-link">  </span> <span id="answer-offensive-flag-254510" class="action-link offensive-flag" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)">  </span>  <span class="action-link"> <a class="permant-link" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/?answer=254510#post-id-254510" title="permanent link">
+        link
+    </a> </span>  <script type="text/javascript">
+    askbot['functions']['hideConvertAnswerLinks']('254510');
+    askbot['functions']['hidePublishAnswerLink']('254510');
+    askbot['functions']['renderPostControls']('254510');
+</script> </div> <h2 class="comment-title">Comments</h2><div class="clean"></div><div class="comments ordering-forward" data-parent-post-type="answer" data-parent-post-id="254510"><div class="content"><div id="post-id-256135" class="comment js-comment" data-post-id="256135"><div class="comment-votes"><div id="comment-img-upvote-256135" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '256135');
+            </script></div><div class="comment-content"><div class="comment-body"><p>hey ı downloaded the ımage file and copy the sd cart.I connect Raspberry Pi 3 with putty but ı couldn't find user name and password. Can you tell me what they are  ?</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/29560/yunusemretusun/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/cf83f0656f7a01737ee733714fe4da68" title="yunusemretusun" alt="yunusemretusun gravatar image"></a><a class="author" href="https://answers.ros.org/users/29560/yunusemretusun/">yunusemretusun</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2017-03-04 11:55:28 -0600" style="display: inline;">Mar 5 '17</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('256135');
+    </script><div id="post-id-256160" class="comment js-comment" data-post-id="256160"><div class="comment-votes"><div id="comment-img-upvote-256160" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '256160');
+            </script></div><div class="comment-content"><div class="comment-body"><p> I use ssh  <a href="mailto:ubuntu@192.168.1.101">ubuntu@192.168.1.101</a>    to access pi
+You should had a router   connect your PI3 and laptop to same local network
+And setup IP for pi  ex: 192.168.1.101    so first time u need to use screen and HDMI wire to doing the setup </p><p>BTW, pi user is ubuntu, password also ubuntu</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26007/schwarmcyc/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/git(1).JPG" title="schwarmcyc" alt="schwarmcyc gravatar image"></a><a class="author" href="https://answers.ros.org/users/26007/schwarmcyc/">schwarmcyc</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2017-03-05 02:08:16 -0600" style="display: inline;">Mar 5 '17</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('256160');
+    </script><div id="post-id-256189" class="comment js-comment" data-post-id="256189"><div class="comment-votes"><div id="comment-img-upvote-256189" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '256189');
+            </script></div><div class="comment-content"><div class="comment-body"><p>thank you ı succesfully login with putty but ı dont understant when you said "doing setup" ? what do you mean?</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/29560/yunusemretusun/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/cf83f0656f7a01737ee733714fe4da68" title="yunusemretusun" alt="yunusemretusun gravatar image"></a><a class="author" href="https://answers.ros.org/users/29560/yunusemretusun/">yunusemretusun</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2017-03-05 13:36:59 -0600" style="display: inline;">Mar 6 '17</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('256189');
+    </script><div id="post-id-256444" class="comment js-comment" data-post-id="256444"><div class="comment-votes"><div id="comment-img-upvote-256444" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '256444');
+            </script></div><div class="comment-content"><div class="comment-body"><p> Oh if your are using linux you under terminal you can ssh ubuntu@ &lt;ip&gt; to your raspberry pi
+<a href="https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md">https://www.raspberrypi.org/documenta...</a>
+Once  they are in the same local network&lt;/ip&gt;</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26007/schwarmcyc/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/git(1).JPG" title="schwarmcyc" alt="schwarmcyc gravatar image"></a><a class="author" href="https://answers.ros.org/users/26007/schwarmcyc/">schwarmcyc</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2017-03-07 23:20:32 -0600" style="display: inline;">Mar 8 '17</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('256444');
+    </script><div id="post-id-262689" class="comment js-comment" data-post-id="262689"><div class="comment-votes"><div id="comment-img-upvote-262689" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '262689');
+            </script></div><div class="comment-content"><div class="comment-body"><p>I have just passed the problem (access denied) with remote connection to pi 3 (Ubuntu Mate 16.04) using PuTTY and MobaXTerm. So, there are many options to fix it when u google it. But, the solution was easy for me. The login is root (not pi)</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/22089/dyupleks/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/image.jpg" title="dyupleks" alt="dyupleks gravatar image"></a><a class="author" href="https://answers.ros.org/users/22089/dyupleks/">dyupleks</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2017-05-28 02:44:34 -0600" style="display: inline;">May 28 '17</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('262689');
+    </script><div id="post-id-262774" class="comment js-comment" data-post-id="262774"><div class="comment-votes"><div id="comment-img-upvote-262774" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '262774');
+            </script></div><div class="comment-content"><div class="comment-body"><p>thank you guys ı  ı succesfully login with ssh</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/29560/yunusemretusun/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/cf83f0656f7a01737ee733714fe4da68" title="yunusemretusun" alt="yunusemretusun gravatar image"></a><a class="author" href="https://answers.ros.org/users/29560/yunusemretusun/">yunusemretusun</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2017-05-29 06:16:17 -0600" style="display: inline;">May 29 '17</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('262774');
+    </script></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> <div class="clean"></div> </div> <div class="clean"></div> <a name="235219"></a> <div id="post-id-235219" data-post-id="235219" class="post answer   "> <div class="vote-buttons"> <div id="answer-img-upvote-235219" class="answer-img-upvote post-vote upvote"> </div> <div id="answer-vote-number-235219" class="vote-number" title="current number of votes">0</div> <div id="answer-img-downvote-235219" class="answer-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('answer', '235219');
+</script> <div id="answer-img-accept-235219" class="answer-img-accept" title="mark this answer as correct (click again to undo)"></div> </div> <div class="post-content"> <div class="post-body"> <div class="js-editable-hide-post-body-235219"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://answers.ros.org/answers/235219/revisions/"><strong>
+    
+        
+        answered <abbr class="timeago" title="2016-05-25 17:20:40 -0600" style="display: inline;">May 26 '16</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://answers.ros.org/users/26373/jacobperron/"><img class="js-avatar gravatar" width="32" height="32" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/62fefe31805671d3529ada4da1a52bd6" title="jacobperron" alt="jacobperron gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://answers.ros.org/users/26373/jacobperron/">jacobperron</a> <br> <span class="reputation-score">388</span> <span class="badges" title="jacobperron has 4 silver badges and 12 bronze badges"> <span class="badge2">●</span><span class="badgecount">4</span> <span class="badge3">●</span><span class="badgecount">12</span> </span> </div> </div> </div> </div> </div> <div class="js-editable" id="js-post-body-235219" data-get-text-url="/s/get-post-body/?post_id=235219" data-save-text-url="/s/set-post-body/?post_id=235219" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.answerValidator"><div class="js-error"></div> <div class="js-editable-content"><p>I installed <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Jessie</a> and then followed the <a href="http://wiki.ros.org/indigo/Installation/UbuntuARM">ROS ARM Indigo Install guide</a> and everything works fine.</p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-7" class="wmd-panel"></div><textarea id="editor-7"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-7" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div class="answer-controls post-controls"> <span class="action-link">  </span> <span id="answer-offensive-flag-235219" class="action-link offensive-flag" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)">  </span>  <span class="action-link"> <a class="permant-link" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/?answer=235219#post-id-235219" title="permanent link">
+        link
+    </a> </span>  <script type="text/javascript">
+    askbot['functions']['hideConvertAnswerLinks']('235219');
+    askbot['functions']['hidePublishAnswerLink']('235219');
+    askbot['functions']['renderPostControls']('235219');
+</script> </div> <h2 class="comment-title">Comments</h2><div class="clean"></div><div class="comments ordering-forward" data-parent-post-type="answer" data-parent-post-id="235219"><div class="content"><div id="post-id-236611" class="comment js-comment" data-post-id="236611"><div class="comment-votes"><div id="comment-img-upvote-236611" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '236611');
+            </script></div><div class="comment-content"><div class="comment-body"><p>did you installed Rviz also?</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26246/emilien/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/e15f23dc5ad1ca25e76f40e5339e8b19(1)" title="Emilien" alt="Emilien gravatar image"></a><a class="author" href="https://answers.ros.org/users/26246/emilien/">Emilien</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-06-09 17:00:39 -0600" style="display: inline;">Jun 10 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('236611');
+    </script><div id="post-id-236685" class="comment js-comment" data-post-id="236685"><div class="comment-votes"><div id="comment-img-upvote-236685" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '236685');
+            </script></div><div class="comment-content"><div class="comment-body"><p>No, I did not install Rviz.</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/26373/jacobperron/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/62fefe31805671d3529ada4da1a52bd6(1)" title="jacobperron" alt="jacobperron gravatar image"></a><a class="author" href="https://answers.ros.org/users/26373/jacobperron/">jacobperron</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-06-10 10:14:23 -0600" style="display: inline;">Jun 11 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('236685');
+    </script><div id="post-id-248262" class="comment js-comment" data-post-id="248262"><div class="comment-votes"><div id="comment-img-upvote-248262" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '248262');
+            </script></div><div class="comment-content"><div class="comment-body"><p>For me it is giving below error,
+The following packages have unmet dependencies:
+ ros-indigo-ros-base : Depends: ros-indigo-actionlib but it is not going to be installed
+                       Depends: ros-indigo-bond-core but it is not going to be installed ....</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/users/28547/victorabraham/"><img class="js-avatar gravatar" width="16" height="16" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/85462d268676216355d87899a3cc4fd4" title="VictorAbraham" alt="VictorAbraham gravatar image"></a><a class="author" href="https://answers.ros.org/users/28547/victorabraham/">VictorAbraham</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2016-11-16 15:11:50 -0600" style="display: inline;">Nov 17 '16</abbr>
+    )</span></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('248262');
+    </script></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> <div class="clean"></div> </div> <div class="clean"></div> <a name="246262"></a> <div id="post-id-246262" data-post-id="246262" class="post answer   "> <div class="vote-buttons"> <div id="answer-img-upvote-246262" class="answer-img-upvote post-vote upvote"> </div> <div id="answer-vote-number-246262" class="vote-number" title="current number of votes">0</div> <div id="answer-img-downvote-246262" class="answer-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('answer', '246262');
+</script> <div id="answer-img-accept-246262" class="answer-img-accept" title="mark this answer as correct (click again to undo)"></div> </div> <div class="post-content"> <div class="post-body"> <div class="js-editable-hide-post-body-246262"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://answers.ros.org/answers/246262/revisions/"><strong>
+    
+        
+        answered <abbr class="timeago" title="2016-10-24 01:14:42 -0600" style="display: inline;">Oct 24 '16</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://answers.ros.org/users/25557/dr-abdul-mannan/"><img class="js-avatar gravatar" width="32" height="32" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/123_1481514120.avi_snapshot_00.01_[2016.12.12_12.42.12].jpg" title="Dr Abdul Mannan" alt="Dr Abdul Mannan gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://answers.ros.org/users/25557/dr-abdul-mannan/">Dr Abdul Mannan</a> <img class="flag" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/pk.gif" alt="flag of Pakistan" title="Dr Abdul Mannan is from Pakistan" style="max-width: 685px; height: auto;"> <br> <span class="reputation-score">112</span> <span class="badges" title="Dr Abdul Mannan has 16 gold badges, 23 silver badges and 26 bronze badges"> <span class="badge1">●</span><span class="badgecount">16</span> <span class="badge2">●</span><span class="badgecount">23</span> <span class="badge3">●</span><span class="badgecount">26</span> </span> <a href="https://github.com/u04617" title="Dr Abdul Mannan&#39;s website is https://github.com/u04617">
+        https://github.com/u04617
+        </a> </div> </div> </div> </div> </div> <div class="js-editable" id="js-post-body-246262" data-get-text-url="/s/get-post-body/?post_id=246262" data-save-text-url="/s/set-post-body/?post_id=246262" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.answerValidator"><div class="js-error"></div> <div class="js-editable-content"><p>I have used it, in particular, I have used ubuntu mate 16.06 with ROS Kinetic. I have successfully driven pioneer robot with it using the tutorial given here (<a href="http://wiki.ros.org/ROSARIA/Tutorials/How%20to%20use%20ROSARIA">link</a>). It works fine. Best of luck to your project. </p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-8" class="wmd-panel"></div><textarea id="editor-8"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-8" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div class="answer-controls post-controls"> <span class="action-link">  </span> <span id="answer-offensive-flag-246262" class="action-link offensive-flag" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)">  </span>  <span class="action-link"> <a class="permant-link" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/?answer=246262#post-id-246262" title="permanent link">
+        link
+    </a> </span>  <script type="text/javascript">
+    askbot['functions']['hideConvertAnswerLinks']('246262');
+    askbot['functions']['hidePublishAnswerLink']('246262');
+    askbot['functions']['renderPostControls']('246262');
+</script> </div> <div class="comments empty ordering-forward" data-parent-post-type="answer" data-parent-post-id="246262"><div class="content"></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> <div class="clean"></div> </div> <div class="clean"></div> <a name="230176"></a> <div id="post-id-230176" data-post-id="230176" class="post answer   "> <div class="vote-buttons"> <div id="answer-img-upvote-230176" class="answer-img-upvote post-vote upvote"> </div> <div id="answer-vote-number-230176" class="vote-number" title="current number of votes">0</div> <div id="answer-img-downvote-230176" class="answer-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('answer', '230176');
+</script> <div id="answer-img-accept-230176" class="answer-img-accept" title="mark this answer as correct (click again to undo)"></div> </div> <div class="post-content"> <div class="post-body"> <div class="js-editable-hide-post-body-230176"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://answers.ros.org/answers/230176/revisions/"><strong>
+    
+        
+        answered <abbr class="timeago" title="2016-03-25 13:40:36 -0600" style="display: inline;">Mar 26 '16</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://answers.ros.org/users/22870/duck-development/"><img class="js-avatar gravatar" width="32" height="32" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/nophoto.png" title="duck-development" alt="duck-development gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://answers.ros.org/users/22870/duck-development/">duck-development</a> <br> <span class="reputation-score">611</span> <span class="badges" title="duck-development has one gold badge, 3 silver badges and 11 bronze badges"> <span class="badge1">●</span><span class="badgecount">1</span> <span class="badge2">●</span><span class="badgecount">3</span> <span class="badge3">●</span><span class="badgecount">11</span> </span> </div> </div> </div> </div> </div> <div class="js-editable" id="js-post-body-230176" data-get-text-url="/s/get-post-body/?post_id=230176" data-save-text-url="/s/set-post-body/?post_id=230176" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.answerValidator"><div class="js-error"></div> <div class="js-editable-content"><p>You can use Debian jessy? </p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-9" class="wmd-panel"></div><textarea id="editor-9"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-9" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div class="answer-controls post-controls"> <span class="action-link">  </span> <span id="answer-offensive-flag-230176" class="action-link offensive-flag" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)">  </span>  <span class="action-link"> <a class="permant-link" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/?answer=230176#post-id-230176" title="permanent link">
+        link
+    </a> </span>  <script type="text/javascript">
+    askbot['functions']['hideConvertAnswerLinks']('230176');
+    askbot['functions']['hidePublishAnswerLink']('230176');
+    askbot['functions']['renderPostControls']('230176');
+</script> </div> <div class="comments empty ordering-forward" data-parent-post-type="answer" data-parent-post-id="230176"><div class="content"></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> <div class="clean"></div> </div> <div class="clean"></div> <div class="pager"> </div> <div class="clean"></div> <div style="clear:both"></div> <h2>
+    
+        Your Answer
+    
+</h2> <p class="message"> <span class="strong big">Please start posting anonymously</span> - your entry will be published after you log in or create a new account.
+
+    
+</p> <div class="folded-editor" tabindex="6"> <p class="js-folded-editor-trigger"><a>Add Answer</a></p> <div class="editor-proper"> <form id="fmanswer" class="js-answer-form" action="https://answers.ros.org/s/questions/230076/answer/" method="post" data-validated-fields="text" data-text-validator="askbot.validators.answerValidator"><input type="hidden" name="csrfmiddlewaretoken" value="vyvVTfAslNvZ8KzluDHLCgzZKdUgW4ND"> <div class="js-error js-text-error"></div> <div class="form-group editor-placeholder"> </div> <div class="answer-options"> </div> <div> <script src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/api.js"></script> <script type="text/javascript">
+    var DjangoRecaptchaOptions = {
+  "lang": "en"
+};
+    if (typeof RecaptchaOptions !== 'object') {
+        RecaptchaOptions = DjangoRecaptchaOptions;
+    } else {
+        for (key in DjangoRecaptchaOptions) {
+            RecaptchaOptions[key] = DjangoRecaptchaOptions[key];
+        }
+    }
+</script> <div class="g-recaptcha" data-sitekey="6LcpYfQSAAAAADDf1uspj3Ub4pfMrNfwSUMAVIlV"><div style="width: 304px; height: 78px;"><div><iframe src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/anchor.html" width="304" height="78" role="presentation" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div></div> <noscript style="padding: 0px; background-color: transparent;"> &lt;div style="width: 302px; height: 352px;"&gt; &lt;div style="width: 302px; height: 352px; position: relative;"&gt; &lt;div style="width: 302px; height: 352px; position: absolute;"&gt; &lt;iframe src="https://www.google.com/recaptcha/api/fallback?k=6LcpYfQSAAAAADDf1uspj3Ub4pfMrNfwSUMAVIlV"
+                frameborder="0" scrolling="no"
+                style="width: 302px; height:352px; border-style: none;"&gt; &lt;/iframe&gt; &lt;/div&gt; &lt;div style="width: 250px; height: 80px; position: absolute; border-style: none;
+                  bottom: 21px; left: 25px; margin: 0px; padding: 0px; right: 25px;"&gt; &lt;textarea id="g-recaptcha-response" name="g-recaptcha-response"
+                  class="recaptcha_challenge_field"
+                  style="width: 250px; height: 80px; border: 1px solid #c1c1c1;
+                         margin: 0px; padding: 0px; resize: none;" value=""&gt; &lt;/textarea&gt; &lt;input type='hidden' name='recaptcha_response_field' value='manual_challenge' /&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; </noscript> </div> <div class="clearfix"></div> <input id="add-answer-btn" type="submit" class="submit" value="Login/Signup to Post"> <script type="text/javascript">
+                askbot['functions']['renderAddAnswerButton']();
+            </script> </form> </div> </div> </div> <div id="ContentRight"> <div class="box vote-buttons"> <h2>Question Tools</h2> <button class="js-follow-question button large off-state" data-is-on="false" data-off-prompt-text="Unfollow" data-on-prompt-text="Follow" data-on-state-text="Following" data-off-state-text="Follow" data-toggle-url="/s/toggle-follow-question/">Follow</button> <div class="clearfix"></div> <div class="js-question-follower-count">
+        
+        
+            3 followers
+        
+    </div> <div class="notify-sidebar"> <p class="rss"> <a href="https://answers.ros.org/feeds/question/230076/" title="subscribe to the rss feed">subscribe to rss feed</a> </p> </div> </div> <div class="clearfix"></div> <div class="box statsWidget"> <div class="clearfix"></div> <h2>Stats</h2> <p>
+        Asked: <strong> <abbr class="timeago" title="2016-03-24 13:24:59 -0600" style="display: inline;">Mar 25 '16</abbr> </strong> </p> <p> 
+        Seen: <strong>7,019 times</strong> </p> <p>
+        Last updated: <strong title="2017-02-13 01:31:38.471153">Feb 13</strong> </p> </div> <div class="box"> <h2>Related questions</h2> <div class="questions-related"> <p> <a href="https://answers.ros.org/question/236910/kinect-on-raspberry-pi-3-and-ros-indigo/">kinect on raspberry pi 3 and ros indigo</a> </p> <p> <a href="https://answers.ros.org/question/250413/raspberry-pi-3-vs-jetson-tk1-for-ros/">Raspberry pi 3 vs Jetson TK1 for ROS</a> </p> <p> <a href="https://answers.ros.org/question/263911/usb-sensors-mess-with-each-other-ros-ubuntu-mate/">USB Sensors mess with each other, ROS Ubuntu Mate</a> </p> <p> <a href="https://answers.ros.org/question/248726/catkin_make_isolated-builds-tf-after-a-package-that-requires-tf/">catkin_make_isolated builds tf after a package that requires tf?</a> </p> <p> <a href="https://answers.ros.org/question/252866/ros-kinetic-build-raspberry-pi-3-missing-eigen3/">ROS Kinetic Build Raspberry Pi 3 - "Missing" Eigen3</a> </p> <p> <a href="https://answers.ros.org/question/273402/threading-issue-when-using-voice-recognition-on-turtlebot3-kinetic/">Threading Issue When Using Voice Recognition on TurtleBot3 (Kinetic)</a> </p> <p> <a href="https://answers.ros.org/question/263778/ros-kinetic-install-fails-to-resolve-dependencies-qtbase5-dev/">ros kinetic install fails to resolve dependencies (qtbase5-dev)</a> </p> <p> <a href="https://answers.ros.org/question/244781/install-roscpp/">Install ROSCPP</a> </p> <p> <a href="https://answers.ros.org/question/270599/i-want-use-2-rplidars-in-raspberry-pi/">I want use 2 rplidars in raspberry pi.</a> </p> <p> <a href="https://answers.ros.org/question/262705/raspberry-pi-3-with-slam/">Raspberry Pi 3 with SLAM</a> </p> </div> </div> <div class="box"> </div> </div> </div> <!-- template footer.html --> <div id="ground"> <div class="content-wrapper"> <div class="copyright"> <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode"> <img class="license-logo" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/cc-by-sa.png" title="cc-by-sa" alt="cc-by-sa"> </a>
+                
+                ROS Answers is licensed under Creative Commons Attribution 3.0 Content on this site is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">Creative Commons Attribution Share Alike 3.0</a> license.
+
+            </div> <div class="footer-links"> <a href="https://answers.ros.org/about/">about</a><span class="link-separator"> |</span> <a href="https://answers.ros.org/faq/">faq</a><span class="link-separator"> |</span> <a href="https://answers.ros.org/help/" title="help">help</a> <span class="link-separator"> |</span> <a href="https://answers.ros.org/privacy/">privacy policy</a><span class="link-separator"> |</span> <a href="https://answers.ros.org/terms/">terms of service</a> <span class="link-separator"> |</span> <a href="https://answers.ros.org/feedback/?next=/question/230076/ros-on-raspberry-3/">
+                give feedback
+            </a> </div> <div class="powered-link"> <a href="http://askbot.com/" target="_blank">
+                Powered by Askbot version 0.7.58
+            </a> </div> <div class="clean"></div> </div> </div> <!-- end template footer.html --> <div id="no-javascript"> <noscript class="noscript">
+        Please note: ROS Answers requires javascript to work properly, please enable javascript in your browser, &lt;a href="https://www.google.com/support/bin/answer.py?answer=23852"&gt;here is how&lt;/a&gt; </noscript> <script type="text/javascript">
+        //IE fix to hide the red margin
+        var noscript = document.getElementsByTagName('noscript')[0];
+        noscript.style.padding = '0px';
+        noscript.style.backgroundColor = 'transparent';
+    </script> </div> <script type="text/javascript">
+    askbot['urls']['mark_read_message'] = '/s/messages/markread/';
+    askbot['urls']['get_tags_by_wildcard'] = '/s/get-tags-by-wildcard/';
+    askbot['urls']['get_tag_list'] = '/s/get-tag-list/';
+    askbot['urls']['follow_user'] = '/followit/follow/user/{{userId}}/';
+    askbot['urls']['unfollow_user'] = '/followit/unfollow/user/{{userId}}/';
+    askbot['urls']['user_signin'] = '/account/signin/';
+    askbot['urls']['getEditor'] = '/s/get-editor/';
+    
+    askbot['urls']['apiGetQuestions'] = '/s/api/get_questions/';
+    askbot['urls']['ask'] = '/questions/ask/';
+	askbot['urls']['questions'] = '/questions/';
+    askbot['settings']['groupsEnabled'] = false;
+    askbot['settings']['static_url'] = '/m/';
+    askbot['settings']['minSearchWordLength'] = 3;
+    askbot['settings']['mathjaxEnabled'] = false;
+    askbot['settings']['sharingSuffixText'] = '';
+    askbot['settings']['errorPlacement'] = 'after-label';
+    askbot['data']['maxCommentLength'] = 300;
+    askbot['settings']['editorType'] = 'markdown';
+    
+    askbot['settings']['commentsEditorType'] = 'rich\u002Dtext';
+    askbot['messages']['askYourQuestion'] = 'Ask Your Question';
+    askbot['messages']['acceptOwnAnswer'] = 'accept or unaccept your own answer';
+    askbot['messages']['followQuestions'] = 'follow questions';
+    
+        askbot['settings']['allowedUploadFileTypes'] = [
+            "jpg", "jpeg", "gif", "bmp", "png", "tiff"
+        ];
+    
+    askbot['data']['haveFlashNotifications'] = true;
+    askbot['data']['activeTab'] = 'questions';
+    askbot['settings']['csrfCookieName'] = '_csrf';
+    
+        askbot['data']['searchUrl'] = '';
+    
+</script> <script type="text/javascript" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/8227174696ea.js"></script> <script type="text/javascript">
+    /*<![CDATA[*/
+    $('.mceStatusbar').remove();//a hack to remove the tinyMCE status bar
+    $(document).ready(function(){
+        // focus input on the search bar endcomment
+        var activeTab = askbot['data']['activeTab'];
+        if (inArray(activeTab, ['users', 'questions', 'tags', 'badges'])) {
+            var searchInput = $('#keywords');
+        } else if (activeTab === 'ask') {
+            var searchInput = $('#id_title');
+        } else {
+            var searchInput = undefined;
+            animateHashes();
+        }
+
+        if (searchInput) {
+            searchInput.focus();
+            putCursorAtEnd(searchInput);
+        }
+
+        var haveFullTextSearchTab = inArray(activeTab, ['questions', 'badges', 'ask']);
+        var haveUserProfilePage = $('body').hasClass('user-profile-page');
+        if ((haveUserProfilePage || haveFullTextSearchTab) && searchInput && searchInput.length) {
+            var search = new FullTextSearch();
+            askbot['controllers'] = askbot['controllers'] || {};
+            askbot['controllers']['fullTextSearch'] = search;
+            search.setSearchUrl(askbot['data']['searchUrl']);
+            if (activeTab === 'ask') {
+                search.setAskButtonEnabled(false);
+            }
+            search.decorate(searchInput);
+        } else if (activeTab === 'tags') {
+            var search = new TagSearch();
+            search.decorate(searchInput);
+        }
+
+        if (askbot['data']['userIsAdminOrMod']) {
+            $('body').addClass('admin');
+        }
+        if (askbot['settings']['groupsEnabled']) {
+            askbot['urls']['add_group'] = "/s/add-group/";
+            var group_dropdown = new GroupDropdown();
+            $('.groups-dropdown').append(group_dropdown.getElement());
+        }
+        var userRep = $('#userToolsNav .reputation');
+        if (userRep.length) {
+            var showPermsTrigger = new ShowPermsTrigger();
+            showPermsTrigger.decorate(userRep);
+        }
+    });
+    if (askbot['data']['haveFlashNotifications']) {
+        $('#validate_email_alert').click(function(){notify.close(true)})
+        notify.show();
+    }
+
+    var langNav = $('.lang-nav');
+    if (langNav.length) {
+        var nav = new LangNav();
+        nav.decorate(langNav);
+    }
+    /*]]>*/
+</script> <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/ga.js" type="text/javascript"></script> <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker('UA-17821189-3');
+    pageTracker._trackPageview();
+    } catch(err) {}
+</script> <div class="js-templates" style="display: none;"><div id="post-id-0" class="comment js-comment" data-post-id="0"><div class="comment-votes"><div id="comment-img-upvote-0" class="upvote js-score"></div></div><div class="comment-content"><div id="post-0-delete" class="comment-delete"><span class="js-delete-icon" title="delete this comment"></span></div><div class="comment-body"></div><div class="comment-controls"><a class="js-avatar-box" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/"><img class="js-avatar gravatar" width="16" height="16" src="https://answers.ros.org/question/230076/ros-on-raspberry-3/" title="" alt=" gravatar image"></a><a class="author" href="https://answers.ros.org/question/230076/ros-on-raspberry-3/"></a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2017-12-03 15:20:23 -0600">2017-12-03 15:20:23 -0600</abbr>
+    )</span><a id="post-0-edit" class="js-edit">edit</a><form action="https://answers.ros.org/s/comment/convert/" method="POST" accept-charset="utf-8" class="convert-comment"><input type="hidden" name="csrfmiddlewaretoken" value="None"><input type="hidden" value="0" name="comment_id"><input type="submit" value="convert to answer"></form></div></div></div><div class="js-simple-editor"><textarea></textarea><pre class="mirror"></pre></div><div class="js-tag  js-deletable-tag"><a class="js-tag-name" rel="tag" href="https://answers.ros.org/questions/scope:all/sort:activity-desc/tags:none/page:1/" data-tag-name="none">none</a><span class="js-delete-icon">×</span></div></div> <script type="text/javascript">
+        
+        askbot['urls']['postComments'] = '/s/post_comments/';
+        askbot['urls']['editComment'] = '/s/edit_comment/';
+        askbot['urls']['deleteComment'] = '/s/comment/delete/';
+        askbot['urls']['convertComment'] = '/s/comment/convert/';
+        askbot['urls']['getComment'] = '/s/comment/get-text/';
+        askbot['urls']['saveDraftAnswer'] = '/s/save-draft-answer/';
+        askbot['urls']['vote_url'] = '/s/vote'
+        askbot['urls']['user_signin'] = '/account/signin/';
+        askbot['urls']['upvote_comment'] = '/s/comment/upvote/';
+        askbot['urls']['delete_post'] = '/s/post/delete/';
+        askbot['urls']['get_html_template'] = '/s/get-html-template/';
+        askbot['urls']['getGroupsList'] = '/s/get-groups-list/';
+        askbot['urls']['publishAnswer'] = '/s/answer/publish/';
+        askbot['urls']['apiV1Questions'] = '/api/v1/questions/';
+        askbot['urls']['mergeQuestions'] = '/s/merge-questions/';
+        
+        askbot['data']['questionAuthorId'] = 26246;
+        askbot['data']['answersSortTab'] = 'votes';
+        askbot['data']['questionId'] = 230076;
+        askbot['data']['threadSlug'] = 'ros-on-raspberry-3';
+        askbot['messages']['addComment'] = 'add a comment';
+        askbot['messages']['userNamePrompt'] = 'User name:';
+        askbot['messages']['userEmailPrompt'] = 'Email address:';
+        askbot['messages']['mergeQuestions'] = 'Merge duplicate questions';
+        askbot['messages']['enterDuplicateQuestionId'] = 'Enter duplicate question ID';
+        
+        askbot['settings']['saveCommentOnEnter'] = false;
+        askbot['settings']['tagSource'] = 'user-input';
+        askbot['settings']['enableSharingGoogle'] = true;
+        askbot['settings']['enableEmailAlerts'] = true;
+    </script> <script type="text/javascript">
+    
+    askbot['settings']['tagsAreRequired'] = true
+    askbot['settings']['maxTagLength'] = 40;
+    askbot['messages']['maxTagLength'] = "each tag must be shorter than 40 characters";
+    askbot['settings']['maxTagsPerPost'] = 500;
+    askbot['messages']['maxTagsPerPost'] = "please use 500 tags or less";
+    askbot['messages']['tagLimits'] = "please use up to 500 tags, less than 40 characters each";
+    askbot['urls']['upload'] = '/s/upload/';
+    askbot['settings']['minTitleLength'] = 10;
+    askbot['settings']['minQuestionBodyLength'] = 10;
+    askbot['settings']['minAnswerBodyLength'] = 10;
+    askbot['settings']['minCommentBodyLength'] = 10;
+    askbot['settings']['tag_editor'] = '{\u0022tag_forbidden_first_chars\u0022: \u0022#\u0022, \u0022max_tag_length\u0022: 40, \u0022force_lowercase_tags\u0022: false, \u0022max_tags_per_post\u0022: 500, \u0022messages\u0022: {\u0022wrong_first_char\u0022: \u0022# is not a valid character at the beginning of tags, use only letters and numbers\u0022, \u0022wrong_chars\u0022: \u0022please use letters, numbers and characters \u005C\u0022\u002D+.#\u005C\u0022\u0022, \u0022required\u0022: \u0022tags are required\u0022}, \u0022tags_are_required\u0022: true}';
+    askbot['settings']['tinyMCEPlugins'] = JSON.parse('[]');
+</script> <script type="text/javascript">
+    (function() {
+        askbot['settings']['commentsReversed'] = false;
+        //make images always fit the screen
+        var images = $('.question-page .post-body img');
+        //these breakpoints must match those in css
+        //for explanation see utils.js:LimitedWidthImage
+        var breakpoints = [
+            [980, undefined],
+            [800, 55]
+        ];
+        var maxWidth = 685;
+        images.each(function(idx, item) {
+            var img = new LimitedWidthImage(breakpoints, maxWidth);
+            img.decorate($(item));
+        });
+    })();
+</script> <script type="text/javascript" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/9fd5d43b00dc.js"></script> <script type="text/javascript">
+    // define reputation needs for comments
+    askbot['urls']['getPostHtml'] = '/s/get-post-html/';
+    askbot['urls']['retag'] = "/s/questions/230076/retag/";
+
+    
+    
+    askbot['settings']['commentAvatarSize'] = 16;
+
+    $(document).ready(function(){
+        $("#nav_questions").attr('className',"on");
+        $("#" + askbot['data']['answersSortTab']).attr('className',"on");
+
+        Vote.init(
+            askbot['data']['questionId'],
+            askbot['data']['threadSlug'],
+            askbot['data']['questionAuthorId'],
+            askbot['data']['userId']
+        );
+
+        if ((askbot['data']['threadIsClosed'] === false) && askbot['data']['userIsAuthenticated']) {
+            initEditor();
+        }
+
+        lanai.highlightSyntax();
+        $('#btLogin').bind('click', function(){
+            window.location.href='/account/signin/';
+        });
+        if (window.location.hash === 'fmanswer'){
+            $('#fmanswer textarea').focus();
+        }
+
+        if (askbot['settings']['enableSharingGoogle']) {
+            $.getScript("//apis.google.com/js/plusone.js");
+        }
+
+        if (askbot['data']['userId'] === askbot['data']['questionAuthorId']) {
+            $("#fmanswer_button").click(function() {
+                $("#fmanswer").show();
+                $("#fmanswer_button").hide();
+            });
+        }
+
+        if (askbot['data']['userIsAuthenticated']) {
+            var draftHandler = new DraftAnswer();
+            draftHandler.setThreadId(66985);
+            draftHandler.decorate($('body'));
+        }
+
+        var expanders = $('.expander');
+        expanders.each(function(idx, item) {
+            var expanderElement = $(item);
+            var post = expanderElement.closest('.post,.comment');
+            if (post.length === 1) {
+                var expander = new PostExpander();
+                expander.setPostId(post.data('postId'));
+                expander.decorate(expanderElement);
+            }
+        });
+
+        var followBtn = $('.js-follow-question');
+        if (followBtn.length) {
+            var toggle = new AjaxToggle();
+            toggle.setPostData({'question_id': 230076 });
+            toggle.decorate(followBtn);
+            followBtn.bind('askbot.two-state-toggle.success', updateQuestionFollowerCount);
+        }
+    });
+
+    $(window).bind('hashchange', animate_hashes);
+
+    function animate_hashes(){
+      var id_value = window.location.hash;
+      if (id_value != ""){
+        var previous_color = $(id_value).css('background-color');
+        $(id_value).css('backgroundColor', '#FFF8C6');
+        $(id_value).animate(
+            {backgroundColor: '#ff7f2a'}, 1000
+        ).animate({backgroundColor: '#FFF8C6'}, 1000, function(){
+            $(id_value).css('backgroundColor', previous_color);
+        });
+      }
+    }
+
+
+    function initEditor(){
+        $('#editor').TextAreaResizer();
+        //highlight code synctax when editor has new text
+        $("#editor").typeWatch({highlight: false, wait: 3000,
+                         captureLength: 5, callback: lanai.highlightSyntax});
+
+        var display = true;
+        var txt = "[hide preview]";
+        $('#pre-collapse').text(txt);
+        $('#pre-collapse').bind('click', function(){
+            txt = display ? "[show preview]" : "[hide preview]";
+            display = !display;
+            $('#previewer').toggle();
+            $('#pre-collapse').text(txt);
+        });
+        var formElement = $('.js-answer-form');
+        if (formElement.length) {
+            var answerForm = new AnswerForm();
+            answerForm.decorate(formElement);
+        }
+    }
+</script> <script type="text/javascript">
+            for (url_name in askbot['urls']){
+                askbot['urls'][url_name] = cleanUrl(askbot['urls'][url_name]);
+            }
+        </script>  <iframe name="oauth2relay256324712" id="oauth2relay256324712" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><div style="background-color: #fff; border: 1px solid #ccc; box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2); position: absolute; left: 0px; top: -10000px; transition: visibility 0s linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: #fff; opacity: 0.05;  filter: alpha(opacity=5)"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge" src="./ROS on Raspberry 3 - ROS Answers_ Open Source Q&amp;A Forum_files/bframe.html" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" name="ulkd06c782tr" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

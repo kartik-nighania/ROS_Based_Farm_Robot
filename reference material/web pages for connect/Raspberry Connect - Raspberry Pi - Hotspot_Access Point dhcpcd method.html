@@ -1,0 +1,1771 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" dir="ltr" slick-uniqueid="3" lang="en-gb"><head>
+          
+            <!-- base href="http://www.raspberryconnect.com/network/item/333-raspberry-pi-hotspot-access-point-dhcpcd-method" -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="keywords" content="access point, hotspot, ap, ssh, vnc, raspberry pi, rpi, raspberryconnect, rpi3, rpi2, zero, zero w, Stretch, Raspbian 9, Raspbian 8, Jessie, dhcp.conf, interfaces, ifup, ifdown, nohooks, iw, can't connect, won't connect,">
+  <meta name="title" content="Raspberry Pi - Hotspot/Access Point dhcpcd method">
+  <meta property="og:url" content="http://www.raspberryconnect.com/network/item/333-raspberry-pi-hotspot-access-point-dhcpcd-method">
+  <meta property="og:title" content="Raspberry Connect - Raspberry Pi - Hotspot/Access Point dhcpcd method">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://www.raspberryconnect.com/media/k2/items/cache/e529a8dc22bd84a37f6f8ae6b8ce40d3_S.jpg">
+  <meta name="image" content="http://www.raspberryconnect.com/media/k2/items/cache/e529a8dc22bd84a37f6f8ae6b8ce40d3_S.jpg">
+  <meta property="og:description" content="A Raspberry Pi Hotspot/access point for Raspbian 9 Stretch onwards using the dhcpcd method.">
+  <meta name="description" content="A Raspberry Pi Hotspot/access point for Raspbian 9 Stretch onwards using the dhcpcd method.">
+  <title>Raspberry Connect - Raspberry Pi - Hotspot/Access Point dhcpcd method</title>
+  <link href="http://www.raspberryconnect.com/templates/raspconnect2/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+  <link rel="stylesheet" href="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/magnific-popup.css" type="text/css">
+  <link rel="stylesheet" href="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/k2_002.css" type="text/css">
+  <link rel="stylesheet" href="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/k2.css" type="text/css">
+  <script id="twitter-wjs" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/widgets.js"></script><script src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/cbgapi.loaded_1" async=""></script><script src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/cbgapi.loaded_0" async=""></script><script type="text/javascript" async="" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/plusone.js" gapi_processed="true"></script><script id="facebook-jssdk" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/all.js"></script><script type="text/javascript" async="" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/ga.js"></script><script type="text/javascript" async="" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/recaptcha__en.js"></script><script src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/jquery.js" type="text/javascript"></script>
+  <script src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/jquery-noconflict.js" type="text/javascript"></script>
+  <script src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/jquery-migrate.js" type="text/javascript"></script>
+  <script src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/jquery_002.js" type="text/javascript"></script>
+  <script src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/k2.js" type="text/javascript"></script>
+  <script src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/api.js" type="text/javascript"></script>
+  <script src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/mootools-core.js" type="text/javascript"></script>
+  <script src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/core.js" type="text/javascript"></script>
+  <script src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/mootools-more.js" type="text/javascript"></script>
+  <script src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/bootstrap.js" type="text/javascript"></script>
+  <script type="text/javascript">
+function onK2RecaptchaLoaded(){grecaptcha.render("recaptcha", {"sitekey" : "6Lcbtt4SAAAAAG_J-tXSdYtyVqTQ4a5KjBPLqvfK"});}
+jQuery(document).ready(function(){
+	jQuery('.hasTooltip').tooltip({"html": true,"container": "body"});
+});
+  </script>
+
+          
+                <link rel="stylesheet" href="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/system.css" type="text/css">
+                <link rel="stylesheet" href="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/position.css" type="text/css" media="screen,projection">
+                <link rel="stylesheet" href="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/layout.css" type="text/css" media="screen,projection">
+                <link rel="stylesheet" href="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/print.css" type="text/css" media="print">
+                <link rel="stylesheet" href="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/general.css" type="text/css">
+                <link rel="stylesheet" href="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/general_mozilla.css" type="text/css">
+                <link rel="stylesheet" href="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/personal.css" type="text/css">
+                <!--[if lte IE 6]>
+                <link href="/templates/raspconnect2/css/ieonly.css" rel="stylesheet" type="text/css" />
+
+                                <style type="text/css">
+                #line
+                {      width:98% ;
+                }
+                .logoheader
+                {
+                        height:200px;
+
+                }
+                #header ul.menu
+                {
+                display:block !important;
+                      width:98.2% ;
+
+
+                }
+                 </style>
+                                <![endif]-->
+                <!--[if IE 7]>
+                        <link href="/templates/raspconnect2/css/ie7only.css" rel="stylesheet" type="text/css" />
+                <![endif]-->
+                <script type="text/javascript" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/hide.js"></script>
+
+                <script type="text/javascript">
+                        var big ='72%';
+                        var small='53%';
+                  /* Disable right menu collapse option 1 of 3 
+                  var altopen='is open';
+                  var altclose='is closed'; */
+                        var bildauf='/templates/raspconnect2/images/plus.png';
+                        var bildzu='/templates/raspconnect2/images/minus.png';
+                  /*    Disable right menu collapse option 2 of 3 
+                  var rightopen='Open info';
+                  var rightclose='Close info'; */
+   
+                  /*                  var fontSizeTitle='Font size';
+                        var bigger='Bigger';
+                        var reset='Reset';
+                        var smaller='Smaller';
+                        var biggerTitle='Increase size';
+                        var resetTitle='Revert styles to default';
+                        var smallerTitle='Decrease size';
+                  */
+                </script>
+          <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37960809-1']);
+  _gaq.push(['_setDomainName', 'raspberryconnect.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+        <script type="text/javascript" charset="utf-8" async="" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/button.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{height:100%;overflow:hidden;position:fixed;width:100%}.fb_shrink_active{opacity:1;transform:scale(1, 1);transition-duration:200ms;transition-timing-function:ease-out}.fb_shrink_active:active{opacity:.5;transform:scale(.75, .75)}</style></head>
+
+        <body>
+
+          <div id="all">
+        <div id="back">
+                <div id="header">
+                                <div class="logoheader">
+                                        <h1 id="logo">
+
+                                                                        
+                                                                        
+                                                        <span class="header1">
+                                        Projects of the Raspberry Pi Community.                                        </span></h1>
+                                </div><!-- end logoheader -->
+                                        <ul class="skiplinks">
+                                                <li><a href="#main" class="u2">Skip to content</a></li>
+                                                <li><a href="#nav" class="u2">Jump to main navigation and login</a></li>
+                                                                                        <li><a href="#additional" class="u2">Jump to additional information</a></li>
+                                                                                   </ul>
+                                        <h2 class="unseen">Nav view search</h2>
+                                        <h3 class="unseen">Navigation</h3>
+                                        <ul class="nav menu">
+<li class="item-101"><a href="http://www.raspberryconnect.com/">Home</a></li><li class="item-186"><a href="http://www.raspberryconnect.com/about-raspberryconnect">About</a></li><li class="item-124"><a href="http://www.raspberryconnect.com/user-projects">RPi Projects</a></li><li class="item-127"><a href="http://www.raspberryconnect.com/software">Software</a></li><li class="item-128"><a href="http://www.raspberryconnect.com/webdirectory">Web Directory</a></li><li class="item-160"><a href="http://www.raspberryconnect.com/mainsearch">Search</a></li></ul>
+
+                                       
+                                        <div id="line">
+                                                                                
+                                      <h3 class="unseen">Search</h3>
+                                        
+                                        </div><!-- end line -->
+
+
+                        </div><!-- end header -->
+                        <div id="contentarea2">
+                                        <div id="breadcrumbs">
+
+                                                        
+
+                                        </div>
+
+                                        
+
+                                                        <div class="left1 " id="nav" role="navigation">
+                                                   <div class="moduletable">
+ <h3><span class="backh"><span class="backh2"><span class="backh3">RPi Projects</span></span></span></h3>
+ <ul class="nav menu">
+<li class="item-149"><a href="http://www.raspberryconnect.com/rpi-projects">RPi Projects</a></li><li class="item-187"><a href="http://www.raspberryconnect.com/in-the-classroom">Classroom Projects</a></li><li class="item-133"><a href="http://www.raspberryconnect.com/pi-base">Pi Base</a></li><li class="item-168"><a href="http://www.raspberryconnect.com/idonethat">I've Done That</a></li><li class="item-131"><a href="http://www.raspberryconnect.com/audio">Audio</a></li><li class="item-146"><a href="http://www.raspberryconnect.com/custom-casing">Custom Casing</a></li><li class="item-140"><a href="http://www.raspberryconnect.com/emulation">Emulation</a></li><li class="item-134"><a href="http://www.raspberryconnect.com/games">Games</a></li><li class="item-135"><a href="http://www.raspberryconnect.com/graphics">Graphics</a></li><li class="item-138 current active"><a href="http://www.raspberryconnect.com/network">Network</a></li><li class="item-145"><a href="http://www.raspberryconnect.com/hardware-add-ons">Hardware Add-ons</a></li><li class="item-136"><a href="http://www.raspberryconnect.com/internet">Internet</a></li><li class="item-137"><a href="http://www.raspberryconnect.com/multimedia">Multimedia</a></li><li class="item-139"><a href="http://www.raspberryconnect.com/programming">Programming</a></li><li class="item-141"><a href="http://www.raspberryconnect.com/office">Office</a></li><li class="item-142"><a href="http://www.raspberryconnect.com/operating-systems">Operating Systems</a></li><li class="item-143"><a href="http://www.raspberryconnect.com/security">Security</a></li><li class="item-144"><a href="http://www.raspberryconnect.com/tutorials-guides">Tutorials &amp; Guides</a></li><li class="item-132"><a href="http://www.raspberryconnect.com/video">Video</a></li><li class="item-147"><a href="http://www.raspberryconnect.com/miscellaneous">Miscellaneous</a></li></ul>
+</div>
+<div class="moduletable">
+ <h3><span class="backh"><span class="backh2"><span class="backh3">Advertising </span></span></span></h3>
+ 
+
+<div class="custom">
+	<div style="margin: 0 15px;">
+
+<script async="" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/adsbygoogle.html"></script>
+<!-- Rasp Right Side Bar -->
+<ins class="adsbygoogle" style="display:inline-block;width:120px;height:600px" data-ad-client="ca-pub-3533837445035277" data-ad-slot="5682824771"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div></div>
+</div>
+<div class="moduletable">
+ <h3><span class="backh"><span class="backh2"><span class="backh3">Advertising  (2)</span></span></span></h3>
+ 
+
+<div class="custom">
+	<div style="margin: 0 15px;">
+
+<script async="" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/adsbygoogle.html"></script>
+<!-- Rasp Right Side Bar -->
+<ins class="adsbygoogle" style="display:inline-block;width:120px;height:600px" data-ad-client="ca-pub-3533837445035277" data-ad-slot="5682824771"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div></div>
+</div>
+
+                                                                
+                                                                
+
+
+                                                        </div><!-- end navi -->
+               
+                                        <div id="wrapper">
+
+                                                <div id="main" role="main">
+
+                                                                                                        <div id="top">
+<ul itemscope="" itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
+			<li>
+			You are here: &nbsp;
+		</li>
+	
+				<li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+									<a itemprop="item" href="http://www.raspberryconnect.com/network" class="pathway"><span itemprop="name">Network</span></a>
+				
+									<span class="divider">
+						<img src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/arrow.png" alt="">					</span>
+								<meta itemprop="position" content="1">
+			</li>
+					<li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
+				<span itemprop="name">
+					Raspberry Pi - Hotspot/Access Point dhcpcd method				</span>
+				<meta itemprop="position" content="2">
+			</li>
+		</ul>
+
+                                                        </div>
+                                                
+                                                        <div id="system-message-container">
+	</div>
+
+                                                        
+
+<!-- Start K2 Item Layout -->
+<span id="startOfPageId333"></span>
+
+<div id="k2Container" class="itemView itemIsFeatured">
+
+	<!-- Plugins: BeforeDisplay -->
+	
+	<!-- K2 Plugins: K2BeforeDisplay -->
+	
+	<div class="itemHeader">
+
+				<!-- Date created -->
+		<span class="itemDateCreated">
+			Thursday, 16 November 2017 21:25		</span>
+		
+	  	  <!-- Item title -->
+	  <h2 class="itemTitle">
+						
+	  	Raspberry Pi - Hotspot/Access Point dhcpcd method
+	  	
+	  </h2>
+	  
+				<!-- Item Author -->
+		<span class="itemAuthor">
+			Written by&nbsp;
+						<a rel="author" href="http://www.raspberryconnect.com/network/itemlist/user/269-graeme">roboberry</a>
+					</span>
+		
+  </div>
+
+  <!-- Plugins: AfterDisplayTitle -->
+  
+  <!-- K2 Plugins: K2AfterDisplayTitle -->
+  
+	  <div class="itemToolbar">
+		<ul>
+			
+			
+			
+			
+			
+			
+						<!-- Anchor link to comments below - if enabled -->
+			<li>
+														<a class="itemCommentsLink k2Anchor" href="http://www.raspberryconnect.com/network/item/333-raspberry-pi-hotspot-access-point-dhcpcd-method#itemCommentsAnchor">
+						Be the first to comment!					</a>
+												</li>
+					</ul>
+		<div class="clr"></div>
+  </div>
+	
+	
+  <div class="itemBody">
+
+	  <!-- Plugins: BeforeDisplayContent -->
+	  
+	  <!-- K2 Plugins: K2BeforeDisplayContent -->
+	  
+	  	  <!-- Item Image -->
+	  <div class="itemImageBlock">
+		  <span class="itemImage">
+		  	<a class="modal" rel="{handler: 'image'}" href="http://www.raspberryconnect.com/media/k2/items/cache/e529a8dc22bd84a37f6f8ae6b8ce40d3_XL.jpg" title="Click to preview image">
+		  		<img src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/e529a8dc22bd84a37f6f8ae6b8ce40d3_L.jpg" alt="Raspberry Pi Static WiFi Access Point Hotspot" style="width:200px; height:auto;">
+		  	</a>
+		  </span>
+
+		  		  <!-- Image caption -->
+		  <span class="itemImageCaption">Raspberry Pi Static WiFi Access Point Hotspot</span>
+		  
+		  		  <!-- Image credits -->
+		  <span class="itemImageCredits">raspberryconnect.com</span>
+		  
+		  <div class="clr"></div>
+	  </div>
+	  
+<!--Custom Extra Field Position-->
+
+	 <div class="itemExtraFields">
+	 	  <!-- Item extra fields -->
+	  	<ul>
+									<li>
+				<span class="itemExtraFieldsLabel">Author Type:</span>
+				<span class="itemExtraFieldsValue">Individual</span>
+			</li>
+									</ul>
+	    <div class="clr"></div>
+	  </div>
+
+
+<!--End Custom Field Position-->
+
+	  	  	  <!-- Item introtext -->
+	  <div class="itemIntroText">
+	  	<p>There are many guides for creating a Raspberry Pi Access Point 
+but from Raspbian 9 Stretch the network setup has changed, which means a
+ lot of guides are out of date. So this guide is about setting up a 
+Raspberry Pi Hotspot for Raspbian 9 Stretch onwards, it also works for 
+Raspbian 8&nbsp;Jessie.</p>	  </div>
+	  	  	  <!-- Item fulltext -->
+	  <div class="itemFullText">
+	  	<p>I have two other guides on how to set up an automatic Raspberry 
+Pi Access Point, which connects to your&nbsp;home network when you are 
+at home&nbsp;and generates a hotspot when you are out.</p>
+<p>For the Autohotspot guide to setup an internet routed hotspot suitable for RPi3, RPi2 &amp; Rpi: <a href="http://www.raspberryconnect.com/network/item/331-raspberry-pi-auto-wifi-hotspot-switch-direct-connection" target="_self">Click Here</a><br>For the Autohotspot guide to setup a non internet routed hotspot suitable for RPi ZeroW and RPi Zero: <a href="http://www.raspberryconnect.com/network/item/330-raspberry-pi-auto-wifi-hotspot-switch-internet" target="_blank" rel="noopener noreferrer">Click Here</a></p>
+<h2>Aim:</h2>
+<ul>
+<li style="text-align: left;">This guide will go through how to set up a
+ permanent hotspot for both internet routed, for RPi's with network 
+ports,&nbsp;and non internet routed hotspots for Pi Zero/W&nbsp;</li>
+</ul>
+<h2>&nbsp;Requirements:</h2>
+<p>This has been tested on Raspbian Jessie and Raspbian Stretch. To see which version you have enter the command lsb_release -a</p>
+<ul>
+<li style="text-align: left;">Raspberry Pi 3</li>
+<li style="text-align: left;">Raspberry Pi 1,2 with a Wifi Dongle*,</li>
+<li style="text-align: left;">Raspberry Pi Zero W and Zero with WiFi Dongle* (internet hotspot not useable as it has no ethernet port.</li>
+</ul>
+<p style="text-align: left;">&nbsp;</p>
+<p>*some WiFi dongles don't work in adhoc mode or don't work with with 
+the nl80211 driver used in this guide for RPi 3 &amp; zero W inbuilt 
+wifi, so you may want to check this first before starting.</p>
+<p>To see if your usb WiFi dongle can be used as an access point enter 
+the command; iw dev ,scroll to section "Supported interface modes:" and 
+look for * AP</p>
+<p>&nbsp;</p>
+<h4 style="text-align: left;">Note:</h4>
+<p>Dnsmasq bug: in versions below 2.77 there is a recent bug that may 
+cause the hotspot not to start for some users. This can be resolved by 
+removing the dns-root-data. It may be benificial to do this before you 
+start the rest of the installation as it has been reported that doing it
+ after installation for effected users does not work but you won't know 
+if it is an issue until after the installation is complete.</p>
+<p>check your version with : dpkg -s dnsmasq</p>
+<p>versions 2.77 and above are ok. If not then try the command:</p>
+<p><samp>sudo apt-get purge dns-root-data</samp></p>
+<p>thanks to danny for highlighting this.</p>
+<p>&nbsp;</p>
+<h3>Note about Raspbian Stretch Network Device Names</h3>
+<p>For Raspbian Stretch there has been changes to how the network 
+drivers are named, called&nbsp;Predictable Network Interface 
+Names,&nbsp; and may be different for the usual wlan0 and wlan1 for wifi
+ and eth0 for ethernet connections. Though the official Foundation 
+version of Raspbian Stretch seems to be keeping to the old standard 
+names, at least at the time of writing,&nbsp; this may not always be the
+ case. For this guide I will use wlan0 as the device that is used. 
+&nbsp;</p>
+<p>To check the device name for your setup enter the commmand iw dev and
+ take a note of the "Interface" name. For wifi it should start with wl ,
+ replace your device name with any reference to wlan0 in the article, 
+scripts and config files.</p>
+<p>&nbsp;</p>
+<h2>Step 1:</h2>
+<p style="text-align: left;">To start with hostapd hotspot client and dnsmasq lightweight dns server need to be installed.</p>
+<p style="text-align: left;">Open a Terminal session.</p>
+<p style="text-align: left;">Update Raspbian with the latest updates by entering the commands:</p>
+<p><samp style="text-align: left;"><code style="text-align: left;">sudo apt-get update<br></code></samp><samp style="text-align: left;"><code>sudo apt-get upgrade<br></code></samp></p>
+<p style="text-align: left;">&nbsp;To install hostapd enter the command:</p>
+<p><samp style="text-align: left;"><code>sudo apt-get install hostapd<br></code></samp></p>
+<p style="text-align: left;">enter Y when prompted.</p>
+<p style="text-align: left;">To install dnsmasq enter the command:</p>
+<p><samp style="text-align: left;"><code>sudo apt-get install dnsmasq<br></code></samp></p>
+<p style="text-align: left;">enter Y when prompted</p>
+<p style="text-align: left;">The installers will have set up the 
+programme so they run when the pi is started and activated them. While 
+we set the hotspot we should stop them running.&nbsp;This is done with 
+the following commands:</p>
+<p><samp style="text-align: left;"><code style="text-align: left;">sudo systemctl&nbsp;stop hostapd<br></code></samp><samp style="text-align: left;"><code style="text-align: left;">sudo systemctl&nbsp;stop dnsmasq</code></samp></p>
+<p style="text-align: left;">Now the hostspot configuration file can be 
+setup. This contains the name of the WiFi signal you will need to 
+connect to (SSID) and the security password.</p>
+<p style="text-align: left;"><em>To edit the configuration files I will 
+be using the nano text editor but if you prefer an editor with an point 
+and click interface then replace nano with leafpad in the following 
+instructions.</em></p>
+<h3 style="text-align: left;">Hostapd Configuration<em><br></em></h3>
+<p style="text-align: left;">Using a text editor edit the hostapd configuration file. This file won't exist at this stage so will be blank.</p>
+<p><samp><code style="text-align: left;">sudo nano /etc/hostapd/hostapd.conf</code></samp></p>
+<p style="text-align: left;">download file <a href="http://www.raspberryconnect.com/images/StaticHS/hostapd.conf" target="_blank" rel="noopener noreferrer">here</a>:</p>
+<p><samp style="text-align: left;"><code style="text-align: left;">interface=wlan0<br>driver=nl80211<br>ssid=RPiHotSpot<br>hw_mode=g<br>channel=6<br>wmm_enabled=0<br>macaddr_acl=0<br>auth_algs=1<br>ignore_broadcast_ssid=0<br>wpa=2<br>wpa_passphrase=1234567890<br>wpa_key_mgmt=WPA-PSK<br>wpa_pairwise=TKIP<br>rsn_pairwise=CCMP</code></samp></p>
+<ul>
+<li style="text-align: left;">The interface will be wlan0</li>
+<li style="text-align: left;">The driver nl80211 works with the 
+Raspberry Pi 3 &amp; Zero W onboard WiFi but you will need to check that
+ your wifi dongle is compatable and can use Access Point mode.</li>
+</ul>
+<p style="text-align: left;">For more information on wifi dongles see <a href="http://elinux.org/RPi_USB_Wi-Fi_Adapters" target="_blank" rel="noopener noreferrer">elinux.org/RPi_USB_Wi-Fi_Adapters</a></p>
+<ul>
+<li style="text-align: left;">The SSID is the name of the WiFi signal 
+broadcast from the RPi, which you will connect to with your Tablet or 
+phones WiFi settings.</li>
+<li style="text-align: left;">Channel can be set between 1 and 13. If 
+you are having trouble connection because of to many wifi signals in 
+your area are using channel 6 then try another channel.</li>
+<li style="text-align: left;">Wpa_passphrase is the password you will 
+need to enter when you first connect a device to your Raspberry Pi's 
+hotspot. This should be at least 8 characters and a bit more difficult 
+to guess than my example.</li>
+</ul>
+<p style="text-align: left;">To save the config file press ctrl &amp; o and to exit nano press Ctrl &amp; x</p>
+<p style="text-align: left;">Now the defaults file needs to be updated to point to where the config file is stored.<br>In terminal enter the command</p>
+<p><samp>sudo nano /etc/default/hostapd</samp></p>
+<p style="text-align: left;">Change:<br>#DAEMON_CONF=""<br>to<br>DAEMON_CONF="/etc/hostapd/hostapd.conf"</p>
+<p>Check the DAEMON_OPTS="" is preceded by a #, so is #DAEMON_OPTS=""</p>
+<p style="text-align: left;">And save.</p>
+<h3 style="text-align: left;">DNSmasq configuration</h3>
+<p>Next we need to update the DNSmasq.conf file. There are two setups depending if you need internet access or not.</p>
+<h3>DNSmasq Config 1 -&nbsp;No Internet</h3>
+<p>Open the dnsmasq.conf file with</p>
+<p><samp>sudo nano /etc/dnsmasq.conf</samp></p>
+<p>Go to the bottom of the file and add the following lines (download <a href="http://www.raspberryconnect.com/images/StaticHS/dnsmasq-no-net.txt" target="_blank" rel="noopener noreferrer">here</a>)</p>
+<p>&nbsp;</p>
+<pre><samp>
+#RPiHotspot config - No Intenet
+interface=wlan0
+domain-needed
+bogus-priv
+dhcp-range=192.168.50.150,192.168.50.200,255.255.255.0,12h
+</samp></pre>
+<p>and the save (ctl &amp; o) and exit (ctrl &amp; x)</p>
+<h3>DNSmasq Config&nbsp;2 - Internet Routed</h3>
+<p>Open the dnsmasq.conf file with</p>
+<p><samp>sudo nano /etc/dnsmasq.conf</samp></p>
+<p>Go to the bottom of the file and add the following lines (download <a href="http://www.raspberryconnect.com/images/StaticHS/dnsmasq-net.txt" target="_blank" rel="noopener noreferrer">here</a>)</p>
+<pre><samp>
+#RPiHotspot config - Internet
+interface=wlan0
+bind-dynamic 
+domain-needed
+bogus-priv
+dhcp-range=192.168.50.150,192.168.50.200,255.255.255.0,12h
+</samp></pre>
+<p>and the save (ctl &amp; o) and exit (ctrl &amp; x)</p>
+<p>&nbsp;</p>
+<h2>Step 2:</h2>
+<p>Now that hostapd and dnsmasq are configured we now need to make some 
+changes to the interfaces file, the dhcpcd.conf file, setup 
+ip_forwarding.</p>
+<h3>Interfaces File</h3>
+<p>The interfaces file is not required and should be empty of any 
+network config. Depending which version of Raspbian you have this file 
+may still contain network config.</p>
+<p>Enter</p>
+<p>sudo nano /etc/network/interfaces</p>
+<p>If your file shows more than the standard top 5 lines like this</p>
+<pre><samp>
+# interfaces(5) file used by ifup(8) and ifdown(8)
+# Please note that this file is written to be used with dhcpcd
+# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+<br>
+</samp></pre>
+<p>then make a copy of your file and then remove any excess lines from the interfaces file.</p>
+<p>To make a backup of your interfaces file first, use the command</p>
+<p><samp>sudo cp /etc/network/interfaces /etc/network/interfaces-backup</samp></p>
+<h3>DHCPCD.conf</h3>
+<p>Next we need to update the dhcpcd.conf file. Open the file with</p>
+<p><samp>sudo nano /etc/dhcpcd.conf</samp></p>
+<p>then scroll to the bottom of the file and add the line (Download <a href="http://www.raspberryconnect.com/images/StaticHS/dhcpcd.txt" target="_blank" rel="noopener noreferrer">here</a>)</p>
+<pre><samp>nohook wpa_supplicant
+interface wlan0
+static ip_address=192.168.50.10/24
+static routers=192.168.50.1</samp></pre>
+<p>If you are setting up the Internet routed hotspot then also include</p>
+<p><samp>static domain_name_servers=8.8.8.8</samp></p>
+<p>now save (ctrl &amp; o) and exit (ctrl &amp; x)</p>
+<p>The line 'nohooks wpa_supplicant' will stop the network wifi from starting if you have an entry in /etc/wpa_supplicant/wpa_supplicant.conf . If this is not done then network wifi will override the hotspot.</p>
+<h4>This next bit is only if you would like devices to have internet access. If not skip to "Testing the Hotspot".</h4>
+<h3>&nbsp;ip forwarding</h3>
+<p>For the internet to be available when an Ethernet cable is attached, IP forwarding needs to be activated. To do this enter</p>
+<p><samp>sudo nano /etc/sysctl.conf</samp></p>
+<p>look for the line</p>
+<p><samp># Uncomment the next line to enable packet forwarding for IPv4<br>#net.ipv4.ip_forward=1</samp></p>
+<p>and remove the # so it is</p>
+<p><samp># Uncomment the next line to enable packet forwarding for IPv4<br>net.ipv4.ip_forward=1</samp></p>
+<p>now save (ctrl &amp; o) and exit (ctrl &amp; x)</p>
+<p>Next the rules need to be added that will allow any device connected to the access point to be able to use the internet. This is done with IP Table rules which will need to be loaded every time the Raspberry Pi starts up. So a service file can be setup to do this.</p>
+<p>There is a program called netfilter-persistent that can do this but I didn't have much luck with it and it is simple to setup a custom service instead.</p>
+<p>First create the file for the ip table rules.</p>
+<p><samp>sudo nano /etc/iptables-hs</samp></p>
+<p>add the lines below or download from <a href="http://www.raspberryconnect.com/images/StaticHS/iptables-hs.txt" target="_blank" rel="noopener noreferrer">here</a></p>
+<pre><samp>#!/bin/bash
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
+</samp></pre>
+<p>now save (ctrl &amp; o) and exit (ctrl &amp; x)</p>
+<p>Update the permissions so it can be run with</p>
+<p><samp>sudo chmod +x /etc/iptables-hs</samp></p>
+<p>Now the service file can be created which will activate the ip tables each time the Raspberry Pi starts up</p>
+<p>Create the following file</p>
+<p><samp>sudo nano /etc/systemd/system/hs-iptables.service</samp></p>
+<p>Then add the lines below of download from <a href="http://www.raspberryconnect.com/images/StaticHS/hs-iptables.service" target="_blank" rel="noopener noreferrer">here</a></p>
+<pre><samp>
+[Unit]
+Description=Activate IPtables for Hotspot
+After=network-pre.target
+Before=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/etc/iptables-hs
+
+[Install]
+WantedBy=multi-user.target
+</samp></pre>
+<p>now save (ctrl &amp; o) and exit (ctrl &amp; x)</p>
+<p>To activate the service file, so it starts at every boot up, enter the command</p>
+<p><samp>sudo systemctl enable hs-iptables</samp></p>
+<p>&nbsp;</p>
+<h2>Testing the Hotspot</h2>
+<p>The&nbsp;hotspot setup&nbsp;is now complete. To test that the setup is ok reboot the RPi.</p>
+<p>&nbsp;Once the RPi is up and running the wifi icon near the clock should now be two arrows facing opposite directions&nbsp;<img style="margin: 2px;" alt="Raspbian Pixel AP mode icon" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/hotspot.gif" width="42" height="37"> This means it is an access point. On a Tablet, phone or Laptop scan for wifi signals. You should see one for RPiHotSpot.</p>
+<p>Select this as the wifi signal to connect to. The password is what you setup in the hostapd.conf file. From my example it is 1234567890</p>
+<p><img style="margin: 2px;" alt="android wifi in range list" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/android-wifi.jpg" width="399" height="263"></p>
+<p><em>Local wifi signals in range on Android. You will see RPiHotSpot and not RPiHotN</em></p>
+<p>For SSH and VNC the connection ip is 192.168.50.10 also if you have setup the RPi as a webserver use the same ip to see the webpage.</p>
+<p>For ssh use ssh <span id="cloak58400"><a href="mailto:pi@192.168.50.10">pi@192.168.50.10</a></span><script type="text/javascript">
+ //<!--
+ document.getElementById('cloak58400').innerHTML = '';
+ var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+ var path = 'hr' + 'ef' + '=';
+ var addy58400 = 'p&#105;' + '&#64;';
+ addy58400 = addy58400 + '192' + '&#46;' + '168' + '&#46;' + '50' + '&#46;' + '10';
+ var addy_text58400 = 'p&#105;' + '&#64;' + '192' + '&#46;' + '168' + '&#46;' + '50' + '&#46;' + '10';
+ document.getElementById('cloak58400').innerHTML += '<a ' + path + '\'' + prefix + ':' + addy58400 + '\'>'+addy_text58400+'<\/a>';
+ //-->
+ </script></p>
+<p>For vnc use 192.168.50.10::5900</p>
+<p>If you have setup the Internet routed configuration. Connect an ethernet cable to the Raspbery Pi and your router and wait a few seconds. The hotspot will now allow connected wifi devices to use the internet as well as the Raspberry Pi</p>
+<p>&nbsp;Once you are happy the setup is working ok then your done.</p>
+<p>&nbsp;</p>
+<h2>Script Removal</h2>
+<p>If you don't wish to continue using the&nbsp;Hotspot then the Raspberry Pi can be revered back to a standard wifi setup with the following steps.</p>
+<p>Stop the Hostapd and dnsmasq services with the commands</p>
+<p><samp>sudo systemctl disable dnsmasq</samp></p>
+<p><samp>sudo systemctl disable hostapd</samp></p>
+<p>In the /etc/dhcpcd.conf file remove the lines added at the bottom of the file.</p>
+<pre><samp>#Static Hotspot
+nohook wpa_supplicant
+interface wlan0
+static ip_address=192.168.50.10/24
+static routers=192.168.50.1
+static domain_name_servers=8.8.8.8
+</samp></pre>
+<p>If you had previous config in your interfaces file and made a backup you can restore your original interfaces file with the command</p>
+<p><samp>sudo mv /etc/network/interfaces-backup /etc/network/interfaces</samp></p>
+<p>If you didn't setup an internet routed hotspot then your done, after a reboot your RPi will not longer be an Access Point. For Internet routed Hotspots you also need to do the following;</p>
+<p style="text-align: left;">Disable the&nbsp;hs-iptables service&nbsp;with the command</p>
+<p><samp style="text-align: left;">sudo systemctl disable hs-iptables</samp></p>
+<p>Then disable ip forwarding</p>
+<p><samp>sudo nano /etc/sysctl.conf</samp></p>
+<p>look for the entry</p>
+<p><samp># Uncomment the next line to enable packet forwarding for IPv4<br>net.ipv4.ip_forward=1</samp></p>
+<p>and add a # as follows</p>
+<p><samp># Uncomment the next line to enable packet forwarding for IPv4<br># net.ipv4.ip_forward=1</samp></p>
+<p>Then reboot and the Raspberry Pi will be back to the standard wifi setup.</p>
+<p>&nbsp;</p>
+<h3>&nbsp;Trouble Shooting</h3>
+<ul>
+<li style="text-align: left;">If you get no wifi connection or no hotspot and have this icon <img alt="Network Down" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/networkdown.gif" width="48" height="42">then it is most likley there is an error in one of the configuration files.</li>
+<li>If you don't get an internet connection when an ethernet cable has been attached, with the Internet routed setup, then you can check the ip table rules have been activated with the command <strong>sudo iptables -S</strong> If you don't see any rules but just get<br>
+<pre><samp>-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+</samp></pre>
+<br> then make sure the service was enabled with the command <samp>sudo systemctl enable hs-iptables</samp> and the iptables file has the correct prmissions with <samp>sud chmod +x /etc/iptables-hs</samp></li>
+</ul>
+<ul>
+<li style="text-align: left;">You can connect to the hotspot via an Android Phone but you can't get a ssh connection. Some users have found this issue where Android uses there data connection rather than the wifi. Disabeling data has allowed them to use ssh. &nbsp;</li>
+</ul>	  </div>
+	  	  
+		<div class="clr"></div>
+<!--  Custom Fields default block off
+	     -->
+	  <!-- Item extra fields -->
+<!--        <div class="itemExtraFields">
+	  	<h3>Additional Info</h3>
+	  	<ul>
+									<li class="even typeRadio group1">
+				<span class="itemExtraFieldsLabel">Author Type:</span>
+				<span class="itemExtraFieldsValue">Individual</span>
+			</li>
+									</ul>
+	    <div class="clr"></div>
+	  </div>
+	  -->
+
+				<div class="itemContentFooter">
+
+			
+						<!-- Item date modified -->
+			<span class="itemDateModified">
+				Last modified on Sunday, 19 November 2017 11:31			</span>
+			
+			<div class="clr"></div>
+		</div>
+		
+<!-- Google 728 x 90 banner add at base of Article -->
+
+<script async="" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/adsbygoogle.html"></script>
+<!-- RC Article Base -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-3533837445035277" data-ad-slot="4755549971"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+<!-- end of Google Banner-->
+
+
+	  <!-- Plugins: AfterDisplayContent -->
+	  
+	  <!-- K2 Plugins: K2AfterDisplayContent -->
+	  
+	  <div class="clr"></div>
+  </div>
+
+		<!-- Social sharing -->
+	<div class="itemSocialSharing">Google
+
+				<!-- Twitter Button -->
+		<div class="itemTwitterButton">
+			<iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/tweet_button.html" frameborder="0"></iframe><script type="text/javascript" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/widgets.js"></script>
+		</div>
+				
+				<!-- Facebook Button -->
+		<div class="itemFacebookButton">
+			<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="http://staticxx.facebook.com/connect/xd_arbiter/r/lY4eZXm_YWu.js?version=42#channel=f2de6d22b90ec8a&amp;origin=http%3A%2F%2Fwww.raspberryconnect.com" frameborder="0"></iframe><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/lY4eZXm_YWu_002.html" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fdd92fcea94a7a" allowtransparency="true" allowfullscreen="true" scrolling="no" style="display: none;" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/ping.html" frameborder="0"></iframe></div></div></div>
+			<script type="text/javascript">
+				(function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) {return;}
+				  js = d.createElement(s); js.id = id;
+				  js.src = "//connect.facebook.net/en_US/all.js#appId=177111755694317&xfbml=1";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
+			<div class="fb-like fb_iframe_widget" data-send="false" data-width="200" data-show-faces="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=177111755694317&amp;container_width=200&amp;href=http%3A%2F%2Fwww.raspberryconnect.com%2Fnetwork%2Fitem%2F333-raspberry-pi-hotspot-access-point-dhcpcd-method&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=true&amp;width=200"><span style="vertical-align: bottom; width: 225px; height: 28px;"><iframe name="f3fa7e2365f6498" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" style="border: medium none; visibility: visible; width: 225px; height: 28px;" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/like.html" class="" width="200px" height="1000px" frameborder="0"></iframe></span></div>
+		</div>
+		
+				<!-- Google +1 Button -->
+		<div class="itemGooglePlusOneButton">	
+			<div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 38px; height: 24px;" id="___plusone_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 38px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" tabindex="0" vspace="0" id="I0_1512310368808" name="I0_1512310368808" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/fastbutton.html" data-gapiattached="true" title="G+" width="100%" frameborder="0"></iframe></div>
+			<script type="text/javascript">
+			  (function() {
+			  	window.___gcfg = {lang: 'en'}; // Define button default language here
+			    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			    po.src = 'https://apis.google.com/js/plusone.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			  })();
+			</script>
+		</div>
+				
+		<div class="clr"></div>
+	</div>
+	
+    <div class="itemLinks">
+
+				<!-- Item category -->
+		<div class="itemCategory">
+			<span>Published in</span>
+			<a href="http://www.raspberryconnect.com/network">Network</a>
+		</div>
+		
+	  	  <!-- Item tags -->
+	  <div class="itemTagsBlock">
+		  <span>Tagged under</span>
+		  <ul class="itemTags">
+		    		    <li><a href="http://www.raspberryconnect.com/network/itemlist/tag/dnsmasq">dnsmasq</a></li>
+		    		    <li><a href="http://www.raspberryconnect.com/network/itemlist/tag/hostapd">hostapd</a></li>
+		    		    <li><a href="http://www.raspberryconnect.com/network/itemlist/tag/hotspot">hotspot</a></li>
+		    		    <li><a href="http://www.raspberryconnect.com/network/itemlist/tag/access%20point">access point</a></li>
+		    		    <li><a href="http://www.raspberryconnect.com/network/itemlist/tag/Raspbian%20Stretch">Raspbian Stretch</a></li>
+		    		    <li><a href="http://www.raspberryconnect.com/network/itemlist/tag/Raspbian%20Jessie">Raspbian Jessie</a></li>
+		    		    <li><a href="http://www.raspberryconnect.com/network/itemlist/tag/dhcpcd">dhcpcd</a></li>
+		    		  </ul>
+		  <div class="clr"></div>
+	  </div>
+	  
+	  
+		<div class="clr"></div>
+  </div>
+  
+    <!-- Author Block -->
+  <div class="itemAuthorBlock">
+
+  	  	<img class="itemAuthorAvatar" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/10.jpg" alt="roboberry">
+  	
+    <div class="itemAuthorDetails">
+      <h3 class="itemAuthorName">
+      	<a rel="author" href="http://www.raspberryconnect.com/network/itemlist/user/269-graeme">roboberry</a>
+      </h3>
+
+            <p></p><p>RapberryConnect.com SuperUser.&nbsp; Contactable via the site admin e-mail in the Contact Us link.</p><p></p>
+      
+            <span class="itemAuthorUrl">Website: <a rel="me" href="http://www.raspberryconnect.com/" target="_blank">www.raspberryconnect.com</a></span>
+      
+      
+
+			<div class="clr"></div>
+
+			<!-- K2 Plugins: K2UserDisplay -->
+			
+    </div>
+    <div class="clr"></div>
+  </div>
+  
+    <!-- Latest items from author -->
+	<div class="itemAuthorLatest">
+		<h3>Latest from roboberry</h3>
+		<ul>
+						<li class="even">
+				<a href="http://www.raspberryconnect.com/network/item/331-raspberry-pi-auto-wifi-hotspot-switch-direct-connection">Raspberry Pi - Auto WiFi Hotspot Switch - Direct Connection</a>
+			</li>
+						<li class="odd">
+				<a href="http://www.raspberryconnect.com/network/item/330-raspberry-pi-auto-wifi-hotspot-switch-internet">Raspberry Pi - Auto WiFi Hotspot Switch Internet</a>
+			</li>
+						<li class="even">
+				<a href="http://www.raspberryconnect.com/pi-base/item/328-google-aiy-voice-hat-customise-voice-commands">Google AIY Voice HAT Customise Voice Commands</a>
+			</li>
+					</ul>
+		<div class="clr"></div>
+	</div>
+	
+			
+    <!-- Related items by tag -->
+	<div class="itemRelated">
+		<h3>Related items</h3>
+		<ul>
+						<li class="even">
+			
+								<a class="itemRelTitle" href="http://www.raspberryconnect.com/network/item/331-raspberry-pi-auto-wifi-hotspot-switch-direct-connection">Raspberry Pi - Auto WiFi Hotspot Switch - Direct Connection</a>
+				
+								
+								
+								
+								
+				
+								
+							</li>
+						<li class="odd">
+			
+								<a class="itemRelTitle" href="http://www.raspberryconnect.com/network/item/330-raspberry-pi-auto-wifi-hotspot-switch-internet">Raspberry Pi - Auto WiFi Hotspot Switch Internet</a>
+				
+								
+								
+								
+								
+				
+								
+							</li>
+						<li class="even">
+			
+								<a class="itemRelTitle" href="http://www.raspberryconnect.com/network/item/327-raspberry-pi-auto-wifi-hotspot-switch">Raspberry Pi - Auto WiFi Hotspot Switch</a>
+				
+								
+								
+								
+								
+				
+								
+							</li>
+						<li class="odd">
+			
+								<a class="itemRelTitle" href="http://www.raspberryconnect.com/network/item/320-rpi3-auto-wifi-hotspot-if-no-internet-oldscript">Raspberry PI 3 Auto WiFi Hotspot if no Internet - OldScript</a>
+				
+								
+								
+								
+								
+				
+								
+							</li>
+						<li class="even">
+			
+								<a class="itemRelTitle" href="http://www.raspberryconnect.com/network/item/315-raspberry-pi-3-auto-wifi-hotspot-if-no-internet">Raspberry PI 3 Auto WiFi Hotspot if no Internet</a>
+				
+								
+								
+								
+								
+				
+								
+							</li>
+						<li class="clr"></li>
+		</ul>
+		<div class="clr"></div>
+	</div>
+	
+	<div class="clr"></div>
+
+  
+  
+    <!-- Item navigation -->
+  <div class="itemNavigation">
+  	<span class="itemNavigationTitle">More in this category:</span>
+
+				<a class="itemPrevious" href="http://www.raspberryconnect.com/network/item/327-raspberry-pi-auto-wifi-hotspot-switch">
+			« Raspberry Pi - Auto WiFi Hotspot Switch		</a>
+		
+		
+  </div>
+  
+  <!-- Plugins: AfterDisplay -->
+  
+  <!-- K2 Plugins: K2AfterDisplay -->
+  
+    <!-- K2 Plugins: K2CommentsBlock -->
+    
+   <!-- Item comments -->
+  <a name="itemCommentsAnchor" id="itemCommentsAnchor"></a>
+
+  <div class="itemComments">
+
+	  	  <!-- Item comments form -->
+	  <div class="itemCommentsForm">
+	  	
+<h3>Leave a comment</h3>
+<p class="itemCommentsFormNotes">
+		Comments for Guest and account owners. Account owners will need to login to use registered e-mail address. 	</p>
+
+<form action="/index.php" method="post" id="comment-form" class="form-validate">
+	<label class="formComment" for="commentText">Message *</label>
+	<textarea rows="20" cols="10" class="inputbox" onblur="if(this.value=='') this.value='enter your message here...';" onfocus="if(this.value=='enter your message here...') this.value='';" name="commentText" id="commentText">enter your message here...</textarea>
+
+	<label class="formName" for="userName">Name *</label>
+	<input class="inputbox" name="userName" id="userName" value="enter your name..." onblur="if(this.value=='') this.value='enter your name...';" onfocus="if(this.value=='enter your name...') this.value='';" type="text">
+
+	<label class="formEmail" for="commentEmail">Email *</label>
+	<input class="inputbox" name="commentEmail" id="commentEmail" value="enter your e-mail address..." onblur="if(this.value=='') this.value='enter your e-mail address...';" onfocus="if(this.value=='enter your e-mail address...') this.value='';" type="text">
+
+
+		<label class="formRecaptcha">Enter the words you see below</label>
+	<div id="recaptcha"><div style="width: 304px; height: 78px;"><div><iframe src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/anchor.html" role="presentation" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" width="304" height="78" frameborder="0"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div></div>
+	
+	<input class="button" id="submitCommentButton" value="Submit comment" type="submit">
+
+	<span id="formLog"></span>
+
+	<input name="option" value="com_k2" type="hidden">
+	<input name="view" value="item" type="hidden">
+	<input name="task" value="comment" type="hidden">
+	<input name="itemID" value="333" type="hidden">
+	<input name="8024d71da7dca71e33ea767caf118b9f" value="1" type="hidden"></form>
+	  </div>
+	  
+	  
+		
+	  
+  </div>
+  
+		<div class="itemBackToTop">
+		<a class="k2Anchor" href="http://www.raspberryconnect.com/network/item/333-raspberry-pi-hotspot-access-point-dhcpcd-method#startOfPageId333">
+			back to top		</a>
+	</div>
+	
+	<div class="clr"></div>
+</div>
+<!-- End K2 Item Layout -->
+
+<!-- JoomlaWorks "K2" (v2.7.1) | Learn more about K2 at http://getk2.org -->
+
+
+
+                                                </div><!-- end main -->
+
+                                        </div><!-- end wrapper -->
+
+                                                                        <h2 class="unseen">
+                                                Additional information                                        </h2>
+                                       <!-- Disable right menu collapse option 3 of 3
+                          see http://www.cmsmind.com/joomla-2-5-tutorial-how-to-remove-the-close-info-open-info-in-beez-20/ for removed code -->
+
+
+                                        <div id="right" role="contentinfo">
+                                                <a id="additional"></a>
+                                                <div class="moduletable">
+ <h3><span class="backh"><span class="backh2"><span class="backh3">Cookie Policy</span></span></span></h3>
+ 
+
+<div class="custom">
+	<p><span style="font-size: 0.8em;">Cookies are in use. By continuing to use this website you consent to their use. More details <a href="http://www.raspberryconnect.com/component/content/article/13-base-menu/3-cookies">Cookie Policy</a></span></p></div>
+</div>
+
+                                                <div class="moduletable">
+ <h3><span class="backh"><span class="backh2"><span class="backh3">Advertising</span></span></span></h3>
+ 
+
+<div class="custom">
+	<div style="margin: 0 15px;">
+<script async="" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/adsbygoogle.html"></script>
+<!-- Rasp Right Side Bar -->
+<ins class="adsbygoogle" style="display:inline-block;width:120px;height:600px" data-ad-client="ca-pub-3533837445035277" data-ad-slot="5682824771"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div></div>
+</div>
+
+                                                
+                                        </div><!-- end right -->
+                                        
+                        
+                                <div class="wrap"></div>
+
+                                </div> <!-- end contentarea -->
+
+                        </div><!-- back -->
+
+                </div><!-- all -->
+
+                <div id="footer-outer">
+                                                <div id="footer-inner">
+
+                                <div id="bottom">
+                                        <div class="box box1"> <div class="moduletable">
+ <h3><span class="backh"><span class="backh2"><span class="backh3">Latest Articles</span></span></span></h3>
+ 
+<div id="k2ModuleBox114" class="k2ItemsBlock">
+
+	
+	  <ul>
+        <li class="even">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/network/item/333-raspberry-pi-hotspot-access-point-dhcpcd-method">Raspberry Pi - Hotspot/Access Point dhcpcd method</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="odd">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/network/item/331-raspberry-pi-auto-wifi-hotspot-switch-direct-connection">Raspberry Pi - Auto WiFi Hotspot Switch - Direct Connection</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="even">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/network/item/330-raspberry-pi-auto-wifi-hotspot-switch-internet">Raspberry Pi - Auto WiFi Hotspot Switch Internet</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="odd">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/pi-base/item/328-google-aiy-voice-hat-customise-voice-commands">Google AIY Voice HAT Customise Voice Commands</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="even">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/network/item/327-raspberry-pi-auto-wifi-hotspot-switch">Raspberry Pi - Auto WiFi Hotspot Switch</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="odd">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/pi-base/item/325-solar-panel-battery-charging-monitor">Solar Panel Battery Charging Monitor</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="even">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/hardware-add-ons/item/324-tsl2561-luminosity-sensor-ir-and-visible-light">TSL2561 Luminosity Sensor &amp; Python (detect IR and visible light)</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="odd lastItem">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/hardware-add-ons/item/323-picapture-video-capture-for-the-raspberry-pi">PiCapture - video capture for the Raspberry Pi</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="clearList"></li>
+  </ul>
+  
+	
+	
+</div>
+</div>
+</div>
+                                        <div class="box box2"> <div class="moduletable">
+ <h3><span class="backh"><span class="backh2"><span class="backh3">Latest Software</span></span></span></h3>
+ 
+<div id="k2ModuleBox115" class="k2ItemsBlock">
+
+	
+	  <ul>
+        <li class="even">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/software-utilities/item/318-easyeda_circuit_simulator_and_pcb_design_software">EasyEDA - Circuit simulator and PCB design software</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="odd">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/gamessoftware/item/314-trying_out_opengl_on_raspberry_pi_3">Trying out OpenGL on Raspberry Pi 3</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="even">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/communication/item/168-dire_wolf">Dire Wolf</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="odd">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/multi-media/item/157-picamera_python_library">picamera python library</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="even">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/operating-system-s/item/143-noobs-new-out-of-the-box-software">Noobs - New Out of The Box Software</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="odd">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/software-internet/item/135-software-web-adjuster">Web Adjuster</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="even">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/gamessoftware/item/127-sw-xinvaders3d-rpi">3D Space Invaders </a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="odd lastItem">
+
+      <!-- Plugins: BeforeDisplay -->
+      
+      <!-- K2 Plugins: K2BeforeDisplay -->
+      
+      
+            <a class="moduleItemTitle" href="http://www.raspberryconnect.com/gamessoftware/item/126-sw-beneath-a-steel-sky-rpi">Beneath a Steel Sky</a>
+      
+      
+      <!-- Plugins: AfterDisplayTitle -->
+      
+      <!-- K2 Plugins: K2AfterDisplayTitle -->
+      
+      <!-- Plugins: BeforeDisplayContent -->
+      
+      <!-- K2 Plugins: K2BeforeDisplayContent -->
+      
+      
+      
+      <div class="clr"></div>
+
+      
+      <div class="clr"></div>
+
+      <!-- Plugins: AfterDisplayContent -->
+      
+      <!-- K2 Plugins: K2AfterDisplayContent -->
+      
+      
+      
+      
+      
+			
+			
+			
+      <!-- Plugins: AfterDisplay -->
+      
+      <!-- K2 Plugins: K2AfterDisplay -->
+      
+      <div class="clr"></div>
+    </li>
+        <li class="clearList"></li>
+  </ul>
+  
+	
+	
+</div>
+</div>
+</div>
+                                        <div class="box box3"> <div class="moduletable">
+ <ul class="category-module">
+						<li>
+									<a class="mod-articles-category-title " href="http://www.raspberryconnect.com/component/content/article/13-base-menu/5-about-us?Itemid=101">
+						About Us					</a>
+					
+					
+					
+					
+					
+					
+							</li>
+					<li>
+									<a class="mod-articles-category-title " href="http://www.raspberryconnect.com/component/content/article/13-base-menu/6-contact-us?Itemid=101">
+						Contact Us					</a>
+					
+					
+					
+					
+					
+					
+							</li>
+					<li>
+									<a class="mod-articles-category-title " href="http://www.raspberryconnect.com/component/content/article/13-base-menu/3-cookies?Itemid=101">
+						Cookie Usage					</a>
+					
+					
+					
+					
+					
+					
+							</li>
+					<li>
+									<a class="mod-articles-category-title " href="http://www.raspberryconnect.com/component/content/article/13-base-menu/4-copyright?Itemid=101">
+						Copyright Notice					</a>
+					
+					
+					
+					
+					
+					
+							</li>
+					<li>
+									<a class="mod-articles-category-title " href="http://www.raspberryconnect.com/component/content/article/13-base-menu/7-help-and-faq?Itemid=101">
+						Help and FAQ					</a>
+					
+					
+					
+					
+					
+					
+							</li>
+					<li>
+									<a class="mod-articles-category-title " href="http://www.raspberryconnect.com/component/content/article/13-base-menu/8-privacy-policy?Itemid=101">
+						Privacy Policy					</a>
+					
+					
+					
+					
+					
+					
+							</li>
+					<li>
+									<a class="mod-articles-category-title " href="http://www.raspberryconnect.com/component/content/article/13-base-menu/12-article-submit?Itemid=101">
+						Submit an article					</a>
+					
+					
+					
+					
+					
+					
+							</li>
+					<li>
+									<a class="mod-articles-category-title " href="http://www.raspberryconnect.com/component/content/article/13-base-menu/1-terms?Itemid=101">
+						Terms and Conditions					</a>
+					
+					
+					
+					
+					
+					
+							</li>
+			</ul>
+</div>
+<div class="moduletable">
+ 
+
+<div class="custom">
+	<iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" style="position: static; visibility: visible; width: 166px; height: 20px;" title="Twitter Follow Button" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/follow_button.html" data-screen-name="RaspberryConnec" frameborder="0"></iframe>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+</div>
+</div>
+                                </div>
+
+
+                        </div>
+                                
+                        <div id="footer-sub">
+
+
+                                <div id="footer">
+
+                                        
+
+<div class="custom">
+	<p>&nbsp;</p>
+<pre>Copyright RaspberryConnect                        RaspberryConnect is not associated with The Raspberry Pi Foundation in any way</pre>
+<p>&nbsp;</p></div>
+
+                                      <!-- Logo Off  <p>
+                                                Powered by <a href="http://www.joomla.org/">Joomla!&#174;</a>
+                                        </p> -->
+
+
+                                </div><!-- end footer -->
+
+                        </div>
+
+                </div>
+        
+        
+
+<iframe name="oauth2relay671045345" id="oauth2relay671045345" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/postmessageRelay.html" style="width: 1px; height: 1px; position: absolute; top: -100px;" tabindex="-1" aria-hidden="true"></iframe><iframe id="rufous-sandbox" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" title="Twitter analytics iframe" frameborder="0"></iframe><div style="background-color: #fff; border: 1px solid #ccc; box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2); position: absolute; left: 0px; top: -10000px; transition: visibility 0s linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: #fff; opacity: 0.05;  filter: alpha(opacity=5)"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge" src="Raspberry%20Connect%20-%20Raspberry%20Pi%20-%20Hotspot_Access%20Point%20dhcpcd%20method_files/bframe.html" style="width: 100%; height: 100%;" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" name="v0yd6r7vukg7" frameborder="0"></iframe></div></div></body></html>
