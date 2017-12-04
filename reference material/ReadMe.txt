@@ -1,6 +1,9 @@
 the image was downloaded from https://hackmd.io/p/SJbHPc-p#/1
 which worked successfully and the webpage for that link is also provided in this folder.
 
+the partition got full. then the filesystem was expanded to use the whole sd card of 32 gb using 
+"ubuntu mate set up raspberry pi 1 , 2 , 3 and zero" youtube video.
+
 the communication is done using the webpages present here.
 didnt worked so later on we switched to connecting pi to the same network and invoking each other using their ip on the network.
 
