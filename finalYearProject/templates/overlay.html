@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Ground Overlays</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #map {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+  <script>
+    // This example uses a GroundOverlay to place an image on the map
+     // showing an antique map of Newark, NJ.
+
+    var historicalOverlay;
+
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: {
+          lat: 44.03340936207692,
+          lng: -84.80561035637092
+        }
+      });
+
+      var imageBounds = {
+        north:  44.03380266030017,
+        south: 44.033606011637715,
+        east: -84.80498746486276,
+        west: -84.80529891164359
+      };
+
+      historicalOverlay = new google.maps.GroundOverlay(
+        '/home/rahulgunkar/finalYearProject/output/odm_orthophoto.png',
+        imageBounds);
+      historicalOverlay.setMap(map);
+    }
+  </script>
+  <title>Image on map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyx9elvCkXhezr6CoS5FssaborBSyo2xk"></script>
+  </script>
+</body>
+
+</html>

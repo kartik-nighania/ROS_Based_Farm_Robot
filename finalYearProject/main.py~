@@ -1,0 +1,25 @@
+
+import os
+from flask import Flask,render_template,redirect, url_for, Response
+
+app = Flask(__name__)
+
+
+
+@app.route('/')
+def home():
+	return "first link"
+	#render_template('homepage.html')
+
+@app.route('/unzip')
+def home():
+	return "second link"
+	#render_template('homepage.html')
+
+@app.route('/stitch')
+def home():
+	return "first link"
+	#render_template('homepage.html')
+
+
+app.run()
